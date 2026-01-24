@@ -4,6 +4,8 @@
 //! without requiring installation or admin privileges.
 
 mod config;
+mod docs_server;
+mod health_check;
 mod python;
 mod superset;
 mod tray;
@@ -34,11 +36,23 @@ enum Commands {
         /// Open browser after start
         #[arg(short, long, default_value = "true")]
         browser: bool,
+        
+        /// Also start docs server
+        #[arg(short, long, default_value = "true")]
+        docs: bool,
     },
     /// Stop running Superset server
     Stop,
-    /// Show server status
+    /// Show server status and health check
     Status,
+    /// Fast health check (no Python needed)
+    Health,
+    /// Start documentation server only
+    Docs {
+        /// Port for docs server (default: 8089)
+        #[arg(short, long, default_value = "8089")]
+        port: u16,
+    },
     /// Initialize Superset (first-time setup)
     Init {
         /// Admin username
@@ -88,11 +102,17 @@ async fn main() -> Result<()> {
     }
     
     match cli.command {
-        Some(Commands::Start { port, browser }) => {
+        Some(Commands::Start { port, browser, docs }) => {
             info!("Starting Superset on port {}...", port);
             config.port = port;
             config.open_browser = browser;
             config.save(&root)?;
+            
+            // Start docs server if requested
+            if docs {
+                let mut docs_server = docs_server::DocsServer::new(&root, docs_server::DOCS_DEFAULT_PORT);
+                docs_server.start().await?;
+            }
             
             let mut server = superset::SupersetServer::new(&root, &python_env, port);
             server.start().await?;
@@ -114,6 +134,27 @@ async fn main() -> Result<()> {
         Some(Commands::Status) => {
             let status = superset::SupersetServer::get_status()?;
             println!("{}", status);
+            // Also show health check
+            health_check::print_health_status(config.port, docs_server::DOCS_DEFAULT_PORT).await;
+        }
+        Some(Commands::Health) => {
+            // Fast health check - no Python needed
+            health_check::print_health_status(config.port, docs_server::DOCS_DEFAULT_PORT).await;
+        }
+        Some(Commands::Docs { port }) => {
+            info!("Starting documentation server on port {}...", port);
+            let mut docs_server = docs_server::DocsServer::new(&root, port);
+            docs_server.start().await?;
+            
+            let url = format!("http://localhost:{}", port);
+            info!("📚 Documentation available at: {}", url);
+            open::that(&url)?;
+            
+            // Keep running
+            info!("Press Ctrl+C to stop.");
+            loop {
+                tokio::time::sleep(tokio::time::Duration::from_secs(1)).await;
+            }
         }
         Some(Commands::Init { username, password }) => {
             info!("Initializing Superset...");
