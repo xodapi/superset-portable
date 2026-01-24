@@ -1,0 +1,35 @@
+Superset Portable - Russian Edition
+Copyright 2026 [Ваше имя или организация]
+
+This product includes software developed at
+The Apache Software Foundation (http://www.apache.org/).
+
+Based on Apache Superset (https://github.com/apache/superset)
+Licensed under the Apache License, Version 2.0
+
+================================================================================
+
+Modifications from the original Apache Superset:
+
+1. PORTABLE WINDOWS VERSION
+   - Embedded Python environment (no installation required)
+   - Rust-based launcher for improved startup
+   - Pre-configured for immediate use
+
+2. RUSSIAN LOCALIZATION
+   - Additional 26 translations in messages.po
+   - Russian set as default language
+   - Complete Russian documentation
+
+3. LOCAL DOCUMENTATION
+   - User guide in Russian (docs/ru/user_guide.md)
+   - SQL Lab guide (docs/ru/sql_lab.md)
+   - Licensing guide (docs/ru/licensing.md)
+   - Built-in documentation server (port 8089)
+
+4. CONFIGURATION
+   - Pre-configured superset_config.py
+   - SQLite database for portability
+   - Demo dashboards pre-loaded
+
+================================================================================

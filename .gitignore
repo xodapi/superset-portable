@@ -1,0 +1,33 @@
+# Git ignore for Superset Portable
+
+# Python cache
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Compiled translation files (regenerate from .po)
+*.mo
+
+# Database (personal data)
+superset_home/superset.db
+
+# Logs
+logs/
+*.log
+
+# Build artifacts
+target/
+*.exe
+!superset-launcher.exe
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Temporary
+*.tmp
+pip_temp/
