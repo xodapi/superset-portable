@@ -10,6 +10,7 @@ __pycache__/
 
 # Database (personal data)
 superset_home/superset.db
+superset_home/examples.db
 
 # Logs
 logs/
