@@ -7,10 +7,12 @@ use anyhow::Result;
 use axum::{
     Router,
     routing::get,
-    response::{Html, IntoResponse},
-    http::StatusCode,
+    response::{IntoResponse, Response},
+    http::{StatusCode, header, HeaderValue},
+    body::Body,
 };
 use tower_http::services::ServeDir;
+use tower_http::set_header::SetResponseHeaderLayer;
 use std::path::{Path, PathBuf};
 use std::net::SocketAddr;
 use std::sync::Arc;
@@ -56,10 +58,32 @@ impl DocsServer {
         let (shutdown_tx, shutdown_rx) = oneshot::channel::<()>();
         self.shutdown_tx = Some(shutdown_tx);
         
-        // Build the router with static file serving
+        // Build the router with static file serving and UTF-8 headers
+        let serve_dir = ServeDir::new(&docs_path)
+            .append_index_html_on_directories(true);
+        
         let app = Router::new()
             .route("/health", get(health_handler))
-            .nest_service("/", ServeDir::new(&docs_path).append_index_html_on_directories(true));
+            .nest_service("/", serve_dir)
+            .layer(SetResponseHeaderLayer::overriding(
+                header::CONTENT_TYPE,
+                |response: &Response<Body>| {
+                    // Check if it's a text file that needs UTF-8
+                    if let Some(ct) = response.headers().get(header::CONTENT_TYPE) {
+                        if let Ok(ct_str) = ct.to_str() {
+                            // Add charset=utf-8 for text files
+                            if ct_str.starts_with("text/") && !ct_str.contains("charset") {
+                                return Some(HeaderValue::from_str(&format!("{}; charset=utf-8", ct_str)).ok()?);
+                            }
+                            // Fix markdown files
+                            if ct_str.contains("markdown") || ct_str.contains("octet-stream") {
+                                return Some(HeaderValue::from_static("text/markdown; charset=utf-8"));
+                            }
+                        }
+                    }
+                    None
+                },
+            ));
         
         let addr = SocketAddr::from(([127, 0, 0, 1], port));
         
@@ -113,3 +137,4 @@ async fn health_handler() -> impl IntoResponse {
 
 /// Default port for docs server
 pub const DOCS_DEFAULT_PORT: u16 = 8089;
+
