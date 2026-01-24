@@ -6,6 +6,7 @@
 mod config;
 mod docs_server;
 mod health_check;
+mod packer;
 mod python;
 mod superset;
 mod tray;
@@ -62,6 +63,12 @@ enum Commands {
         /// Admin password
         #[arg(short, long, default_value = "admin")]
         password: String,
+    },
+    /// Pack release for distribution
+    Pack {
+        /// Use zstd compression (faster) instead of ZIP
+        #[arg(short, long)]
+        zstd: bool,
     },
     /// Run with system tray GUI
     Tray,
@@ -161,6 +168,18 @@ async fn main() -> Result<()> {
             superset::initialize(&root, &python_env, &username, &password).await?;
             info!("Superset initialized successfully!");
             info!("You can now run: superset-launcher start");
+        }
+        Some(Commands::Pack { zstd }) => {
+            info!("📦 Packing release for distribution...");
+            let packer = packer::ReleasePacker::new(&root);
+            
+            if zstd {
+                info!("Using Zstd compression (faster)");
+                packer.pack_zstd()?;
+            } else {
+                info!("Using ZIP compression (more compatible)");
+                packer.pack_zip()?;
+            }
         }
         Some(Commands::Tray) => {
             info!("Starting with system tray...");
