@@ -1,12 +1,73 @@
-# 📊 Superset Portable — Русская версия
+# 📊 Superset Portable — Russian Edition
 
-> **Портативный Apache Superset для Windows** — запуск с USB-флешки без установки!
+> **Portable Apache Superset for Windows** — run from USB drive without installation!
+
+[🇷🇺 Русская версия](#-superset-portable--русская-версия) | [🇬🇧 English version](#-features)
 
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](LICENSE)
 [![Superset](https://img.shields.io/badge/Based%20on-Apache%20Superset%206.0-orange.svg)](https://github.com/apache/superset)
-[![Russian](https://img.shields.io/badge/🇷🇺-Русская%20локализация-green.svg)](#локализация)
+[![Telegram](https://img.shields.io/badge/Telegram-@serg__borisovich-blue.svg)](https://t.me/serg_borisovich)
 
-## ✨ Особенности
+---
+
+## 🇬🇧 English
+
+### ✨ Features
+
+- 🚀 **No installation required** — runs directly from USB
+- 🇷🇺 **Russian interface** — full localization
+- 📚 **Local documentation** — guides in Russian
+- 🔒 **Works offline** — no internet required
+- ⚡ **Rust launcher** — fast startup
+
+### 🚀 Quick Start
+
+#### Preparation (on PC with internet)
+
+```powershell
+# 1. Download Python Embeddable
+.\setup\download_python.ps1
+
+# 2. Install Superset
+.\setup\install_superset.bat
+```
+
+#### Usage (on any PC)
+
+```cmd
+start_superset.bat
+```
+
+Browser opens at http://localhost:8088
+
+| | |
+|---|---|
+| **Login** | `admin` |
+| **Password** | `admin` |
+| **Documentation** | http://localhost:8089 |
+
+### 💼 Commercial Use
+
+**Yes, allowed!** Apache 2.0 license permits:
+- ✅ Commercial use
+- ✅ Modification and distribution
+- ✅ Selling services based on this software
+
+### ⚙️ System Requirements
+
+| Requirement | Minimum |
+|-------------|---------|
+| Windows | 10 / 11 |
+| RAM | 2 GB |
+| Disk | 500 MB |
+| Internet | **Not required** |
+| Admin rights | **Not required** |
+
+---
+
+## 🇷🇺 Superset Portable — Русская версия
+
+### ✨ Особенности
 
 - 🚀 **Без установки** — запускается прямо с флешки
 - 🇷🇺 **Русский интерфейс** — полная локализация
@@ -14,9 +75,9 @@
 - 🔒 **Работает оффлайн** — не требует интернета
 - ⚡ **Rust-лаунчер** — быстрый запуск
 
-## 🚀 Быстрый старт
+### 🚀 Быстрый старт
 
-### На ПК с интернетом (подготовка)
+#### Подготовка (на ПК с интернетом)
 
 ```powershell
 # 1. Скачать Python Embeddable
@@ -26,7 +87,7 @@
 .\setup\install_superset.bat
 ```
 
-### На любом ПК (использование)
+#### Использование (на любом ПК)
 
 ```cmd
 start_superset.bat
@@ -40,11 +101,7 @@ start_superset.bat
 | **Пароль** | `admin` |
 | **Документация** | http://localhost:8089 |
 
----
-
-## 📚 Документация
-
-Локальная документация на русском языке:
+### 📚 Документация
 
 | Раздел | Описание |
 |--------|----------|
@@ -52,37 +109,14 @@ start_superset.bat
 | [SQL Lab](docs/ru/sql_lab.md) | Работа с SQL-запросами |
 | [Лицензия](docs/ru/licensing.md) | Apache 2.0 и форки |
 
-## 🇷🇺 Локализация
-
-- ✅ Интерфейс на русском языке
-- ✅ Документация на русском
-- ✅ Демо-дашборды
-
-## 💼 Коммерческое использование
+### 💼 Коммерческое использование
 
 **Да, разрешено!** Apache 2.0 лицензия позволяет:
 - ✅ Использовать в коммерческих целях
 - ✅ Модифицировать и распространять
 - ✅ Продавать услуги на основе этого ПО
 
-Подробнее: [docs/ru/licensing.md](docs/ru/licensing.md)
-
-## 📁 Структура
-
-```
-superset-portable/
-├── start_superset.bat      # Запуск (Superset + Документация)
-├── superset-launcher.exe   # Rust CLI лаунчер
-├── python/                 # Embedded Python + Superset
-├── superset_home/          # База данных и конфиг
-├── docs/                   # Русская документация
-│   ├── index.html
-│   └── ru/
-├── LICENSE                 # Apache 2.0
-└── NOTICE                  # Атрибуция
-```
-
-## ⚙️ Системные требования
+### ⚙️ Системные требования
 
 | Требование | Минимум |
 |------------|---------|
@@ -92,20 +126,40 @@ superset-portable/
 | Интернет | **Не нужен** |
 | Права админа | **Не нужны** |
 
-## 🛠️ Сборка из исходников
+---
+
+## 📁 Project Structure / Структура проекта
+
+```
+superset-portable/
+├── start_superset.bat      # Start (Superset + Docs) / Запуск
+├── superset-launcher.exe   # Rust CLI launcher / Rust лаунчер
+├── python/                 # Embedded Python + Superset
+├── superset_home/          # Database & config / БД и конфиг
+├── docs/                   # Russian documentation / Документация
+│   ├── index.html
+│   └── ru/
+├── src/                    # Rust source code / Исходный код Rust
+├── LICENSE                 # Apache 2.0
+└── NOTICE                  # Attribution / Атрибуция
+```
+
+## 🛠️ Build from Source / Сборка из исходников
 
 ```powershell
 # Rust launcher
 cargo build --release
 ```
 
-## 📜 Лицензия
+## 📜 License / Лицензия
+
+This project is based on [Apache Superset](https://github.com/apache/superset) and is distributed under **Apache License 2.0**.
 
 Этот проект основан на [Apache Superset](https://github.com/apache/superset) и распространяется под лицензией **Apache License 2.0**.
 
-Смотрите файлы [LICENSE](LICENSE) и [NOTICE](NOTICE).
+See / Смотрите: [LICENSE](LICENSE) | [NOTICE](NOTICE)
 
-## 📬 Контакты
+## 📬 Contact / Контакты
 
 **Telegram:** [@serg_borisovich](https://t.me/serg_borisovich)
 
