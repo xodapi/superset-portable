@@ -4,6 +4,7 @@
 //! without requiring installation or admin privileges.
 
 mod config;
+mod cache;
 mod demo_data;
 mod docs_server;
 mod health_check;
