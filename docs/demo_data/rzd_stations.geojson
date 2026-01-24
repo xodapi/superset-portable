@@ -1,0 +1,21 @@
+{
+  "type": "FeatureCollection",
+  "name": "RZD Major Stations",
+  "features": [
+    {"type": "Feature", "properties": {"name": "Москва Казанская", "passengers": 45000, "class": 1}, "geometry": {"type": "Point", "coordinates": [37.6556, 55.7747]}},
+    {"type": "Feature", "properties": {"name": "Санкт-Петербург Московский", "passengers": 52000, "class": 1}, "geometry": {"type": "Point", "coordinates": [30.3619, 59.9306]}},
+    {"type": "Feature", "properties": {"name": "Екатеринбург", "passengers": 25000, "class": 1}, "geometry": {"type": "Point", "coordinates": [60.6029, 56.8584]}},
+    {"type": "Feature", "properties": {"name": "Новосибирск-Главный", "passengers": 23000, "class": 1}, "geometry": {"type": "Point", "coordinates": [82.8986, 55.0351]}},
+    {"type": "Feature", "properties": {"name": "Казань", "passengers": 18000, "class": 1}, "geometry": {"type": "Point", "coordinates": [49.1012, 55.7887]}},
+    {"type": "Feature", "properties": {"name": "Нижний Новгород", "passengers": 22000, "class": 1}, "geometry": {"type": "Point", "coordinates": [43.9512, 56.3224]}},
+    {"type": "Feature", "properties": {"name": "Красноярск", "passengers": 15000, "class": 1}, "geometry": {"type": "Point", "coordinates": [92.8683, 56.0094]}},
+    {"type": "Feature", "properties": {"name": "Владивосток", "passengers": 8500, "class": 1}, "geometry": {"type": "Point", "coordinates": [131.8855, 43.1155]}},
+    {"type": "Feature", "properties": {"name": "Самара", "passengers": 16000, "class": 1}, "geometry": {"type": "Point", "coordinates": [50.1544, 53.2024]}},
+    {"type": "Feature", "properties": {"name": "Ростов-Главный", "passengers": 14000, "class": 1}, "geometry": {"type": "Point", "coordinates": [39.7186, 47.2220]}},
+    {"type": "Feature", "properties": {"name": "Челябинск", "passengers": 13500, "class": 1}, "geometry": {"type": "Point", "coordinates": [61.4026, 55.1599]}},
+    {"type": "Feature", "properties": {"name": "Омск", "passengers": 11500, "class": 1}, "geometry": {"type": "Point", "coordinates": [73.3743, 54.9356]}},
+    {"type": "Feature", "properties": {"name": "Иркутск", "passengers": 12000, "class": 1}, "geometry": {"type": "Point", "coordinates": [104.3050, 52.2869]}},
+    {"type": "Feature", "properties": {"name": "Хабаровск", "passengers": 9200, "class": 1}, "geometry": {"type": "Point", "coordinates": [135.0649, 48.4823]}},
+    {"type": "Feature", "properties": {"name": "Уфа", "passengers": 10200, "class": 1}, "geometry": {"type": "Point", "coordinates": [55.9472, 54.7330]}}
+  ]
+}
