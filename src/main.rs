@@ -4,12 +4,14 @@
 //! without requiring installation or admin privileges.
 
 mod config;
+mod demo_data;
 mod docs_server;
 mod health_check;
 mod packer;
 mod python;
 mod superset;
 mod tray;
+mod validator;
 
 use anyhow::Result;
 use clap::{Parser, Subcommand};
@@ -72,6 +74,10 @@ enum Commands {
     },
     /// Run with system tray GUI
     Tray,
+    /// Validate environment
+    Validate,
+    /// Import RZD demo data into examples.db
+    ImportDemo,
 }
 
 /// Get the portable root directory (where the exe is located)
@@ -184,6 +190,16 @@ async fn main() -> Result<()> {
         Some(Commands::Tray) => {
             info!("Starting with system tray...");
             tray::run_tray(&root, &python_env, &config).await?;
+        }
+        Some(Commands::Validate) => {
+            info!("Validating environment...");
+            let validator = validator::Validator::new(&root);
+            let results = validator.validate_all();
+            validator::print_validation_report(&results);
+        }
+        Some(Commands::ImportDemo) => {
+            info!("Importing RZD demo data...");
+            demo_data::import_demo_data(&root)?;
         }
         None => {
             // Default: start with tray
