@@ -1,6 +1,8 @@
 @echo off
 REM Quick start script for Portable Superset
+REM Fixed: support for Cyrillic paths
 
+chcp 65001 >nul 2>&1
 setlocal EnableDelayedExpansion
 
 set "ROOT_DIR=%~dp0"
@@ -11,6 +13,7 @@ set "DOCS_DIR=%ROOT_DIR%docs"
 
 REM Set environment
 set "PYTHONHOME=%PYTHON_DIR%"
+set "PYTHONIOENCODING=utf-8"
 set "PATH=%PYTHON_DIR%;%PYTHON_DIR%\Scripts;%PATH%"
 set "SUPERSET_CONFIG_PATH=%SUPERSET_HOME%\superset_config.py"
 set "FLASK_APP=superset"
@@ -46,6 +49,7 @@ start /b "" "%PYTHON_EXE%" -m http.server 8089 --directory "%DOCS_DIR%"
 REM Start browser after 5 seconds
 start /b cmd /c "timeout /t 5 >nul && start http://localhost:8088"
 
-REM Start Superset
-"%PYTHON_DIR%\Scripts\superset.exe" run -h 127.0.0.1 -p 8088 --with-threads
+REM Start Superset using python -m (more reliable with non-ASCII paths)
+"%PYTHON_EXE%" -m superset.cli.main run -h 127.0.0.1 -p 8088 --with-threads
+
 
