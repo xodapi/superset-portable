@@ -40,6 +40,7 @@ pub enum ServiceStatus {
 pub struct SystemStatus {
     pub superset: ServiceInfo,
     pub lightdocs: ServiceInfo,
+    pub watcher: ServiceInfo,
     pub uptime_seconds: u64,
 }
 
@@ -57,21 +58,25 @@ pub struct AppState {
     pub start_time: std::time::Instant,
     pub superset_status: RwLock<ServiceStatus>,
     pub lightdocs_status: RwLock<ServiceStatus>,
+    pub watcher_status: RwLock<ServiceStatus>,
     pub superset_port: u16,
     pub lightdocs_port: u16,
     pub shutdown_tx: mpsc::Sender<()>,
+    pub watcher: Arc<crate::watcher::DataWatcher>,
 }
 
 impl AppState {
-    pub fn new(root: &PathBuf, superset_port: u16, lightdocs_port: u16, shutdown_tx: mpsc::Sender<()>) -> Self {
+    pub fn new(root: &PathBuf, superset_port: u16, lightdocs_port: u16, shutdown_tx: mpsc::Sender<()>, watcher: Arc<crate::watcher::DataWatcher>) -> Self {
         Self {
             root: root.clone(),
             start_time: std::time::Instant::now(),
             superset_status: RwLock::new(ServiceStatus::Stopped),
             lightdocs_status: RwLock::new(ServiceStatus::Stopped),
+            watcher_status: RwLock::new(if watcher.is_running() { ServiceStatus::Running } else { ServiceStatus::Stopped }),
             superset_port,
             lightdocs_port,
             shutdown_tx,
+            watcher,
         }
     }
 }
@@ -82,22 +87,24 @@ pub struct LauncherUI {
     port: u16,
     superset_port: u16,
     lightdocs_port: u16,
+    watcher: Arc<crate::watcher::DataWatcher>,
 }
 
 impl LauncherUI {
-    pub fn new(root: &PathBuf, port: u16, superset_port: u16, lightdocs_port: u16) -> Self {
+    pub fn new(root: &PathBuf, port: u16, superset_port: u16, lightdocs_port: u16, watcher: Arc<crate::watcher::DataWatcher>) -> Self {
         Self {
             root: root.clone(),
             port,
             superset_port,
             lightdocs_port,
+            watcher,
         }
     }
 
     /// Start the launcher UI server
     pub async fn start(&self) -> Result<()> {
         let (tx, mut rx) = mpsc::channel(1);
-        let state = Arc::new(AppState::new(&self.root, self.superset_port, self.lightdocs_port, tx));
+        let state = Arc::new(AppState::new(&self.root, self.superset_port, self.lightdocs_port, tx, self.watcher.clone()));
         
         let app = Router::new()
             .route("/", get(index_handler))
@@ -106,6 +113,8 @@ impl LauncherUI {
             .route("/api/superset/stop", post(superset_stop_handler))
             .route("/api/lightdocs/start", post(lightdocs_start_handler))
             .route("/api/lightdocs/stop", post(lightdocs_stop_handler))
+            .route("/api/watcher/start", post(watcher_start_handler))
+            .route("/api/watcher/stop", post(watcher_stop_handler))
             .route("/api/lightdocs/search", get(search_handler))
             .route("/api/shutdown", post(shutdown_handler))
             .with_state(state);
@@ -147,6 +156,14 @@ async fn status_handler(
     let superset_running = check_port(state.superset_port).await;
     let lightdocs_running = check_port(state.lightdocs_port).await;
     
+    // Watcher status
+    let watcher_running = state.watcher.is_running();
+    {
+        let mut status = state.watcher_status.write().await;
+        *status = if watcher_running { ServiceStatus::Running } else { ServiceStatus::Stopped };
+    }
+    let watcher_status = state.watcher_status.read().await.clone();
+    
     Json(SystemStatus {
         superset: ServiceInfo {
             status: if superset_running { ServiceStatus::Running } else { superset_status },
@@ -157,6 +174,11 @@ async fn status_handler(
             status: if lightdocs_running { ServiceStatus::Running } else { lightdocs_status },
             port: state.lightdocs_port,
             url: format!("http://localhost:{}", state.lightdocs_port),
+        },
+        watcher: ServiceInfo {
+            status: watcher_status,
+            port: 0, // No port for internal service
+            url: "internal".to_string(),
         },
         uptime_seconds: state.start_time.elapsed().as_secs(),
     })
@@ -295,6 +317,32 @@ async fn lightdocs_stop_handler(
         *status = ServiceStatus::Stopped;
     }
     
+    Json(serde_json::json!({"status": "stopped"}))
+}
+
+// Handler: Start Watcher
+async fn watcher_start_handler(
+    State(state): State<Arc<AppState>>,
+) -> impl IntoResponse {
+    info!("Starting Data Watcher...");
+    state.watcher.start().await;
+    {
+        let mut status = state.watcher_status.write().await;
+        *status = ServiceStatus::Running;
+    }
+    Json(serde_json::json!({"status": "running"}))
+}
+
+// Handler: Stop Watcher
+async fn watcher_stop_handler(
+    State(state): State<Arc<AppState>>,
+) -> impl IntoResponse {
+    info!("Stopping Data Watcher...");
+    state.watcher.stop();
+    {
+        let mut status = state.watcher_status.write().await;
+        *status = ServiceStatus::Stopped;
+    }
     Json(serde_json::json!({"status": "stopped"}))
 }
 
@@ -557,6 +605,18 @@ const LAUNCHER_HTML: &str = r#"<!DOCTYPE html>
                     <button class="btn btn-secondary" id="lightdocs-toggle" onclick="toggleLightdocs()">Запустить</button>
                 </div>
             </div>
+
+            <div class="service-card" id="watcher-card">
+                <div class="service-header">
+                    <span class="service-name">🔄 Авто-обновление</span>
+                    <span class="status-badge status-stopped" id="watcher-status">Остановлен</span>
+                </div>
+                <div class="service-port" id="watcher-port">Мониторинг CSV</div>
+                <div class="btn-group">
+                    <button class="btn btn-primary" disabled style="opacity: 0.3">Фон</button>
+                    <button class="btn btn-secondary" id="watcher-toggle" onclick="toggleWatcher()">Запустить</button>
+                </div>
+            </div>
         </div>
         
         <div class="service-card" style="grid-column: 1 / -1;">
@@ -683,6 +743,22 @@ const LAUNCHER_HTML: &str = r#"<!DOCTYPE html>
                 lightdocsToggle.disabled = false;
             }
             
+            // Watcher
+            const watcherBadge = document.getElementById('watcher-status');
+            const watcherToggle = document.getElementById('watcher-toggle');
+            
+            if (data.watcher.status === 'running') {
+                watcherBadge.className = 'status-badge status-running';
+                watcherBadge.textContent = 'Активен';
+                watcherToggle.textContent = 'Отключить';
+                watcherToggle.className = 'btn btn-danger';
+            } else {
+                watcherBadge.className = 'status-badge status-stopped';
+                watcherBadge.textContent = 'Остановлен';
+                watcherToggle.textContent = 'Включить';
+                watcherToggle.className = 'btn btn-secondary';
+            }
+            
             // Uptime
             const mins = Math.floor(data.uptime_seconds / 60);
             const secs = data.uptime_seconds % 60;
@@ -709,6 +785,18 @@ const LAUNCHER_HTML: &str = r#"<!DOCTYPE html>
                 await fetch('/api/lightdocs/stop', { method: 'POST' });
             } else {
                 await fetch('/api/lightdocs/start', { method: 'POST' });
+            }
+            setTimeout(fetchStatus, 500);
+        }
+
+        async function toggleWatcher() {
+            const badge = document.getElementById('watcher-status');
+            const isRunning = badge.classList.contains('status-running');
+            
+            if (isRunning) {
+                await fetch('/api/watcher/stop', { method: 'POST' });
+            } else {
+                await fetch('/api/watcher/start', { method: 'POST' });
             }
             setTimeout(fetchStatus, 500);
         }

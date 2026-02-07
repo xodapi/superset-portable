@@ -27,7 +27,7 @@ from pathlib import Path
 
 ROOT_DIR = Path(__file__).resolve().parent
 
-RELEASE_NAME = "superset-portable-v6.0-rzd"
+RELEASE_NAME = "superset-portable-v6.1-rzd"
 RELEASE_DIR = ROOT_DIR / "release"
 ZIP_PATH = RELEASE_DIR / f"{RELEASE_NAME}.zip"
 

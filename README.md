@@ -1,170 +1,115 @@
-# 📊 Superset Portable — Russian Edition
+# 📊 Superset Portable
 
-> **Portable Apache Superset for Windows** — run from USB drive without installation!
+[![License](https://img.shields.io/github/license/user/superset-portable?style=flat-square)](LICENSE)
+[![Release](https://img.shields.io/github/v/release/user/superset-portable?style=flat-square)](https://github.com/user/superset-portable/releases)
+[![Rust](https://img.shields.io/badge/Made%20with-Rust-orange?style=flat-square)](https://www.rust-lang.org/)
+[![Python](https://img.shields.io/badge/Python-Embedded-blue?style=flat-square)](https://www.python.org/)
 
-[🇷🇺 Русская версия](#-superset-portable--русская-версия) | [🇬🇧 English version](#-features)
+**Superset Portable** is a standalone, USB-ready distribution of [Apache Superset](https://github.com/apache/superset) for Windows. It requires **no installation**, **no admin rights**, and works **offline**.
 
-[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](LICENSE)
-[![Superset](https://img.shields.io/badge/Based%20on-Apache%20Superset%206.0-orange.svg)](https://github.com/apache/superset)
-[![Telegram](https://img.shields.io/badge/Telegram-@serg__borisovich-blue.svg)](https://t.me/serg_borisovich)
+Perfect for secure environments (closed loop), demos, and rapid analytics deployment.
+
+[🇷🇺 Русская версия](#-русская-версия) | [🇬🇧 English Version](#-english-version)
 
 ---
 
-## 🇬🇧 English
+## 🚀 Key Features
 
-### ✨ Features
+- **Portable**: Runs from a USB flash drive or any folder.
+- **Standalone**: Embedded Python and SQLite. No dependencies required.
+- **Fast**: High-performance Rust launcher with server pre-warming.
+- **Secure**: Offline-first design, no external requests.
+- **Easy Data Update**: Includes `create_dashboard.exe` tool to update data from Excel/CSV without Python.
 
-- 🚀 **No installation required** — runs directly from USB
-- 🇷🇺 **Russian interface** — full localization
-- 📚 **Local documentation** — guides in Russian
-- 🔒 **Works offline** — no internet required
-- ⚡ **Rust launcher** — fast startup
+---
 
-### 🚀 Quick Start
+## 🛠️ Quick Start
 
-#### Preparation (on PC with internet)
+### 1. Download
+Get the latest release from the [Releases Page](../../releases).
 
-```powershell
-# 1. Download Python Embeddable
-.\setup\download_python.ps1
-
-# 2. Install Superset
-.\setup\install_superset.bat
-```
-
-#### Usage (on any PC)
-
+### 2. Run
+Extract the ZIP archive and run:
 ```cmd
 start_superset.bat
 ```
 
-Browser opens at http://localhost:8088
-
-| | |
-|---|---|
-| **Login** | `admin` |
-| **Password** | `admin` |
-| **Documentation** | http://localhost:8089 |
-
-### 💼 Commercial Use
-
-**Yes, allowed!** Apache 2.0 license permits:
-- ✅ Commercial use
-- ✅ Modification and distribution
-- ✅ Selling services based on this software
-
-### ⚙️ System Requirements
-
-| Requirement | Minimum |
-|-------------|---------|
-| Windows | 10 / 11 |
-| RAM | 2 GB |
-| Disk | 500 MB |
-| Internet | **Not required** |
-| Admin rights | **Not required** |
+### 3. Login
+- **URL**: [http://localhost:8088](http://localhost:8088)
+- **User**: `admin`
+- **Password**: `admin`
 
 ---
 
-## 🇷🇺 Superset Portable — Русская версия
-
-### ✨ Особенности
-
-- 🚀 **Без установки** — запускается прямо с флешки
-- 🇷🇺 **Русский интерфейс** — полная локализация
-- 📚 **Локальная документация** — руководство на русском
-- 🔒 **Работает оффлайн** — не требует интернета
-- ⚡ **Rust-лаунчер** — быстрый запуск
-
-### 🚀 Быстрый старт
-
-#### Подготовка (на ПК с интернетом)
-
-```powershell
-# 1. Скачать Python Embeddable
-.\setup\download_python.ps1
-
-# 2. Установить Superset
-.\setup\install_superset.bat
-```
-
-#### Использование (на любом ПК)
-
-```cmd
-start_superset.bat
-```
-
-Откроется браузер на http://localhost:8088
-
-| | |
-|---|---|
-| **Логин** | `admin` |
-| **Пароль** | `admin` |
-| **Документация** | http://localhost:8089 |
-
-### 📚 Документация
-
-| Раздел | Описание |
-|--------|----------|
-| [Руководство](docs/ru/user_guide.md) | Основы работы с Superset |
-| [SQL Lab](docs/ru/sql_lab.md) | Работа с SQL-запросами |
-| [Лицензия](docs/ru/licensing.md) | Apache 2.0 и форки |
-
-### 💼 Коммерческое использование
-
-**Да, разрешено!** Apache 2.0 лицензия позволяет:
-- ✅ Использовать в коммерческих целях
-- ✅ Модифицировать и распространять
-- ✅ Продавать услуги на основе этого ПО
-
-### ⚙️ Системные требования
-
-| Требование | Минимум |
-|------------|---------|
-| Windows | 10 / 11 |
-| RAM | 2 GB |
-| Disk | 500 MB |
-| Интернет | **Не нужен** |
-| Права админа | **Не нужны** |
-
----
-
-## 📁 Project Structure / Структура проекта
+## 🏗️ Project Structure
 
 ```
 superset-portable/
-├── start_superset.bat      # Start (Superset + Docs) / Запуск
-├── superset-launcher.exe   # Rust CLI launcher / Rust лаунчер
-├── python/                 # Embedded Python + Superset
-├── superset_home/          # Database & config / БД и конфиг
-├── docs/                   # Russian documentation / Документация
-│   ├── index.html
-│   └── ru/
-├── src/                    # Rust source code / Исходный код Rust
-├── LICENSE                 # Apache 2.0
-└── NOTICE                  # Attribution / Атрибуция
+├── start_superset.bat      # 🚀 Entry point
+├── superset-launcher.exe   # 🦀 Main Rust executable
+├── create_dashboard.exe    # 📊 Data update tool
+├── data/                   # 📂 Excel/CSV source files
+├── python/                 # 🐍 Embedded Python 3.8
+├── superset_home/          # 🗄️ Database & Config
+└── docs/                   # 📚 Documentation
 ```
-
-## 🛠️ Build from Source / Сборка из исходников
-
-```powershell
-# Rust launcher
-cargo build --release
-```
-
-## 📜 License / Лицензия
-
-This project is based on [Apache Superset](https://github.com/apache/superset) and is distributed under **Apache License 2.0**.
-
-Этот проект основан на [Apache Superset](https://github.com/apache/superset) и распространяется под лицензией **Apache License 2.0**.
-
-See / Смотрите: [LICENSE](LICENSE) | [NOTICE](NOTICE)
-
-## 📬 Contact / Контакты
-
-**Telegram:** [@serg_borisovich](https://t.me/serg_borisovich)
 
 ---
 
-<p align="center">
-  Made with ❤️ for Russian-speaking Superset users
-</p>
+## 🤝 Contributing
+
+We welcome contributions! Please see [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines.
+
+1. Fork the repository.
+2. Create your feature branch.
+3. Commit your changes.
+4. Push to the branch.
+5. Open a Pull Request.
+
+---
+
+## 📜 License
+
+Distributed under the **Apache 2.0 License**. See [LICENSE](LICENSE) for more information.
+
+---
+
+<br>
+
+## 🇷🇺 Русская версия
+
+**Superset Portable** — это готовая к работе версия Apache Superset для Windows, которая запускается без установки.
+
+Идеально подходит для закрытых контуров (без интернета), демонстраций и быстрого развертывания аналитики.
+
+### ✨ Особенности
+
+- **Портативность**: Работает с флешки.
+- **Автономность**: Встроенный Python и SQLite. Ничего не нужно устанавливать.
+- **Скорость**: Быстрый лаунчер на Rust с предзагрузкой сервера.
+- **Обновление данных**: Утилита `create_dashboard.exe` обновляет дашборды из Excel/CSV.
+
+### 🚀 Быстрый старт
+
+#### 1. Скачать
+Загрузите архив со страницы [Релизы](../../releases).
+
+#### 2. Запустить
+Распакуйте и запустите:
+```cmd
+start_superset.bat
+```
+
+#### 3. Войти
+- **Адрес**: [http://localhost:8088](http://localhost:8088)
+- **Логин**: `admin`
+- **Пароль**: `admin`
+
+### 📚 Документация
+
+- [Как обновить данные (Excel/CSV)](docs/HOWTO_UPDATE_DATA.md)
+- [История версий](docs/RELEASES.md)
+
+### 📬 Контакты
+
+Автор: [@serg_borisovich](https://t.me/serg_borisovich)

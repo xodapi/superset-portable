@@ -53,7 +53,7 @@ impl WikilinksTransformer {
     
     /// Convert title to URL-safe slug
     pub fn title_to_slug(title: &str) -> String {
-        title
+        let slug: String = title
             .to_lowercase()
             .chars()
             .map(|c| {
@@ -68,8 +68,10 @@ impl WikilinksTransformer {
                     '-'
                 }
             })
-            .collect::<String>()
-            .replace("--", "-")
+            .collect();
+            
+        let re = Regex::new(r"-+").unwrap();
+        re.replace_all(&slug, "-")
             .trim_matches('-')
             .to_string()
     }

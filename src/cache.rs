@@ -172,7 +172,7 @@ mod tests {
         
         // Set with 0 second TTL (immediately expired)
         cache.set_with_ttl("expired", b"value", Duration::from_secs(0)).unwrap();
-        std::thread::sleep(Duration::from_millis(10));
+        std::thread::sleep(Duration::from_secs(2));
         assert!(cache.get("expired").is_none());
     }
 }

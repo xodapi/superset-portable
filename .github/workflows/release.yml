@@ -1,0 +1,55 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    name: Build Release
+    runs-on: windows-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Rust
+        uses: dtolnay/rust-toolchain@stable
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11' 
+
+      - name: Build Rust Launcher
+        run: cargo build --release --bin superset-launcher
+
+      - name: Build Rust Dashboard Tool
+        run: cargo build --release --bin create_dashboard
+
+      - name: Generate Examples DB
+        run: python setup/create_rzd_dashboard.py
+
+      - name: Create Release Package
+        run: |
+          # We need to simulate the Python environment for build_release.py to work
+          # or assume build_release.py handles missing embedded python gracefully 
+          # by downloading it if we add that logic, OR we just use the system python 
+          # to run the script, but the script expects 'python/' dir to exist.
+          
+          # Let's run the download script first to get the embedded python
+          powershell ./setup/download_python.ps1
+          
+          # Now run the build script
+          python build_release.py
+
+      - name: Upload Release Asset
+        uses: softprops/action-gh-release@v1
+        if: startsWith(github.ref, 'refs/tags/')
+        with:
+          files: release/*.zip
+          generate_release_notes: true

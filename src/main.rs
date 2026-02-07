@@ -17,6 +17,7 @@ mod superset;
 mod tray;
 mod validator;
 mod data_loader;
+mod watcher;
 
 use anyhow::Result;
 use clap::{Parser, Subcommand};
@@ -172,7 +173,7 @@ fn get_portable_root() -> Result<PathBuf> {
 #[tokio::main]
 async fn main() -> Result<()> {
     // Initialize logging
-    let subscriber = FmtSubscriber::builder()
+    let _subscriber = FmtSubscriber::builder()
         .with_max_level(Level::INFO)
         .with_target(false)
         .compact()
@@ -188,8 +189,6 @@ async fn main() -> Result<()> {
     let mut config = config::Config::load_or_create(&root)?;
     
     // Validate Python environment
-    let python_env = python::PythonEnv::new(&root)?;
-    // Python environment loaded (validation deferred to specific commands)
     let python_env = python::PythonEnv::new(&root)?;
     
     match cli.command {
@@ -409,7 +408,12 @@ async fn main() -> Result<()> {
         }
         Some(Commands::Launcher { port, superset_port, lightdocs_port }) => {
             info!("🚀 Starting unified launcher UI...");
-            let launcher = launcher_ui::LauncherUI::new(&root, port, superset_port, lightdocs_port);
+            
+            // Start Data Watcher
+            let watcher = std::sync::Arc::new(watcher::DataWatcher::new(&root));
+            watcher.start().await;
+            
+            let launcher = launcher_ui::LauncherUI::new(&root, port, superset_port, lightdocs_port, watcher);
             
             let url = format!("http://localhost:{}", port);
             info!("🌐 Opening: {}", url);
@@ -435,7 +439,12 @@ async fn main() -> Result<()> {
         None => {
             // Default: start with launcher UI
             info!("🚀 Starting unified launcher UI (default mode)...");
-            let launcher = launcher_ui::LauncherUI::new(&root, 3000, 8088, 3030);
+            
+            // Start Data Watcher
+            let watcher = std::sync::Arc::new(watcher::DataWatcher::new(&root));
+            watcher.start().await;
+            
+            let launcher = launcher_ui::LauncherUI::new(&root, 3000, 8088, 3030, watcher);
             
             let url = "http://localhost:3000";
             info!("🌐 Opening: {}", url);

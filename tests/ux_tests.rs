@@ -23,7 +23,7 @@ fn test_ux_data_loader_speed() {
     
     // Compile binary first (assumed done or cargo test does it)
     let status = Command::new("cargo")
-        .args(&["run", "--", "load-data", "tests/test_data.csv", "--table", "test_ux_table"])
+        .args(&["run", "--bin", "superset-launcher", "--", "load-data", "tests/test_data.csv", "--table", "test_ux_table", "--db", "tests/test_ux.db"])
         .current_dir("c:\\project\\ass")
         .status()
         .expect("Failed to run cargo run");
@@ -39,6 +39,7 @@ fn test_ux_data_loader_speed() {
     
     // Clean up
     let _ = std::fs::remove_file(file_path);
+    let _ = std::fs::remove_file("tests/test_ux.db");
 }
 
 #[tokio::test]
