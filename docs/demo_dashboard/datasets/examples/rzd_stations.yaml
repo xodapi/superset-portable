@@ -1,0 +1,105 @@
+table_name: rzd_stations
+main_dttm_col: null
+description: Railway stations of RZD
+default_endpoint: null
+offset: 0
+cache_timeout: null
+schema: null
+sql: null
+params: null
+template_params: null
+filter_select_enabled: true
+fetch_values_predicate: null
+extra: null
+uuid: 44342d22-1246-4e44-b0a5-814d48729511
+metrics:
+  - metric_name: count
+    verbose_name: Count
+    metric_type: count
+    expression: COUNT(*)
+    description: null
+    d3format: null
+    extra: null
+    warning_text: null
+columns:
+  - column_name: id
+    verbose_name: ID
+    is_dttm: false
+    is_active: true
+    type: INTEGER
+    groupby: true
+    filterable: true
+    expression: null
+    description: null
+    python_date_format: null
+  - column_name: name
+    verbose_name: Name
+    is_dttm: false
+    is_active: true
+    type: VARCHAR
+    groupby: true
+    filterable: true
+    expression: null
+    description: null
+    python_date_format: null
+  - column_name: city
+    verbose_name: City
+    is_dttm: false
+    is_active: true
+    type: VARCHAR
+    groupby: true
+    filterable: true
+    expression: null
+    description: null
+    python_date_format: null
+  - column_name: region
+    verbose_name: Region
+    is_dttm: false
+    is_active: true
+    type: VARCHAR
+    groupby: true
+    filterable: true
+    expression: null
+    description: null
+    python_date_format: null
+  - column_name: latitude
+    verbose_name: Latitude
+    is_dttm: false
+    is_active: true
+    type: FLOAT
+    groupby: true
+    filterable: true
+    expression: null
+    description: null
+    python_date_format: null
+  - column_name: longitude
+    verbose_name: Longitude
+    is_dttm: false
+    is_active: true
+    type: FLOAT
+    groupby: true
+    filterable: true
+    expression: null
+    description: null
+    python_date_format: null
+  - column_name: passengers_day
+    verbose_name: Passengers per Day
+    is_dttm: false
+    is_active: true
+    type: INTEGER
+    groupby: true
+    filterable: true
+    expression: null
+    description: null
+    python_date_format: null
+  - column_name: cargo_tons_year
+    verbose_name: Cargo Tons/Year
+    is_dttm: false
+    is_active: true
+    type: INTEGER
+    groupby: true
+    filterable: true
+    expression: null
+    description: null
+    python_date_format: null
+database_uuid: c15fbee0-3367-466d-9657-61c360565809

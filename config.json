@@ -1,0 +1,7 @@
+{
+  "port": 8088,
+  "open_browser": true,
+  "host": "127.0.0.1",
+  "python_path": "python/python.exe",
+  "superset_home": "superset_home"
+}

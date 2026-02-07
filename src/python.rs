@@ -56,7 +56,6 @@ impl PythonEnv {
         vec![
             // Python paths
             ("PYTHONHOME".to_string(), python_dir.to_string_lossy().to_string()),
-            ("PYTHONPATH".to_string(), self.site_packages.to_string_lossy().to_string()),
             // Superset specific
             ("SUPERSET_HOME".to_string(), superset_home.to_string_lossy().to_string()),
             ("SUPERSET_CONFIG_PATH".to_string(), 

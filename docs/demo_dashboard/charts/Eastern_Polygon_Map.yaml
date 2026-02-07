@@ -1,0 +1,22 @@
+slice_name: Eastern Polygon Map
+viz_type: deck_geojson
+params:
+  datasource: 44444444-4444-4444-4444-444444444444
+  viz_type: deck_geojson
+  geojson: geometry
+  line_width: 5000
+  filled: false
+  stroked: true
+  extruded: false
+  mapbox_style: mapbox://styles/mapbox/light-v9
+  viewport:
+    latitude: 55.0
+    longitude: 85.0
+    zoom: 3
+    bearing: 0
+    pitch: 0
+  autozoom: true
+cache_timeout: null
+uuid: aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa
+version: 1.0.0
+dataset_uuid: 44444444-4444-4444-4444-444444444444

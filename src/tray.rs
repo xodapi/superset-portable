@@ -10,6 +10,7 @@ use tracing::{info, error};
 use crate::config::Config;
 use crate::python::PythonEnv;
 use crate::superset::SupersetServer;
+use crate::gateway;
 
 /// Run the application with system tray
 pub async fn run_tray(root: &Path, python_env: &PythonEnv, config: &Config) -> Result<()> {

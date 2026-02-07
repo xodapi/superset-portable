@@ -11,6 +11,7 @@ __pycache__/
 # Database (personal data)
 superset_home/superset.db
 superset_home/examples.db
+examples.db
 
 # Logs
 logs/
@@ -20,6 +21,13 @@ logs/
 target/
 *.exe
 !superset-launcher.exe
+python/
+python_full/
+release/
+superset-src/
+_site/
+nul
+
 
 # IDE
 .vscode/

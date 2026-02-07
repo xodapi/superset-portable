@@ -130,10 +130,12 @@ impl ReleasePacker {
             ("docs", "docs"),
             ("start_superset.bat", "start_superset.bat"),
             ("start_docs.bat", "start_docs.bat"),
+            ("start_lightdocs.bat", "start_lightdocs.bat"),
             ("superset-launcher.exe", "superset-launcher.exe"),
             ("LICENSE", "LICENSE"),
             ("NOTICE", "NOTICE"),
             ("QUICKSTART.md", "README.txt"),
+            ("knowledge", "knowledge"),
         ];
         
         for (src, dst) in &components {

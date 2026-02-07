@@ -1,0 +1,7 @@
+{
+  "docs_root": "knowledge",
+  "output_dir": "_site",
+  "port": 8090,
+  "title": "LightDocs",
+  "live_reload": true
+}

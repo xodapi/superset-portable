@@ -5,12 +5,18 @@ use std::path::{Path, PathBuf};
 use std::process::{Child, Command, Stdio};
 use std::sync::atomic::{AtomicBool, Ordering};
 use std::sync::Arc;
-use tokio::sync::mpsc;
 use tracing::{info, error, warn};
 
 use crate::python::PythonEnv;
+use std::net::TcpListener;
 
 const PID_FILE: &str = "superset.pid";
+
+/// Get a free random port
+pub fn get_free_port() -> Result<u16> {
+    let listener = TcpListener::bind("127.0.0.1:0")?;
+    Ok(listener.local_addr()?.port())
+}
 
 /// Superset server process manager
 pub struct SupersetServer {
@@ -23,7 +29,7 @@ pub struct SupersetServer {
 
 impl SupersetServer {
     /// Create a new Superset server manager
-    pub fn new(root: &Path, python_env: &PythonEnv, port: u16) -> Self {
+    pub fn new(root: &Path, _python_env: &PythonEnv, port: u16) -> Self {
         Self {
             root: root.to_path_buf(),
             python_env: PythonEnv::new(root).unwrap(),
@@ -56,21 +62,23 @@ impl SupersetServer {
         }
         cmd.env("PATH", self.python_env.get_path_env());
         
-        // Run superset
+        // Run superset via Flask (more stable than superset.cli.main)
         cmd.args([
-            "-m", "superset.cli.main",
+            "-m", "flask",
             "run",
             "-h", "127.0.0.1",
             "-p", &self.port.to_string(),
-            "--with-threads",
-            "--reload",  // Remove in production
         ]);
         
         cmd.current_dir(&self.root);
-        cmd.stdout(Stdio::piped());
-        cmd.stderr(Stdio::piped());
         
-        info!("Starting Superset with command: {:?}", cmd);
+        let stdout_file = std::fs::File::create(logs_dir.join("superset.stdout.log"))?;
+        let stderr_file = std::fs::File::create(logs_dir.join("superset.stderr.log"))?;
+        
+        cmd.stdout(Stdio::from(stdout_file));
+        cmd.stderr(Stdio::from(stderr_file));
+        
+        info!("Starting Superset (Flask Mode) with command: {:?}", cmd);
         
         let child = cmd.spawn()
             .context("Failed to start Superset. Is it installed?")?;
@@ -255,12 +263,9 @@ CACHE_CONFIG = {{
     Ok(())
 }
 
-/// Generate a random secret key
+/// Generate a cryptographically secure random secret key
 fn generate_secret_key() -> String {
-    use std::time::{SystemTime, UNIX_EPOCH};
-    let timestamp = SystemTime::now()
-        .duration_since(UNIX_EPOCH)
-        .unwrap()
-        .as_nanos();
-    format!("portable-superset-{:x}", timestamp)
+    use rand::Rng;
+    let key: [u8; 32] = rand::thread_rng().gen();
+    format!("portable-superset-{}", hex::encode(key))
 }

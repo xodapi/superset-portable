@@ -1,0 +1,2501 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            37.6173,
+            55.7558
+          ],
+          [
+            35.9119,
+            56.8596
+          ]
+        ]
+      },
+      "properties": {
+        "id": 1,
+        "origin": "Москва-Главный",
+        "destination": "Тверь-Главный",
+        "distance_km": 161.6,
+        "trains_per_day": 8,
+        "load_percent": 51,
+        "capacity_mln_tons": 120,
+        "status": "Normal"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            37.6173,
+            55.7558
+          ],
+          [
+            37.6172,
+            54.1931
+          ]
+        ]
+      },
+      "properties": {
+        "id": 2,
+        "origin": "Москва-Главный",
+        "destination": "Тула-Главный",
+        "distance_km": 173.8,
+        "trains_per_day": 6,
+        "load_percent": 46,
+        "capacity_mln_tons": 50,
+        "status": "Normal"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            37.6173,
+            55.7558
+          ],
+          [
+            39.7126,
+            54.6095
+          ]
+        ]
+      },
+      "properties": {
+        "id": 3,
+        "origin": "Москва-Главный",
+        "destination": "Рязань-Главный",
+        "distance_km": 184.2,
+        "trains_per_day": 2,
+        "load_percent": 80,
+        "capacity_mln_tons": 50,
+        "status": "Normal"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            37.6173,
+            55.7558
+          ],
+          [
+            39.8845,
+            57.6261
+          ]
+        ]
+      },
+      "properties": {
+        "id": 4,
+        "origin": "Москва-Главный",
+        "destination": "Ярославль-Главный",
+        "distance_km": 249.8,
+        "trains_per_day": 3,
+        "load_percent": 40,
+        "capacity_mln_tons": 120,
+        "status": "Normal"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            30.3351,
+            59.9343
+          ],
+          [
+            34.39,
+            61.79
+          ]
+        ]
+      },
+      "properties": {
+        "id": 5,
+        "origin": "Санкт-Петербург-Главный",
+        "destination": "Петрозаводск-Главный",
+        "distance_km": 301.2,
+        "trains_per_day": 9,
+        "load_percent": 47,
+        "capacity_mln_tons": 120,
+        "status": "Normal"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            30.3351,
+            59.9343
+          ],
+          [
+            35.9119,
+            56.8596
+          ]
+        ]
+      },
+      "properties": {
+        "id": 6,
+        "origin": "Санкт-Петербург-Главный",
+        "destination": "Тверь-Главный",
+        "distance_km": 471.4,
+        "trains_per_day": 17,
+        "load_percent": 53,
+        "capacity_mln_tons": 50,
+        "status": "Normal"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            30.3351,
+            59.9343
+          ],
+          [
+            39.8915,
+            59.2205
+          ]
+        ]
+      },
+      "properties": {
+        "id": 7,
+        "origin": "Санкт-Петербург-Главный",
+        "destination": "Вологда-Главный",
+        "distance_km": 543.4,
+        "trains_per_day": 4,
+        "load_percent": 63,
+        "capacity_mln_tons": 120,
+        "status": "Normal"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            30.3351,
+            59.9343
+          ],
+          [
+            39.8845,
+            57.6261
+          ]
+        ]
+      },
+      "properties": {
+        "id": 8,
+        "origin": "Санкт-Петербург-Главный",
+        "destination": "Ярославль-Главный",
+        "distance_km": 606.5,
+        "trains_per_day": 16,
+        "load_percent": 71,
+        "capacity_mln_tons": 80,
+        "status": "Normal"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            39.1899,
+            51.6703
+          ],
+          [
+            39.5992,
+            52.6088
+          ]
+        ]
+      },
+      "properties": {
+        "id": 9,
+        "origin": "Воронеж-Главный",
+        "destination": "Липецк-Главный",
+        "distance_km": 108.0,
+        "trains_per_day": 15,
+        "load_percent": 88,
+        "capacity_mln_tons": 100,
+        "status": "Critical"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            39.1899,
+            51.6703
+          ],
+          [
+            36.19,
+            51.724
+          ]
+        ]
+      },
+      "properties": {
+        "id": 10,
+        "origin": "Воронеж-Главный",
+        "destination": "Курск-Главный",
+        "distance_km": 206.8,
+        "trains_per_day": 20,
+        "load_percent": 73,
+        "capacity_mln_tons": 120,
+        "status": "Normal"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            39.1899,
+            51.6703
+          ],
+          [
+            37.6172,
+            54.1931
+          ]
+        ]
+      },
+      "properties": {
+        "id": 11,
+        "origin": "Воронеж-Главный",
+        "destination": "Тула-Главный",
+        "distance_km": 299.7,
+        "trains_per_day": 8,
+        "load_percent": 65,
+        "capacity_mln_tons": 120,
+        "status": "Normal"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            39.1899,
+            51.6703
+          ],
+          [
+            39.7126,
+            54.6095
+          ]
+        ]
+      },
+      "properties": {
+        "id": 12,
+        "origin": "Воронеж-Главный",
+        "destination": "Рязань-Главный",
+        "distance_km": 328.7,
+        "trains_per_day": 14,
+        "load_percent": 62,
+        "capacity_mln_tons": 50,
+        "status": "Normal"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            39.8845,
+            57.6261
+          ],
+          [
+            39.8915,
+            59.2205
+          ]
+        ]
+      },
+      "properties": {
+        "id": 13,
+        "origin": "Ярославль-Главный",
+        "destination": "Вологда-Главный",
+        "distance_km": 177.3,
+        "trains_per_day": 17,
+        "load_percent": 90,
+        "capacity_mln_tons": 50,
+        "status": "Critical"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            39.8845,
+            57.6261
+          ],
+          [
+            35.9119,
+            56.8596
+          ]
+        ]
+      },
+      "properties": {
+        "id": 14,
+        "origin": "Ярославль-Главный",
+        "destination": "Тверь-Главный",
+        "distance_km": 253.7,
+        "trains_per_day": 14,
+        "load_percent": 36,
+        "capacity_mln_tons": 100,
+        "status": "Normal"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            39.8845,
+            57.6261
+          ],
+          [
+            43.9361,
+            56.2965
+          ]
+        ]
+      },
+      "properties": {
+        "id": 15,
+        "origin": "Ярославль-Главный",
+        "destination": "Нижний Новгород-Главный",
+        "distance_km": 286.6,
+        "trains_per_day": 9,
+        "load_percent": 58,
+        "capacity_mln_tons": 50,
+        "status": "Normal"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            39.7126,
+            54.6095
+          ],
+          [
+            37.6172,
+            54.1931
+          ]
+        ]
+      },
+      "properties": {
+        "id": 16,
+        "origin": "Рязань-Главный",
+        "destination": "Тула-Главный",
+        "distance_km": 143.3,
+        "trains_per_day": 6,
+        "load_percent": 35,
+        "capacity_mln_tons": 50,
+        "status": "Normal"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            39.7126,
+            54.6095
+          ],
+          [
+            39.5992,
+            52.6088
+          ]
+        ]
+      },
+      "properties": {
+        "id": 17,
+        "origin": "Рязань-Главный",
+        "destination": "Липецк-Главный",
+        "distance_km": 222.6,
+        "trains_per_day": 2,
+        "load_percent": 61,
+        "capacity_mln_tons": 80,
+        "status": "Normal"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            39.7126,
+            54.6095
+          ],
+          [
+            43.9361,
+            56.2965
+          ]
+        ]
+      },
+      "properties": {
+        "id": 18,
+        "origin": "Рязань-Главный",
+        "destination": "Нижний Новгород-Главный",
+        "distance_km": 325.7,
+        "trains_per_day": 5,
+        "load_percent": 32,
+        "capacity_mln_tons": 80,
+        "status": "Normal"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            37.6172,
+            54.1931
+          ],
+          [
+            39.5992,
+            52.6088
+          ]
+        ]
+      },
+      "properties": {
+        "id": 19,
+        "origin": "Тула-Главный",
+        "destination": "Липецк-Главный",
+        "distance_km": 219.8,
+        "trains_per_day": 15,
+        "load_percent": 60,
+        "capacity_mln_tons": 80,
+        "status": "Normal"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            37.6172,
+            54.1931
+          ],
+          [
+            34.3643,
+            53.2709
+          ]
+        ]
+      },
+      "properties": {
+        "id": 20,
+        "origin": "Тула-Главный",
+        "destination": "Брянск-Главный",
+        "distance_km": 237.2,
+        "trains_per_day": 9,
+        "load_percent": 90,
+        "capacity_mln_tons": 50,
+        "status": "Critical"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            39.5992,
+            52.6088
+          ],
+          [
+            36.19,
+            51.724
+          ]
+        ]
+      },
+      "properties": {
+        "id": 21,
+        "origin": "Липецк-Главный",
+        "destination": "Курск-Главный",
+        "distance_km": 252.4,
+        "trains_per_day": 7,
+        "load_percent": 57,
+        "capacity_mln_tons": 120,
+        "status": "Normal"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            34.3643,
+            53.2709
+          ],
+          [
+            36.19,
+            51.724
+          ]
+        ]
+      },
+      "properties": {
+        "id": 22,
+        "origin": "Брянск-Главный",
+        "destination": "Курск-Главный",
+        "distance_km": 211.8,
+        "trains_per_day": 18,
+        "load_percent": 62,
+        "capacity_mln_tons": 100,
+        "status": "Normal"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            43.9361,
+            56.2965
+          ],
+          [
+            49.1118,
+            55.794
+          ]
+        ]
+      },
+      "properties": {
+        "id": 23,
+        "origin": "Нижний Новгород-Главный",
+        "destination": "Казань-Главный",
+        "distance_km": 326.2,
+        "trains_per_day": 16,
+        "load_percent": 51,
+        "capacity_mln_tons": 50,
+        "status": "Normal"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            43.9361,
+            56.2965
+          ],
+          [
+            45.0229,
+            53.195
+          ]
+        ]
+      },
+      "properties": {
+        "id": 24,
+        "origin": "Нижний Новгород-Главный",
+        "destination": "Пенза-Главный",
+        "distance_km": 351.8,
+        "trains_per_day": 3,
+        "load_percent": 50,
+        "capacity_mln_tons": 100,
+        "status": "Normal"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            49.1118,
+            55.794
+          ],
+          [
+            48.4031,
+            54.3142
+          ]
+        ]
+      },
+      "properties": {
+        "id": 25,
+        "origin": "Казань-Главный",
+        "destination": "Ульяновск-Главный",
+        "distance_km": 170.6,
+        "trains_per_day": 19,
+        "load_percent": 43,
+        "capacity_mln_tons": 50,
+        "status": "Normal"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            49.1118,
+            55.794
+          ],
+          [
+            53.2324,
+            56.8619
+          ]
+        ]
+      },
+      "properties": {
+        "id": 26,
+        "origin": "Казань-Главный",
+        "destination": "Ижевск-Главный",
+        "distance_km": 280.4,
+        "trains_per_day": 9,
+        "load_percent": 69,
+        "capacity_mln_tons": 120,
+        "status": "Normal"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            49.1118,
+            55.794
+          ],
+          [
+            50.1018,
+            53.1955
+          ]
+        ]
+      },
+      "properties": {
+        "id": 27,
+        "origin": "Казань-Главный",
+        "destination": "Самара-Главный",
+        "distance_km": 295.9,
+        "trains_per_day": 5,
+        "load_percent": 80,
+        "capacity_mln_tons": 80,
+        "status": "Normal"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            50.1018,
+            53.1955
+          ],
+          [
+            48.4031,
+            54.3142
+          ]
+        ]
+      },
+      "properties": {
+        "id": 28,
+        "origin": "Самара-Главный",
+        "destination": "Ульяновск-Главный",
+        "distance_km": 167.2,
+        "trains_per_day": 16,
+        "load_percent": 39,
+        "capacity_mln_tons": 80,
+        "status": "Normal"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            50.1018,
+            53.1955
+          ],
+          [
+            46.0345,
+            51.543
+          ]
+        ]
+      },
+      "properties": {
+        "id": 29,
+        "origin": "Самара-Главный",
+        "destination": "Саратов-Главный",
+        "distance_km": 331.6,
+        "trains_per_day": 6,
+        "load_percent": 43,
+        "capacity_mln_tons": 100,
+        "status": "Normal"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            50.1018,
+            53.1955
+          ],
+          [
+            45.0229,
+            53.195
+          ]
+        ]
+      },
+      "properties": {
+        "id": 30,
+        "origin": "Самара-Главный",
+        "destination": "Пенза-Главный",
+        "distance_km": 338.3,
+        "trains_per_day": 16,
+        "load_percent": 45,
+        "capacity_mln_tons": 50,
+        "status": "Normal"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            55.9721,
+            54.7388
+          ],
+          [
+            58.9725,
+            53.4
+          ]
+        ]
+      },
+      "properties": {
+        "id": 31,
+        "origin": "Уфа-Главный",
+        "destination": "Магнитогорск-Главный",
+        "distance_km": 245.9,
+        "trains_per_day": 18,
+        "load_percent": 74,
+        "capacity_mln_tons": 120,
+        "status": "Normal"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            55.9721,
+            54.7388
+          ],
+          [
+            53.2324,
+            56.8619
+          ]
+        ]
+      },
+      "properties": {
+        "id": 32,
+        "origin": "Уфа-Главный",
+        "destination": "Ижевск-Главный",
+        "distance_km": 291.6,
+        "trains_per_day": 19,
+        "load_percent": 77,
+        "capacity_mln_tons": 50,
+        "status": "Normal"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            55.9721,
+            54.7388
+          ],
+          [
+            55.1005,
+            51.7666
+          ]
+        ]
+      },
+      "properties": {
+        "id": 33,
+        "origin": "Уфа-Главный",
+        "destination": "Оренбург-Главный",
+        "distance_km": 335.5,
+        "trains_per_day": 12,
+        "load_percent": 94,
+        "capacity_mln_tons": 100,
+        "status": "Critical"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            55.9721,
+            54.7388
+          ],
+          [
+            61.4025,
+            55.16
+          ]
+        ]
+      },
+      "properties": {
+        "id": 34,
+        "origin": "Уфа-Главный",
+        "destination": "Челябинск-Главный",
+        "distance_km": 349.8,
+        "trains_per_day": 16,
+        "load_percent": 31,
+        "capacity_mln_tons": 120,
+        "status": "Normal"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            56.2377,
+            58.0048
+          ],
+          [
+            53.2324,
+            56.8619
+          ]
+        ]
+      },
+      "properties": {
+        "id": 35,
+        "origin": "Пермь-Главный",
+        "destination": "Ижевск-Главный",
+        "distance_km": 220.2,
+        "trains_per_day": 18,
+        "load_percent": 92,
+        "capacity_mln_tons": 50,
+        "status": "Critical"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            56.2377,
+            58.0048
+          ],
+          [
+            60.6057,
+            56.8389
+          ]
+        ]
+      },
+      "properties": {
+        "id": 36,
+        "origin": "Пермь-Главный",
+        "destination": "Екатеринбург-Главный",
+        "distance_km": 291.8,
+        "trains_per_day": 15,
+        "load_percent": 85,
+        "capacity_mln_tons": 100,
+        "status": "Normal"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            56.2377,
+            58.0048
+          ],
+          [
+            61.4025,
+            55.16
+          ]
+        ]
+      },
+      "properties": {
+        "id": 37,
+        "origin": "Пермь-Главный",
+        "destination": "Челябинск-Главный",
+        "distance_km": 447.1,
+        "trains_per_day": 19,
+        "load_percent": 88,
+        "capacity_mln_tons": 80,
+        "status": "Critical"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            46.0345,
+            51.543
+          ],
+          [
+            45.0229,
+            53.195
+          ]
+        ]
+      },
+      "properties": {
+        "id": 38,
+        "origin": "Саратов-Главный",
+        "destination": "Пенза-Главный",
+        "distance_km": 196.1,
+        "trains_per_day": 16,
+        "load_percent": 85,
+        "capacity_mln_tons": 80,
+        "status": "Normal"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            46.0345,
+            51.543
+          ],
+          [
+            44.5169,
+            48.7072
+          ]
+        ]
+      },
+      "properties": {
+        "id": 39,
+        "origin": "Саратов-Главный",
+        "destination": "Волгоград-Главный",
+        "distance_km": 333.4,
+        "trains_per_day": 7,
+        "load_percent": 64,
+        "capacity_mln_tons": 120,
+        "status": "Normal"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            46.0345,
+            51.543
+          ],
+          [
+            48.4031,
+            54.3142
+          ]
+        ]
+      },
+      "properties": {
+        "id": 40,
+        "origin": "Саратов-Главный",
+        "destination": "Ульяновск-Главный",
+        "distance_km": 346.6,
+        "trains_per_day": 17,
+        "load_percent": 89,
+        "capacity_mln_tons": 120,
+        "status": "Critical"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            53.2324,
+            56.8619
+          ],
+          [
+            48.4031,
+            54.3142
+          ]
+        ]
+      },
+      "properties": {
+        "id": 41,
+        "origin": "Ижевск-Главный",
+        "destination": "Ульяновск-Главный",
+        "distance_km": 415.0,
+        "trains_per_day": 16,
+        "load_percent": 64,
+        "capacity_mln_tons": 100,
+        "status": "Normal"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            48.4031,
+            54.3142
+          ],
+          [
+            45.0229,
+            53.195
+          ]
+        ]
+      },
+      "properties": {
+        "id": 42,
+        "origin": "Ульяновск-Главный",
+        "destination": "Пенза-Главный",
+        "distance_km": 254.7,
+        "trains_per_day": 10,
+        "load_percent": 61,
+        "capacity_mln_tons": 50,
+        "status": "Normal"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            55.1005,
+            51.7666
+          ],
+          [
+            58.9725,
+            53.4
+          ]
+        ]
+      },
+      "properties": {
+        "id": 43,
+        "origin": "Оренбург-Главный",
+        "destination": "Магнитогорск-Главный",
+        "distance_km": 318.4,
+        "trains_per_day": 9,
+        "load_percent": 65,
+        "capacity_mln_tons": 120,
+        "status": "Normal"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            39.7015,
+            47.2357
+          ],
+          [
+            38.9753,
+            45.0354
+          ]
+        ]
+      },
+      "properties": {
+        "id": 44,
+        "origin": "Ростов-на-Дону-Главный",
+        "destination": "Краснодар-Главный",
+        "distance_km": 251.0,
+        "trains_per_day": 10,
+        "load_percent": 61,
+        "capacity_mln_tons": 120,
+        "status": "Normal"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            39.7015,
+            47.2357
+          ],
+          [
+            41.9691,
+            45.0445
+          ]
+        ]
+      },
+      "properties": {
+        "id": 45,
+        "origin": "Ростов-на-Дону-Главный",
+        "destination": "Ставрополь-Главный",
+        "distance_km": 299.8,
+        "trains_per_day": 18,
+        "load_percent": 78,
+        "capacity_mln_tons": 100,
+        "status": "Normal"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            39.7015,
+            47.2357
+          ],
+          [
+            44.5169,
+            48.7072
+          ]
+        ]
+      },
+      "properties": {
+        "id": 46,
+        "origin": "Ростов-на-Дону-Главный",
+        "destination": "Волгоград-Главный",
+        "distance_km": 394.0,
+        "trains_per_day": 17,
+        "load_percent": 33,
+        "capacity_mln_tons": 120,
+        "status": "Normal"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            39.7015,
+            47.2357
+          ],
+          [
+            39.7231,
+            43.5855
+          ]
+        ]
+      },
+      "properties": {
+        "id": 47,
+        "origin": "Ростов-на-Дону-Главный",
+        "destination": "Сочи-Главный",
+        "distance_km": 405.9,
+        "trains_per_day": 9,
+        "load_percent": 71,
+        "capacity_mln_tons": 80,
+        "status": "Normal"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            38.9753,
+            45.0354
+          ],
+          [
+            39.7231,
+            43.5855
+          ]
+        ]
+      },
+      "properties": {
+        "id": 48,
+        "origin": "Краснодар-Главный",
+        "destination": "Сочи-Главный",
+        "distance_km": 171.8,
+        "trains_per_day": 10,
+        "load_percent": 92,
+        "capacity_mln_tons": 80,
+        "status": "Critical"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            38.9753,
+            45.0354
+          ],
+          [
+            41.9691,
+            45.0445
+          ]
+        ]
+      },
+      "properties": {
+        "id": 49,
+        "origin": "Краснодар-Главный",
+        "destination": "Ставрополь-Главный",
+        "distance_km": 235.2,
+        "trains_per_day": 16,
+        "load_percent": 75,
+        "capacity_mln_tons": 100,
+        "status": "Normal"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            38.9753,
+            45.0354
+          ],
+          [
+            34.1108,
+            44.9572
+          ]
+        ]
+      },
+      "properties": {
+        "id": 50,
+        "origin": "Краснодар-Главный",
+        "destination": "Симферополь-Главный",
+        "distance_km": 382.5,
+        "trains_per_day": 4,
+        "load_percent": 73,
+        "capacity_mln_tons": 100,
+        "status": "Normal"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            44.5169,
+            48.7072
+          ],
+          [
+            48.0336,
+            46.3479
+          ]
+        ]
+      },
+      "properties": {
+        "id": 51,
+        "origin": "Волгоград-Главный",
+        "destination": "Астрахань-Главный",
+        "distance_km": 372.1,
+        "trains_per_day": 11,
+        "load_percent": 65,
+        "capacity_mln_tons": 50,
+        "status": "Normal"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            44.5169,
+            48.7072
+          ],
+          [
+            41.9691,
+            45.0445
+          ]
+        ]
+      },
+      "properties": {
+        "id": 52,
+        "origin": "Волгоград-Главный",
+        "destination": "Ставрополь-Главный",
+        "distance_km": 450.9,
+        "trains_per_day": 9,
+        "load_percent": 54,
+        "capacity_mln_tons": 50,
+        "status": "Normal"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            39.7231,
+            43.5855
+          ],
+          [
+            41.9691,
+            45.0445
+          ]
+        ]
+      },
+      "properties": {
+        "id": 53,
+        "origin": "Сочи-Главный",
+        "destination": "Ставрополь-Главный",
+        "distance_km": 241.3,
+        "trains_per_day": 10,
+        "load_percent": 60,
+        "capacity_mln_tons": 120,
+        "status": "Normal"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            39.7231,
+            43.5855
+          ],
+          [
+            34.1108,
+            44.9572
+          ]
+        ]
+      },
+      "properties": {
+        "id": 54,
+        "origin": "Сочи-Главный",
+        "destination": "Симферополь-Главный",
+        "distance_km": 472.0,
+        "trains_per_day": 12,
+        "load_percent": 92,
+        "capacity_mln_tons": 80,
+        "status": "Critical"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            48.0336,
+            46.3479
+          ],
+          [
+            47.5046,
+            42.9831
+          ]
+        ]
+      },
+      "properties": {
+        "id": 55,
+        "origin": "Астрахань-Главный",
+        "destination": "Махачкала-Главный",
+        "distance_km": 376.5,
+        "trains_per_day": 12,
+        "load_percent": 90,
+        "capacity_mln_tons": 120,
+        "status": "Critical"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            48.0336,
+            46.3479
+          ],
+          [
+            41.9691,
+            45.0445
+          ]
+        ]
+      },
+      "properties": {
+        "id": 56,
+        "origin": "Астрахань-Главный",
+        "destination": "Ставрополь-Главный",
+        "distance_km": 492.6,
+        "trains_per_day": 19,
+        "load_percent": 87,
+        "capacity_mln_tons": 50,
+        "status": "Critical"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            33.5254,
+            44.6166
+          ],
+          [
+            34.1108,
+            44.9572
+          ]
+        ]
+      },
+      "properties": {
+        "id": 57,
+        "origin": "Севастополь-Главный",
+        "destination": "Симферополь-Главный",
+        "distance_km": 59.7,
+        "trains_per_day": 4,
+        "load_percent": 41,
+        "capacity_mln_tons": 100,
+        "status": "Normal"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            47.5046,
+            42.9831
+          ],
+          [
+            41.9691,
+            45.0445
+          ]
+        ]
+      },
+      "properties": {
+        "id": 58,
+        "origin": "Махачкала-Главный",
+        "destination": "Ставрополь-Главный",
+        "distance_km": 498.3,
+        "trains_per_day": 6,
+        "load_percent": 58,
+        "capacity_mln_tons": 120,
+        "status": "Normal"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            60.6057,
+            56.8389
+          ],
+          [
+            61.4025,
+            55.16
+          ]
+        ]
+      },
+      "properties": {
+        "id": 59,
+        "origin": "Екатеринбург-Главный",
+        "destination": "Челябинск-Главный",
+        "distance_km": 193.1,
+        "trains_per_day": 6,
+        "load_percent": 61,
+        "capacity_mln_tons": 100,
+        "status": "Normal"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            60.6057,
+            56.8389
+          ],
+          [
+            65.525,
+            57.1613
+          ]
+        ]
+      },
+      "properties": {
+        "id": 60,
+        "origin": "Екатеринбург-Главный",
+        "destination": "Тюмень-Главный",
+        "distance_km": 300.0,
+        "trains_per_day": 9,
+        "load_percent": 77,
+        "capacity_mln_tons": 120,
+        "status": "Normal"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            61.4025,
+            55.16
+          ],
+          [
+            58.9725,
+            53.4
+          ]
+        ]
+      },
+      "properties": {
+        "id": 61,
+        "origin": "Челябинск-Главный",
+        "destination": "Магнитогорск-Главный",
+        "distance_km": 251.3,
+        "trains_per_day": 14,
+        "load_percent": 74,
+        "capacity_mln_tons": 120,
+        "status": "Normal"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            61.4025,
+            55.16
+          ],
+          [
+            65.525,
+            57.1613
+          ]
+        ]
+      },
+      "properties": {
+        "id": 62,
+        "origin": "Челябинск-Главный",
+        "destination": "Тюмень-Главный",
+        "distance_km": 338.5,
+        "trains_per_day": 6,
+        "load_percent": 72,
+        "capacity_mln_tons": 100,
+        "status": "Normal"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            65.525,
+            57.1613
+          ],
+          [
+            73.3242,
+            54.9885
+          ]
+        ]
+      },
+      "properties": {
+        "id": 63,
+        "origin": "Тюмень-Главный",
+        "destination": "Омск-Главный",
+        "distance_km": 540.5,
+        "trains_per_day": 8,
+        "load_percent": 88,
+        "capacity_mln_tons": 100,
+        "status": "Critical"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            73.3964,
+            61.254
+          ],
+          [
+            73.3242,
+            54.9885
+          ]
+        ]
+      },
+      "properties": {
+        "id": 64,
+        "origin": "Сургут-Главный",
+        "destination": "Омск-Главный",
+        "distance_km": 696.7,
+        "trains_per_day": 4,
+        "load_percent": 69,
+        "capacity_mln_tons": 100,
+        "status": "Normal"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            73.3964,
+            61.254
+          ],
+          [
+            84.9924,
+            56.501
+          ]
+        ]
+      },
+      "properties": {
+        "id": 65,
+        "origin": "Сургут-Главный",
+        "destination": "Томск-Главный",
+        "distance_km": 848.5,
+        "trains_per_day": 15,
+        "load_percent": 59,
+        "capacity_mln_tons": 50,
+        "status": "Normal"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            82.9357,
+            55.0084
+          ],
+          [
+            83.7836,
+            53.3498
+          ]
+        ]
+      },
+      "properties": {
+        "id": 66,
+        "origin": "Новосибирск-Главный",
+        "destination": "Барнаул-Главный",
+        "distance_km": 192.5,
+        "trains_per_day": 15,
+        "load_percent": 54,
+        "capacity_mln_tons": 100,
+        "status": "Normal"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            82.9357,
+            55.0084
+          ],
+          [
+            86.0872,
+            55.3551
+          ]
+        ]
+      },
+      "properties": {
+        "id": 67,
+        "origin": "Новосибирск-Главный",
+        "destination": "Кемерово-Главный",
+        "distance_km": 203.7,
+        "trains_per_day": 12,
+        "load_percent": 45,
+        "capacity_mln_tons": 80,
+        "status": "Normal"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            82.9357,
+            55.0084
+          ],
+          [
+            84.9924,
+            56.501
+          ]
+        ]
+      },
+      "properties": {
+        "id": 68,
+        "origin": "Новосибирск-Главный",
+        "destination": "Томск-Главный",
+        "distance_km": 210.0,
+        "trains_per_day": 19,
+        "load_percent": 54,
+        "capacity_mln_tons": 80,
+        "status": "Normal"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            82.9357,
+            55.0084
+          ],
+          [
+            87.1216,
+            53.7596
+          ]
+        ]
+      },
+      "properties": {
+        "id": 69,
+        "origin": "Новосибирск-Главный",
+        "destination": "Новокузнецк-Главный",
+        "distance_km": 304.5,
+        "trains_per_day": 16,
+        "load_percent": 91,
+        "capacity_mln_tons": 100,
+        "status": "Critical"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            73.3242,
+            54.9885
+          ],
+          [
+            83.7836,
+            53.3498
+          ]
+        ]
+      },
+      "properties": {
+        "id": 70,
+        "origin": "Омск-Главный",
+        "destination": "Барнаул-Главный",
+        "distance_km": 704.0,
+        "trains_per_day": 15,
+        "load_percent": 66,
+        "capacity_mln_tons": 50,
+        "status": "Normal"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            92.8932,
+            56.0153
+          ],
+          [
+            86.0872,
+            55.3551
+          ]
+        ]
+      },
+      "properties": {
+        "id": 71,
+        "origin": "Красноярск-Главный",
+        "destination": "Кемерово-Главный",
+        "distance_km": 432.7,
+        "trains_per_day": 3,
+        "load_percent": 54,
+        "capacity_mln_tons": 100,
+        "status": "Normal"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            92.8932,
+            56.0153
+          ],
+          [
+            87.1216,
+            53.7596
+          ]
+        ]
+      },
+      "properties": {
+        "id": 72,
+        "origin": "Красноярск-Главный",
+        "destination": "Новокузнецк-Главный",
+        "distance_km": 446.1,
+        "trains_per_day": 8,
+        "load_percent": 59,
+        "capacity_mln_tons": 100,
+        "status": "Normal"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            92.8932,
+            56.0153
+          ],
+          [
+            84.9924,
+            56.501
+          ]
+        ]
+      },
+      "properties": {
+        "id": 73,
+        "origin": "Красноярск-Главный",
+        "destination": "Томск-Главный",
+        "distance_km": 490.7,
+        "trains_per_day": 15,
+        "load_percent": 52,
+        "capacity_mln_tons": 100,
+        "status": "Normal"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            83.7836,
+            53.3498
+          ],
+          [
+            87.1216,
+            53.7596
+          ]
+        ]
+      },
+      "properties": {
+        "id": 74,
+        "origin": "Барнаул-Главный",
+        "destination": "Новокузнецк-Главный",
+        "distance_km": 225.1,
+        "trains_per_day": 14,
+        "load_percent": 31,
+        "capacity_mln_tons": 80,
+        "status": "Normal"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            83.7836,
+            53.3498
+          ],
+          [
+            86.0872,
+            55.3551
+          ]
+        ]
+      },
+      "properties": {
+        "id": 75,
+        "origin": "Барнаул-Главный",
+        "destination": "Кемерово-Главный",
+        "distance_km": 268.3,
+        "trains_per_day": 20,
+        "load_percent": 65,
+        "capacity_mln_tons": 50,
+        "status": "Normal"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            83.7836,
+            53.3498
+          ],
+          [
+            84.9924,
+            56.501
+          ]
+        ]
+      },
+      "properties": {
+        "id": 76,
+        "origin": "Барнаул-Главный",
+        "destination": "Томск-Главный",
+        "distance_km": 358.8,
+        "trains_per_day": 2,
+        "load_percent": 36,
+        "capacity_mln_tons": 100,
+        "status": "Normal"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            104.2807,
+            52.2869
+          ],
+          [
+            107.5845,
+            51.8348
+          ]
+        ]
+      },
+      "properties": {
+        "id": 77,
+        "origin": "Иркутск-Главный",
+        "destination": "Улан-Удэ-Главный",
+        "distance_km": 231.4,
+        "trains_per_day": 20,
+        "load_percent": 46,
+        "capacity_mln_tons": 120,
+        "status": "Normal"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            104.2807,
+            52.2869
+          ],
+          [
+            113.5009,
+            52.0317
+          ]
+        ]
+      },
+      "properties": {
+        "id": 78,
+        "origin": "Иркутск-Главный",
+        "destination": "Чита-Главный",
+        "distance_km": 629.2,
+        "trains_per_day": 14,
+        "load_percent": 43,
+        "capacity_mln_tons": 50,
+        "status": "Normal"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            104.2807,
+            52.2869
+          ],
+          [
+            87.1216,
+            53.7596
+          ]
+        ]
+      },
+      "properties": {
+        "id": 79,
+        "origin": "Иркутск-Главный",
+        "destination": "Новокузнецк-Главный",
+        "distance_km": 1156.4,
+        "trains_per_day": 17,
+        "load_percent": 66,
+        "capacity_mln_tons": 120,
+        "status": "Normal"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            84.9924,
+            56.501
+          ],
+          [
+            86.0872,
+            55.3551
+          ]
+        ]
+      },
+      "properties": {
+        "id": 80,
+        "origin": "Томск-Главный",
+        "destination": "Кемерово-Главный",
+        "distance_km": 144.5,
+        "trains_per_day": 2,
+        "load_percent": 91,
+        "capacity_mln_tons": 120,
+        "status": "Critical"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            84.9924,
+            56.501
+          ],
+          [
+            87.1216,
+            53.7596
+          ]
+        ]
+      },
+      "properties": {
+        "id": 81,
+        "origin": "Томск-Главный",
+        "destination": "Новокузнецк-Главный",
+        "distance_km": 333.5,
+        "trains_per_day": 13,
+        "load_percent": 73,
+        "capacity_mln_tons": 80,
+        "status": "Normal"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            86.0872,
+            55.3551
+          ],
+          [
+            87.1216,
+            53.7596
+          ]
+        ]
+      },
+      "properties": {
+        "id": 82,
+        "origin": "Кемерово-Главный",
+        "destination": "Новокузнецк-Главный",
+        "distance_km": 189.5,
+        "trains_per_day": 11,
+        "load_percent": 36,
+        "capacity_mln_tons": 100,
+        "status": "Normal"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            135.0721,
+            48.4814
+          ],
+          [
+            131.8869,
+            43.1198
+          ]
+        ]
+      },
+      "properties": {
+        "id": 83,
+        "origin": "Хабаровск-Главный",
+        "destination": "Владивосток-Главный",
+        "distance_km": 645.1,
+        "trains_per_day": 14,
+        "load_percent": 91,
+        "capacity_mln_tons": 50,
+        "status": "Critical"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            135.0721,
+            48.4814
+          ],
+          [
+            129.7422,
+            62.0397
+          ]
+        ]
+      },
+      "properties": {
+        "id": 84,
+        "origin": "Хабаровск-Главный",
+        "destination": "Якутск-Главный",
+        "distance_km": 1543.7,
+        "trains_per_day": 15,
+        "load_percent": 38,
+        "capacity_mln_tons": 120,
+        "status": "Normal"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            135.0721,
+            48.4814
+          ],
+          [
+            113.5009,
+            52.0317
+          ]
+        ]
+      },
+      "properties": {
+        "id": 85,
+        "origin": "Хабаровск-Главный",
+        "destination": "Чита-Главный",
+        "distance_km": 1577.1,
+        "trains_per_day": 19,
+        "load_percent": 92,
+        "capacity_mln_tons": 50,
+        "status": "Critical"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            135.0721,
+            48.4814
+          ],
+          [
+            107.5845,
+            51.8348
+          ]
+        ]
+      },
+      "properties": {
+        "id": 86,
+        "origin": "Хабаровск-Главный",
+        "destination": "Улан-Удэ-Главный",
+        "distance_km": 1981.0,
+        "trains_per_day": 19,
+        "load_percent": 36,
+        "capacity_mln_tons": 80,
+        "status": "Normal"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            131.8869,
+            43.1198
+          ],
+          [
+            113.5009,
+            52.0317
+          ]
+        ]
+      },
+      "properties": {
+        "id": 87,
+        "origin": "Владивосток-Главный",
+        "destination": "Чита-Главный",
+        "distance_km": 1690.5,
+        "trains_per_day": 9,
+        "load_percent": 49,
+        "capacity_mln_tons": 100,
+        "status": "Normal"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            131.8869,
+            43.1198
+          ],
+          [
+            107.5845,
+            51.8348
+          ]
+        ]
+      },
+      "properties": {
+        "id": 88,
+        "origin": "Владивосток-Главный",
+        "destination": "Улан-Удэ-Главный",
+        "distance_km": 2053.9,
+        "trains_per_day": 17,
+        "load_percent": 40,
+        "capacity_mln_tons": 80,
+        "status": "Normal"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            131.8869,
+            43.1198
+          ],
+          [
+            129.7422,
+            62.0397
+          ]
+        ]
+      },
+      "properties": {
+        "id": 89,
+        "origin": "Владивосток-Главный",
+        "destination": "Якутск-Главный",
+        "distance_km": 2108.5,
+        "trains_per_day": 9,
+        "load_percent": 45,
+        "capacity_mln_tons": 120,
+        "status": "Normal"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            107.5845,
+            51.8348
+          ],
+          [
+            113.5009,
+            52.0317
+          ]
+        ]
+      },
+      "properties": {
+        "id": 90,
+        "origin": "Улан-Удэ-Главный",
+        "destination": "Чита-Главный",
+        "distance_km": 406.1,
+        "trains_per_day": 10,
+        "load_percent": 58,
+        "capacity_mln_tons": 120,
+        "status": "Normal"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            113.5009,
+            52.0317
+          ],
+          [
+            129.7422,
+            62.0397
+          ]
+        ]
+      },
+      "properties": {
+        "id": 91,
+        "origin": "Чита-Главный",
+        "destination": "Якутск-Главный",
+        "distance_km": 1476.3,
+        "trains_per_day": 15,
+        "load_percent": 87,
+        "capacity_mln_tons": 120,
+        "status": "Critical"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            40.5602,
+            64.5473
+          ],
+          [
+            34.39,
+            61.79
+          ]
+        ]
+      },
+      "properties": {
+        "id": 92,
+        "origin": "Архангельск-Главный",
+        "destination": "Петрозаводск-Главный",
+        "distance_km": 435.4,
+        "trains_per_day": 17,
+        "load_percent": 68,
+        "capacity_mln_tons": 120,
+        "status": "Normal"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            40.5602,
+            64.5473
+          ],
+          [
+            33.0833,
+            68.9665
+          ]
+        ]
+      },
+      "properties": {
+        "id": 93,
+        "origin": "Архангельск-Главный",
+        "destination": "Мурманск-Главный",
+        "distance_km": 590.0,
+        "trains_per_day": 2,
+        "load_percent": 69,
+        "capacity_mln_tons": 50,
+        "status": "Normal"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            40.5602,
+            64.5473
+          ],
+          [
+            39.8915,
+            59.2205
+          ]
+        ]
+      },
+      "properties": {
+        "id": 94,
+        "origin": "Архангельск-Главный",
+        "destination": "Вологда-Главный",
+        "distance_km": 593.3,
+        "trains_per_day": 14,
+        "load_percent": 42,
+        "capacity_mln_tons": 80,
+        "status": "Normal"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            33.0833,
+            68.9665
+          ],
+          [
+            34.39,
+            61.79
+          ]
+        ]
+      },
+      "properties": {
+        "id": 95,
+        "origin": "Мурманск-Главный",
+        "destination": "Петрозаводск-Главный",
+        "distance_km": 800.2,
+        "trains_per_day": 12,
+        "load_percent": 57,
+        "capacity_mln_tons": 100,
+        "status": "Normal"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            33.0833,
+            68.9665
+          ],
+          [
+            39.8915,
+            59.2205
+          ]
+        ]
+      },
+      "properties": {
+        "id": 96,
+        "origin": "Мурманск-Главный",
+        "destination": "Вологда-Главный",
+        "distance_km": 1131.4,
+        "trains_per_day": 14,
+        "load_percent": 40,
+        "capacity_mln_tons": 80,
+        "status": "Normal"
+      }
+    }
+  ]
+}

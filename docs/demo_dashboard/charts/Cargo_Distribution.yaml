@@ -1,0 +1,41 @@
+slice_name: Cargo Types
+viz_type: pie
+params:
+  adhoc_filters: []
+  color_scheme: supersetColors
+  datasource: 99123c8a-x123-4567-89ab-cdef01234567
+  donut: true
+  groupby:
+  - cargo_type
+  innerRadius: 50
+  labels_outside: true
+  metric:
+    aggregate: SUM
+    column:
+      column_name: volume_mln_tons
+      description: null
+      expression: null
+      filterable: true
+      groupby: true
+      id: 123
+      is_dttm: false
+      optionName: _col_volume_mln_tons
+      python_date_format: null
+      type: FLOAT
+      verbose_name: null
+    expressionType: SIMPLE
+    hasCustomLabel: false
+    isNew: false
+    label: SUM(volume_mln_tons)
+    optionName: metric_8274123
+    sqlExpression: null
+  number_format: SMART_NUMBER
+  outerRadius: 70
+  pie_label_type: key_percent
+  show_labels: true
+  show_legend: true
+  viz_type: pie
+cache_timeout: null
+uuid: 33445566-7788-9900-1122-ccddeeff0011
+version: 1.0.0
+dataset_uuid: 99123c8a-x123-4567-89ab-cdef01234567

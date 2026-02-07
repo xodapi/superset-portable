@@ -7,12 +7,16 @@ mod config;
 mod cache;
 mod demo_data;
 mod docs_server;
+mod gateway;
 mod health_check;
+mod launcher_ui;
+mod lightdocs;
 mod packer;
 mod python;
 mod superset;
 mod tray;
 mod validator;
+mod data_loader;
 
 use anyhow::Result;
 use clap::{Parser, Subcommand};
@@ -79,6 +83,71 @@ enum Commands {
     Validate,
     /// Import RZD demo data into examples.db
     ImportDemo,
+    /// Manage cache (stats, clear)
+    Cache {
+        #[command(subcommand)]
+        action: CacheAction,
+    },
+    /// LightDocs - Knowledge Base commands
+    Lightdocs {
+        #[command(subcommand)]
+        action: LightDocsAction,
+    },
+    /// Start unified launcher UI (web interface)
+    Launcher {
+        /// Port for launcher UI (default: 3000)
+        #[arg(short, long, default_value = "3000")]
+        port: u16,
+        /// Superset port (default: 8088)
+        #[arg(long, default_value = "8088")]
+        superset_port: u16,
+        /// LightDocs port (default: 3030)
+        #[arg(long, default_value = "3030")]
+        lightdocs_port: u16,
+    },
+    /// High-performance data loader (Excel/CSV)
+    LoadData {
+        /// Path to input file
+        file: PathBuf,
+        /// Target table name (optional, defaults to filename)
+        #[arg(short, long)]
+        table: Option<String>,
+        /// Database path (optional, defaults to examples.db)
+        #[arg(short, long)]
+        db: Option<PathBuf>,
+    },
+}
+
+#[derive(Subcommand)]
+enum CacheAction {
+    /// Show cache statistics
+    Stats,
+    /// Clear all cached data
+    Clear,
+    /// Test cache operations
+    Test,
+}
+
+#[derive(Subcommand)]
+enum LightDocsAction {
+    /// Initialize LightDocs in current directory
+    Init,
+    /// Build static site from markdown files
+    Build,
+    /// Start development server with live reload
+    Serve {
+        /// Port for server (default: 8090)
+        #[arg(short, long, default_value = "8090")]
+        port: u16,
+        /// Open browser after start
+        #[arg(short, long, default_value = "true")]
+        browser: bool,
+    },
+    /// Search documents
+    Search {
+        /// Search query
+        query: String,
+    },
 }
 
 /// Get the portable root directory (where the exe is located)
@@ -86,6 +155,17 @@ fn get_portable_root() -> Result<PathBuf> {
     let exe_path = std::env::current_exe()?;
     let root = exe_path.parent()
         .ok_or_else(|| anyhow::anyhow!("Cannot determine executable directory"))?;
+        
+    // Check if we are running in development (cargo run)
+    // The executable is in target/debug, but assets are in project root
+    if !root.join("python").exists() {
+        let cwd = std::env::current_dir()?;
+        if cwd.join("python").exists() || cwd.join("Cargo.toml").exists() {
+            info!("Development mode detected, using CWD as root: {}", cwd.display());
+            return Ok(cwd);
+        }
+    }
+    
     Ok(root.to_path_buf())
 }
 
@@ -109,14 +189,15 @@ async fn main() -> Result<()> {
     
     // Validate Python environment
     let python_env = python::PythonEnv::new(&root)?;
-    if !python_env.is_valid() {
-        error!("Python environment not found at: {}", python_env.python_path().display());
-        error!("Please run setup scripts first or ensure python/ directory exists");
-        std::process::exit(1);
-    }
+    // Python environment loaded (validation deferred to specific commands)
+    let python_env = python::PythonEnv::new(&root)?;
     
     match cli.command {
         Some(Commands::Start { port, browser, docs }) => {
+            if !python_env.is_valid() {
+                error!("Python environment not found at: {}", python_env.python_path().display());
+                std::process::exit(1);
+            }
             info!("Starting Superset on port {}...", port);
             config.port = port;
             config.open_browser = browser;
@@ -134,7 +215,7 @@ async fn main() -> Result<()> {
             if browser {
                 let url = format!("http://localhost:{}", port);
                 info!("Opening browser: {}", url);
-                open::that(&url)?;
+                let _ = open::that(&url);
             }
             
             info!("Superset is running. Press Ctrl+C to stop.");
@@ -171,6 +252,10 @@ async fn main() -> Result<()> {
             }
         }
         Some(Commands::Init { username, password }) => {
+            if !python_env.is_valid() {
+                error!("Python environment not found at: {}", python_env.python_path().display());
+                std::process::exit(1);
+            }
             info!("Initializing Superset...");
             superset::initialize(&root, &python_env, &username, &password).await?;
             info!("Superset initialized successfully!");
@@ -202,10 +287,161 @@ async fn main() -> Result<()> {
             info!("Importing RZD demo data...");
             demo_data::import_demo_data(&root)?;
         }
+        Some(Commands::Cache { action }) => {
+            match action {
+                CacheAction::Stats => {
+                    info!("📊 Cache statistics:");
+                    let cache_result = cache::Cache::open(&root);
+                    match cache_result {
+                        Ok(cache) => {
+                            let stats = cache.stats();
+                            println!("{}", stats);
+                        }
+                        Err(e) => {
+                            println!("Cache not initialized: {}", e);
+                        }
+                    }
+                }
+                CacheAction::Clear => {
+                    info!("🗑️ Clearing cache...");
+                    let cache = cache::Cache::open(&root)?;
+                    cache.clear()?;
+                    println!("✅ Cache cleared successfully!");
+                }
+                CacheAction::Test => {
+                    info!("🧪 Testing cache...");
+                    let cache = cache::Cache::open(&root)?;
+                    
+                    // Test write
+                    cache.set_string("test_key", "Привет, мир!")?;
+                    println!("✅ Write test passed");
+                    
+                    // Test read
+                    if let Some(value) = cache.get_string("test_key") {
+                        println!("✅ Read test passed: {}", value);
+                    } else {
+                        println!("❌ Read test failed");
+                    }
+                    
+                    // Clean up
+                    cache.remove("test_key")?;
+                    println!("✅ Delete test passed");
+                    
+                    let stats = cache.stats();
+                    println!("\n{}", stats);
+                }
+            }
+        }
+        Some(Commands::Lightdocs { action }) => {
+            match action {
+                LightDocsAction::Init => {
+                    info!("📚 Initializing LightDocs...");
+                    let lightdocs = lightdocs::LightDocs::new(&root)?;
+                    lightdocs.init()?;
+                    info!("✅ LightDocs initialized!");
+                    info!("📁 Documents folder: {}", root.join("knowledge").display());
+                    info!("🚀 Run: superset-launcher lightdocs serve");
+                }
+                LightDocsAction::Build => {
+                    info!("🔨 Building static site...");
+                    let lightdocs = lightdocs::LightDocs::new(&root)?;
+                    let docs = lightdocs.build()?;
+                    let public_count = docs.iter()
+                        .filter(|d| d.status == lightdocs::DocumentStatus::Public)
+                        .count();
+                    info!("✅ Built {} public documents (of {} total)", public_count, docs.len());
+                }
+                LightDocsAction::Serve { port, browser } => {
+                    info!("📚 Starting LightDocs server...");
+                    
+                    // Build first
+                    let lightdocs = lightdocs::LightDocs::new(&root)?;
+                    let config = lightdocs::LightDocsConfig::load(&root)?;
+                    lightdocs.build()?;
+                    
+                    // Index documents for search
+                    let search_index = lightdocs::search::SearchIndex::open(&root)?;
+                    for doc in lightdocs.list_documents()? {
+                        search_index.index_document(&doc.slug(), &doc.title, &doc.content)?;
+                    }
+                    
+                    // Start watcher in background
+                    if config.live_reload {
+                        let watcher_root = root.clone();
+                        std::thread::spawn(move || {
+                            if let Ok(lightdocs) = lightdocs::LightDocs::new(&watcher_root) {
+                                if let Err(e) = lightdocs.watch() {
+                                    tracing::error!("Watcher error: {}", e);
+                                }
+                            }
+                        });
+                    }
+                    
+                    // Start server
+                    let output_dir = config.output_dir_abs(&root);
+                    let server = lightdocs::LightDocsServer::new(&root, &output_dir, port);
+                    
+                    if browser {
+                        let url = format!("http://localhost:{}", port);
+                        info!("🌐 Opening: {}", url);
+                        let _ = open::that(&url);
+                    }
+                    
+                    info!("Press Ctrl+C to stop.");
+                    server.start().await?;
+                }
+                LightDocsAction::Search { query } => {
+                    info!("🔍 Searching: {}", query);
+                    let search_index = lightdocs::search::SearchIndex::open(&root)?;
+                    let results = search_index.search(&query)?;
+                    
+                    if results.is_empty() {
+                        println!("Ничего не найдено.");
+                    } else {
+                        println!("\n📚 Результаты ({}):\n", results.len());
+                        for (i, entry) in results.iter().enumerate() {
+                            println!("{}. {} ({})", i + 1, entry.title, entry.slug);
+                            println!("   {}\n", entry.excerpt);
+                        }
+                    }
+                }
+            }
+        }
+        Some(Commands::Launcher { port, superset_port, lightdocs_port }) => {
+            info!("🚀 Starting unified launcher UI...");
+            let launcher = launcher_ui::LauncherUI::new(&root, port, superset_port, lightdocs_port);
+            
+            let url = format!("http://localhost:{}", port);
+            info!("🌐 Opening: {}", url);
+            let _ = open::that(&url);
+            
+            launcher.start().await?;
+        }
+        Some(Commands::LoadData { file, table, db }) => {
+            let table_name = table.unwrap_or_else(|| {
+                file.file_stem()
+                    .unwrap_or_default()
+                    .to_string_lossy()
+                    .to_string()
+            });
+            
+            let db_path = db.unwrap_or_else(|| root.join("examples.db"));
+            
+            match data_loader::load_file(&file, &table_name, &db_path) {
+                Ok(msg) => info!("{}", msg),
+                Err(e) => error!("Failed to load data: {}", e),
+            }
+        }
         None => {
-            // Default: start with tray
-            info!("Starting with system tray (default mode)...");
-            tray::run_tray(&root, &python_env, &config).await?;
+            // Default: start with launcher UI
+            info!("🚀 Starting unified launcher UI (default mode)...");
+            let launcher = launcher_ui::LauncherUI::new(&root, 3000, 8088, 3030);
+            
+            let url = "http://localhost:3000";
+            info!("🌐 Opening: {}", url);
+            let _ = open::that(url);
+            
+            launcher.start().await?;
         }
     }
     

@@ -68,6 +68,18 @@ echo      Final initialization...
 "%PYTHON_EXE%" -m superset init
 
 echo.
+echo [6/6] Setting up RZD Demo Dashboard...
+echo      Creating tables and loading data...
+"%PYTHON_EXE%" "%SCRIPT_DIR%setup_rzd_dashboard.py"
+
+echo      Configuring database metadata...
+"%PYTHON_EXE%" "%SCRIPT_DIR%setup_db_connection.py"
+
+echo      Importing dashboards and charts...
+call "%SCRIPT_DIR%import_dashboard.bat"
+
+
+echo.
 echo === Installation Complete ===
 echo.
 echo To start Superset, run:

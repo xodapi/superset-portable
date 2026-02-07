@@ -1,0 +1,55 @@
+table_name: rzd_cargo_types
+main_dttm_col: null
+description: Cargo types distribution
+default_endpoint: null
+offset: 0
+cache_timeout: null
+schema: null
+sql: null
+params: null
+template_params: null
+filter_select_enabled: true
+fetch_values_predicate: null
+extra: null
+uuid: 99123c8a-x123-4567-89ab-cdef01234567
+metrics:
+  - metric_name: count
+    verbose_name: Count
+    metric_type: count
+    expression: COUNT(*)
+    description: null
+    d3format: null
+    extra: null
+    warning_text: null
+columns:
+  - column_name: cargo_type
+    verbose_name: Cargo Type
+    is_dttm: false
+    is_active: true
+    type: VARCHAR
+    groupby: true
+    filterable: true
+    expression: null
+    description: null
+    python_date_format: null
+  - column_name: volume_mln_tons
+    verbose_name: Volume (Mln Tons)
+    is_dttm: false
+    is_active: true
+    type: FLOAT
+    groupby: true
+    filterable: true
+    expression: null
+    description: null
+    python_date_format: null
+  - column_name: share_pct
+    verbose_name: Share (%)
+    is_dttm: false
+    is_active: true
+    type: FLOAT
+    groupby: true
+    filterable: true
+    expression: null
+    description: null
+    python_date_format: null
+database_uuid: c15fbee0-3367-466d-9657-61c360565809

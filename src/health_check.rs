@@ -4,7 +4,6 @@
 
 use anyhow::Result;
 use std::time::Duration;
-use tracing::{info, warn};
 
 /// Health check result
 #[derive(Debug, Clone)]

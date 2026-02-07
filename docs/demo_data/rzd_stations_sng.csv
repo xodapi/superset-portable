@@ -1,0 +1,1692 @@
+<!DOCTYPE html>
+<html class="no-js" lang="ru">
+<head>
+    
+    
+    <meta name="csrf-token" content="42CnwIVY2iCogPX8joD4G3ePXxqV10AbluNa8he3">
+    <title> Открытые данные</title>
+
+    <!-- Meta-->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="author" content="SiteSoft">
+    <!-- 
+<meta 
+	name="sputnik-verification" 
+	content="5JrgPt6S2g7rI5QQ"
+/>
+-->
+
+    <!-- Favicons-->
+    <link rel="icon" type="image/x-icon" href="/markup//favicon.ico">
+    <link rel="apple-touch-icon" sizes="144x144" href="/markup//apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/markup//favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/markup//favicon-16x16.png">
+    <link rel="manifest" href="/markup//manifest.json">
+    <link rel="mask-icon" href="/markup//safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="theme-color" content="#ffffff">
+
+    <!-- CSS-->
+    <link href="/assets/fonts/roboto.css" rel="stylesheet" integrity="sha384-wJ04sshHDf/CTZQ1P1LvAk1OKoYlvfeE3QlApuO6OcmBW5/a5ePksrYZU8IlVehI" crossorigin="anonymous"/>
+    <link type="text/css" href="/markup/assets/vendor/font-awesome/font-awesome.css" rel="stylesheet" integrity="sha384-dQl9QJlw7beMPVATsbpA07jcNWZcnmXaUnVFipd65t4RDCCF6J2NWoWcMXasWE7h" crossorigin="anonymous"/>
+    <link href="/markup/assets/styles/bootstrap.css" rel="stylesheet" integrity="sha384-QqJDHsjgTcCWpcqXYrjyxPlMEclQylffaCxj7Uq2SCpGt7LbVj5LdbyDipSU+jQ8" crossorigin="anonymous"/>
+    <link href="/markup/assets/styles/mburger.css" rel="stylesheet" integrity="sha384-Iv4S5NlHhj7jDn6LKlQ6o7a86acfWprz+11WhPEecCxM2tPbCD6pw4eGYr0umNzW" crossorigin="anonymous"/>
+    <link href="/markup/assets/styles/mmenu.css" rel="stylesheet" integrity="sha384-5SX/+Wfvbrk2xuDMAfe92IDgIYHKMghMM5Pu5fiAuYbpU4tqeKJfTSuAjd0sNVp7" crossorigin="anonymous"/>
+    <link href="/markup/assets/vendor/mediaelement-7.0.7/build/mediaelementplayer.min.css" rel="stylesheet" integrity="sha384-yMPTCKNeqdVDbMfSmKl/Ug2z9XZA4eYi8vI67Ul0BNNH47Nfjbk6FWfTESPuEB3+" crossorigin="anonymous"/>
+    <link href="/markup/assets/vendor/colorbox/colorbox.css" rel="stylesheet" integrity="sha384-HmslgkPwGM5TYgFgpe7Hz++h4HkDNZij42ObIXoXK771r/rs+kicv69E2lj0WIRq" crossorigin="anonymous"/>
+    <link href="/markup/assets/vendor/air-datepicker/css/datepicker.min.css" rel="stylesheet" integrity="sha384-QGPkyBigW/seVN0y9rgPZRRAus5mY9oREG7aN2UUVkw7GnFasLdGXaOlERv7PYV0" crossorigin="anonymous"/>
+    <link href="/markup/assets/vendor/slick/slick.css" rel="stylesheet" integrity="sha384-TEVjrd06o9n7q/ZdRjkZKPJ6/ynDois+PjBloqQLdleAml+4xcibBEi9zK1P6ZFd" crossorigin="anonymous"/>
+    <link href="/markup/assets/vendor/fancybox/jquery.fancybox.min.css" rel="stylesheet" integrity="sha384-tdg34jSbH8ohY76kZBTLOTf+YjdokUkiuqsrTIqPDDMmRWRyizPFmubeabSKEFzZ" crossorigin="anonymous"/>
+    <link href="/markup/assets/styles/main.css?v20250922" rel="stylesheet" integrity="sha384-8k7R99EPuw7pNOs1NqPXIoKtFG5fU1Nt+z0iTZdUZjsr/O3UgD2pFOQHua6R66+z" crossorigin="anonymous"/>
+    <link rel="stylesheet" href="/assets/jqxgrid/jqwidgets/styles/jqx.base.css" type="text/css" integrity="sha384-pvKy3ZHoA+mPnyBWk+e2LTFMxh+8Iybnen6PF5SHmX+YjOJfN3T4JIYVl8z4taDe" crossorigin="anonymous"/>
+
+    <script src="/markup/assets/vendor/modernizr/modernizr-custom.js" integrity="sha384-u4VGM1GYmdJPrxVCzuDf/Ou0d5wH7Pqhj2M91vK1xGSSKTmI4Be98oFViM2RJu0m" crossorigin="anonymous"></script>
+    <script src="/markup/assets/vendor/jquery/jquery-3.2.1.min.js" integrity="sha384-xBuQ/xzmlsLoJpyjoggmTEz8OWUFM0/RC5BsqQBDX2v5cMvDHcMakNTNrHIW2I5f" crossorigin="anonymous"></script>
+    <script src="/markup/assets/vendor/popper/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+    <script src="/markup/assets/vendor/bootstrap/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+    <script src="/markup/assets/vendor/svgmap/svgmap.js" integrity="sha384-+YCk1QTGZ02TQQeuCDjeA5n8/h1jsRWQtoDreFX93sHeM5IykZAtauqvtTiGJ2dQ" crossorigin="anonymous"></script>
+    <script src="/markup/assets/vendor/mediaelement-7.0.7/build/mediaelement-and-player.min.js" integrity="sha384-8pSVfKNbE1gcWQ3/uKwZ/izow9X1nlbAxDzIwGm882k3l3N67oq0T43SZ5xRowJq" crossorigin="anonymous"></script>
+    <script src="/markup/assets/vendor/colorbox/jquery.colorbox-min.js" integrity="sha384-MiuiPDrnIKG1EsaEPM0JvPlp2RAJDBvaaLbuWAX7ME7Z6/tBptQ0KEFSqEnPUpZB" crossorigin="anonymous"></script>
+    <script src="/markup/assets/vendor/air-datepicker/js/datepicker.min.js" integrity="sha384-ERB+YnGTBY67BcTGmaWbL01nKPpYhk45ogB9tEzRvir2c4auppLg5hg8uSfCUuBn" crossorigin="anonymous"></script>
+    <script src="/markup/assets/vendor/slick/slick.min.js" integrity="sha384-YGnnOBKslPJVs35GG0TtAZ4uO7BHpHlqJhs0XK3k6cuVb6EBtl+8xcvIIOKV5wB+" crossorigin="anonymous"></script>
+    <script src="/markup/assets/vendor/jquery.ezfile/jquery.ezfile.js?v20251022" integrity="sha384-K9XQKsTEmKlCfUoi7NFrJkChYkdvWj8RKtor/9WS3FFAJ8r7P4M0Fp/UGxTkPy6P" crossorigin="anonymous"></script>
+    <script src="/markup/assets/vendor/fancybox/jquery.fancybox.min.js" integrity="sha384-7ya4804TK1Nb/GjBdZXOaAKngQHQUCdhkCjB6ECYpaUqPFIuYcbDzfi7/l3u1LXO" crossorigin="anonymous"></script>
+    <script src="/assets/goodshare/goodshare.min.js" integrity="sha384-cjXZJ+BINEmwzR6X9lbv1JwhkH/YMFf1l7V2tf7Cc/c8DA9cegrZSpn7yGdYPl+t" crossorigin="anonymous"></script>
+    <script src="/markup/assets/vendor/ikSelect/jquery.ikSelect.min.js" integrity="sha384-Bocs4LPczhDdwp36BAc0v3PxBsKuJ90163HVpqs5ievdiGrpGFFHBIeyusHRACq2" crossorigin="anonymous"></script>
+    <script src="/markup/assets/scripts/mburger.js" integrity="sha384-9sDeuqZfxypUhCtO/xtvYzeO+zbDs/eV55L50ZAbY+HR/z3gntdaaOWM/jG1a+Ie" crossorigin="anonymous"></script>
+    <script src="/markup/assets/scripts/mmenu.js" integrity="sha384-+bqhEuavm6dfjJPVbDznm/SrswbqnGt79VWGCAqwj8oN7UlYMYaB1uUJ78sJCB3g" crossorigin="anonymous"></script>
+    <script src="/markup/assets/scripts/interface.js?v20211111" integrity="sha384-qRPR9rhQ2J8pW7VXD1AaNGdSw5dQofrOit+CdP6RP4eDLtTGk92zOP0xMoHQ8UeR" crossorigin="anonymous"></script>
+    <script src="/markup/assets/scripts/app.js" integrity="sha384-TJ8y3twrUxCI+0iJOZYDI7BVZssaXzRJltJ08+HnUxAIxZhVZ3uVJAQNvSegGwqZ" crossorigin="anonymous"></script>
+
+    <!-- JS Inline-->
+    <script>
+        (function () {
+            "use strict";
+            var request = new XMLHttpRequest();
+            request.open("GET", '/markup/assets/svg/svg-symbols.svg?v2024032503', true);
+            request.onload = function () {
+                if (request.status >= 200 && request.status < 400) {
+                    document.body.insertAdjacentHTML("afterbegin", request.responseText);
+                }
+            };
+            request.send();
+        })();
+    </script>
+    <!-- Fix object-fit <img>-->
+    <script>
+        function fitImg(e) {
+            var s = e.style;
+            document.documentElement.style.objectFit === undefined && (s.backgroundImage = 'url(' + e.src + ')', s.paddingLeft = '100%');
+            s.visibility = 'visible';
+        }
+    </script>
+    <style type="text/css">
+        .fancybox-image-wrap .fancybox-image { max-width: 90vw !important; max-height: 90vh !important; }
+        .fancybox-button.fancybox-button--share { display: none !important; }
+    </style>
+
+</head>
+
+<body>
+
+<style type="text/css">
+    #rlwPreloaderWrapper > p {
+        display: none;
+    }
+
+    #rlwPreloader {
+        display: block;
+        position: fixed;
+        z-index: 99999;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: #4870b8 url('/markup/assets/img/icons/oval.svg') center center no-repeat;
+        background-size: 36px;
+    }
+</style>
+<div id="rlwPreloaderWrapper">
+    <div id="rlwPreloader"></div>
+</div>
+<script type="text/javascript">
+    var rlwPreloaderWrapper = document.getElementById('rlwPreloaderWrapper'),
+        rlwPreloader = document.getElementById('rlwPreloader');
+
+    function fadeOutNojQuery(el) {
+        el.style.opacity = 1;
+        var rlwPreloaderInterval = setInterval(function () {
+            el.style.opacity = el.style.opacity - 0.05;
+            if (el.style.opacity <= 0.05) {
+                clearInterval(rlwPreloaderInterval);
+                rlwPreloaderWrapper.style.display = 'none';
+            }
+        }, 16);
+    }
+
+    window.onload = function () {
+        setTimeout(function () {
+            fadeOutNojQuery(rlwPreloaderWrapper);
+        }, 50);
+    };
+</script>
+
+<div class="top-message" style="display: none;">
+    <div class="container">
+        <div class="text-center">
+            <a href="http://old.roszeldor.ru/">Перейти на старую версию сайта</a>
+        </div>
+    </div>
+</div>
+<div class="vision-panel collapse">
+    <div class="vision-panel__main">
+        <div class="vision-panel__container container">
+            <div class="vision-panel__row row justify-content-lg-between align-items-center">
+                <div class="vision-panel__item col-12 col-md-6 col-lg-auto">
+                    <div class="vision-panel__item-title">Размер шрифта</div>
+                    <div class="vision-panel__item-group">
+                        <button class="vision-panel__btn-font-size" data-toggle="vision-font-size" data-value="medium">
+                            A
+                        </button>
+                        <button class="vision-panel__btn-font-size" data-toggle="vision-font-size" data-value="large">
+                            A
+                        </button>
+                        <button class="vision-panel__btn-font-size" data-toggle="vision-font-size" data-value="x-large">
+                            A
+                        </button>
+                    </div>
+                </div>
+                <div class="vision-panel__item col-12 col-md-6 col-lg-auto">
+                    <div class="vision-panel__item-title">Цвет сайта</div>
+                    <div class="vision-panel__item-group">
+                        <button class="vision-panel__btn-theme" data-toggle="vision-theme" data-value="black-white">A
+                        </button>
+                        <button class="vision-panel__btn-theme" data-toggle="vision-theme" data-value="white-black">A
+                        </button>
+                        <button class="vision-panel__btn-theme" data-toggle="vision-theme" data-value="blue-white">A
+                        </button>
+                    </div>
+                </div>
+                <div class="vision-panel__item col-12 col-md-4 col-lg-auto">
+                    <div class="vision-panel__item-title">Изображения</div>
+                    <div class="vision-panel__item-group">
+                        <button class="vision-panel__btn-images" data-toggle="vision-images">
+                            <svg class="icon icon--vision-img" role="img">
+                                <use xlink:href="#icon-vision-img"></use>
+                            </svg>
+                            <svg class="icon icon--vision-img-hidden" role="img">
+                                <use xlink:href="#icon-vision-img-hidden"></use>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+                <div class="vision-panel__item col-12 col-md-4 col-lg-auto">
+                    <div class="vision-panel__item-title">Обычная версия</div>
+                    <div class="vision-panel__item-group">
+                        <button class="vision-panel__btn-close" data-toggle="collapse" data-target=".vision-panel">
+                            <svg class="icon icon--eye" role="img">
+                                <use xlink:href="#icon-eye"></use>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+                <div class="vision-panel__item col-12 col-md-4 col-lg-auto">
+                    <div class="vision-panel__item-title">Настройки</div>
+                    <div class="vision-panel__item-group">
+                        <button class="vision-panel__btn-settings" data-toggle="vision-settings">
+                            <svg class="icon icon--settings" role="img">
+                                <use xlink:href="#icon-settings"></use>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="vision-panel__advanced collapse">
+        <div class="vision-panel__advanced-inner">
+            <div class="vision-panel__container container">
+                <div class="vision-panel__row row justify-content-lg-between align-items-center">
+                    <div class="vision-panel__item col-12">
+                        <div class="vision-panel__item-title">Интервал между буквами</div>
+                        <div class="vision-panel__item-group vision-panel__item-group--letter-spacing">
+                            <button class="vision-panel__btn-letter-spacing" data-toggle="vision-letter-spacing"
+                                    data-value="medium">Стандартный
+                            </button>
+                            <button class="vision-panel__btn-letter-spacing" data-toggle="vision-letter-spacing"
+                                    data-value="large">Средний
+                            </button>
+                            <button class="vision-panel__btn-letter-spacing" data-toggle="vision-letter-spacing"
+                                    data-value="x-large">Большой
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="header-innerpage">
+
+<header class="header container" id="header">
+    <div class="header-holder">
+        <div class="header-wrap">
+            <div class="logo">
+                <div class="logo__img">
+                    <a href="/">
+                        <div class="icon-gerb">
+                                                        <img src="/markup/assets/svg/logo-rlw-victory80.svg" alt=""/>
+                            <style>
+                                                                .vision-theme-black-white .logo__img .icon-gerb {
+                                    background-image: url("/markup/assets/img/header/logo-b.png");
+                                    width: 150px;
+                                    height: 100px;
+                                }
+
+                                .vision-theme-black-white .logo__info {
+                                    display: block !important;
+                                }
+
+                                                                .vision-theme-white-black .logo__img .icon-gerb {
+                                    background-image: url("/markup/assets/img/header/logo-w.png");
+                                    width: 150px;
+                                    height: 100px;
+                                }
+
+                                .vision-theme-white-black .logo__info {
+                                    display: block !important;
+                                }
+
+                                                                .vision-theme-blue-white .logo__img .icon-gerb {
+                                    background-image: url("/markup/assets/img/header/logo-bl.png");
+                                    width: 150px;
+                                    height: 100px;
+                                }
+
+                                .vision-theme-blue-white .logo__info {
+                                    display: block !important;
+                                }
+                            </style>
+                        </div>
+                    </a>
+                </div>
+                <div class="logo__info">
+                    <div class="logo__title">Федеральное агентство железнодорожного транспорта</div>
+                    <div class="logo__text">Министерство транспорта Российской Федерации</div>
+                </div>
+                <a class="mburger mburger--squeeze navigation-menu-starter-burger" href="#menu">
+                    <b></b>
+                    <b></b>
+                    <b></b>
+                </a>
+            </div>
+            <div class="header-controls">
+                <div class="header-controls__wrap">
+                    <a class="header-controls__map"
+                       href="/territorial_management">
+                        <svg class="icon icon--map header-controls__map-img" role="img">
+                            <use xlink:href="#icon-map"></use>
+                        </svg>
+                        <span class="header-controls__map-title">Территориальные<br/>управления</span>
+                    </a>
+                    <a class="header-controls__map" href="/regional_passports"
+                       style="border-left: 1px solid rgba(255,255,255,1); margin-left: 0.5rem; padding-left: 0.5rem;">
+                        <span class="header-controls__map-title">Паспорта<br>регионов</span>
+                    </a>
+                    <div class="header-controls__input">
+
+                        <form action="https://rlw.gov.ru/search" method="get">
+        <input type="text" name="q">
+        <input type="text" name="sort" value="date" hidden>
+        <button type="submit">
+            <div class="icon-search">
+                <svg class="icon icon--search">
+                    <use xlink:href="#icon-search"></use>
+                </svg>
+            </div>
+        </button>
+    </form>
+
+                    </div>
+                    <div class="header-controls__btns">
+                        <a href="" id="vision">
+                            <div class="icon-vision">
+                                <svg class="icon icon--vision">
+                                    <use xlink:href="#icon-vision"></use>
+                                </svg>
+                            </div>
+                        </a>
+                                                
+                                                                            
+                    </div>
+                </div>
+            </div>
+        </div>
+        <nav class="navigation-menu">
+            <div class="navigation-menu__wrap">
+                <div class="navigation-menu__item" style="padding-top: 5px;">
+                    <a class="mburger mburger--squeeze" href="#menu">
+                        <b></b>
+                        <b></b>
+                        <b></b>
+                    </a>
+                </div>
+                                                    <div class="navigation-menu__item navigation-menu__item--has-submenu">
+                        <a class="navigation-menu__link "
+                           href="https://rlw.gov.ru/about">Об агентстве</a>
+                                                                                                                                                        <div class="navigation-menu__submenu">
+                                        <div class="container">
+                                            <div class="navigation-menu__submenu-cols">
+                                                                                                    <div class="navigation-menu__item navigation-menu__item--lvl-1">
+                                                        <a class="navigation-menu__link navigation-menu__link--lvl-1 "
+                                                           href="https://rlw.gov.ru/structure">
+                                                            Структура
+                                                        </a>
+                                                    </div>
+                                                                                                    <div class="navigation-menu__item navigation-menu__item--lvl-1">
+                                                        <a class="navigation-menu__link navigation-menu__link--lvl-1 "
+                                                           href="https://rlw.gov.ru/rukovodstvo">
+                                                            Руководство
+                                                        </a>
+                                                    </div>
+                                                                                                    <div class="navigation-menu__item navigation-menu__item--lvl-1">
+                                                        <a class="navigation-menu__link navigation-menu__link--lvl-1 "
+                                                           href="https://rlw.gov.ru/uniform">
+                                                            Форменная одежда
+                                                        </a>
+                                                    </div>
+                                                                                                    <div class="navigation-menu__item navigation-menu__item--lvl-1">
+                                                        <a class="navigation-menu__link navigation-menu__link--lvl-1 "
+                                                           href="https://rlw.gov.ru/advisories">
+                                                            Координационные и совещательные органы
+                                                        </a>
+                                                    </div>
+                                                                                                    <div class="navigation-menu__item navigation-menu__item--lvl-1">
+                                                        <a class="navigation-menu__link navigation-menu__link--lvl-1 "
+                                                           href="https://rlw.gov.ru/awards">
+                                                            Награды агентства
+                                                        </a>
+                                                    </div>
+                                                                                                    <div class="navigation-menu__item navigation-menu__item--lvl-1">
+                                                        <a class="navigation-menu__link navigation-menu__link--lvl-1 "
+                                                           href="https://rlw.gov.ru/o_rukovodstve_transportnoy_otrasli">
+                                                            О руководстве транспортной отрасли
+                                                        </a>
+                                                    </div>
+                                                                                            </div>
+                                        </div>
+                                    </div>
+                                                                                                        </div>
+
+                                    <div class="navigation-menu__item navigation-menu__item--has-submenu">
+                        <a class="navigation-menu__link "
+                           href="https://rlw.gov.ru/activity">Деятельность</a>
+                                                                                                                                                        <div class="navigation-menu__submenu">
+                                        <div class="container">
+                                            <div class="navigation-menu__submenu-cols">
+                                                                                                    <div class="navigation-menu__item navigation-menu__item--lvl-1">
+                                                        <a class="navigation-menu__link navigation-menu__link--lvl-1 "
+                                                           href="https://rlw.gov.ru/inf_nac">
+                                                            Информация о выполнении Национального плана развития конкуренции в Российской Федерации
+                                                        </a>
+                                                    </div>
+                                                                                                    <div class="navigation-menu__item navigation-menu__item--lvl-1">
+                                                        <a class="navigation-menu__link navigation-menu__link--lvl-1 "
+                                                           href="https://rlw.gov.ru/plan_of_activity">
+                                                            Планы деятельности
+                                                        </a>
+                                                    </div>
+                                                                                                    <div class="navigation-menu__item navigation-menu__item--lvl-1">
+                                                        <a class="navigation-menu__link navigation-menu__link--lvl-1 "
+                                                           href="https://rlw.gov.ru/report_of_activity">
+                                                            Отчеты
+                                                        </a>
+                                                    </div>
+                                                                                                    <div class="navigation-menu__item navigation-menu__item--lvl-1">
+                                                        <a class="navigation-menu__link navigation-menu__link--lvl-1 "
+                                                           href="https://rlw.gov.ru/trans_bezopasnost">
+                                                            Транспортная безопасность
+                                                        </a>
+                                                    </div>
+                                                                                                    <div class="navigation-menu__item navigation-menu__item--lvl-1">
+                                                        <a class="navigation-menu__link navigation-menu__link--lvl-1 "
+                                                           href="https://rlw.gov.ru/zduslugi">
+                                                            Доступные и качественные услуги железнодорожного транспорта
+                                                        </a>
+                                                    </div>
+                                                                                                    <div class="navigation-menu__item navigation-menu__item--lvl-1">
+                                                        <a class="navigation-menu__link navigation-menu__link--lvl-1 "
+                                                           href="https://rlw.gov.ru/bidding">
+                                                            Закупки
+                                                        </a>
+                                                    </div>
+                                                                                                    <div class="navigation-menu__item navigation-menu__item--lvl-1">
+                                                        <a class="navigation-menu__link navigation-menu__link--lvl-1 "
+                                                           href="https://rlw.gov.ru/zhd_infratructure">
+                                                            Развитие сети железных дорог
+                                                        </a>
+                                                    </div>
+                                                                                                    <div class="navigation-menu__item navigation-menu__item--lvl-1">
+                                                        <a class="navigation-menu__link navigation-menu__link--lvl-1 "
+                                                           href="https://rlw.gov.ru/anticorruption">
+                                                            Противодействие коррупции
+                                                        </a>
+                                                    </div>
+                                                                                                    <div class="navigation-menu__item navigation-menu__item--lvl-1">
+                                                        <a class="navigation-menu__link navigation-menu__link--lvl-1 "
+                                                           href="https://rlw.gov.ru/obespechenie_dostupnosti_zd_dorog">
+                                                            Обеспечение доступности услуг железнодорожного транспорта
+                                                        </a>
+                                                    </div>
+                                                                                                    <div class="navigation-menu__item navigation-menu__item--lvl-1">
+                                                        <a class="navigation-menu__link navigation-menu__link--lvl-1 "
+                                                           href="https://rlw.gov.ru/krymskaya-zd">
+                                                            Крымская железная дорога
+                                                        </a>
+                                                    </div>
+                                                                                                    <div class="navigation-menu__item navigation-menu__item--lvl-1">
+                                                        <a class="navigation-menu__link navigation-menu__link--lvl-1 "
+                                                           href="https://rlw.gov.ru/proekt_modernizaciya_raschireniye_infrastructury">
+                                                            Реализация национального проекта &quot;План комплексной модернизации и расширения магистральной инфраструктуры&quot;
+                                                        </a>
+                                                    </div>
+                                                                                                    <div class="navigation-menu__item navigation-menu__item--lvl-1">
+                                                        <a class="navigation-menu__link navigation-menu__link--lvl-1 "
+                                                           href="https://rlw.gov.ru/zdkadri">
+                                                            Подготовка кадров для железнодорожной отрасли
+                                                        </a>
+                                                    </div>
+                                                                                            </div>
+                                        </div>
+                                    </div>
+                                                                                                        </div>
+
+                                    <div class="navigation-menu__item navigation-menu__item--has-submenu">
+                        <a class="navigation-menu__link "
+                           href="https://rlw.gov.ru/documents">Документы</a>
+                                                                                                                                                        <div class="navigation-menu__submenu">
+                                        <div class="container">
+                                            <div class="navigation-menu__submenu-cols">
+                                                                                                    <div class="navigation-menu__item navigation-menu__item--lvl-1">
+                                                        <a class="navigation-menu__link navigation-menu__link--lvl-1 "
+                                                           href="https://rlw.gov.ru/acts_polnomochija">
+                                                            Перечень нормативных правовых актов, определяющих полномочия Росжелдора
+                                                        </a>
+                                                    </div>
+                                                                                                    <div class="navigation-menu__item navigation-menu__item--lvl-1">
+                                                        <a class="navigation-menu__link navigation-menu__link--lvl-1 "
+                                                           href="https://rlw.gov.ru/acts_roszheldor">
+                                                            Правовые акты Росжелдора
+                                                        </a>
+                                                    </div>
+                                                                                                    <div class="navigation-menu__item navigation-menu__item--lvl-1">
+                                                        <a class="navigation-menu__link navigation-menu__link--lvl-1 "
+                                                           href="https://rlw.gov.ru/project_norm">
+                                                            Проекты нормативных и иных актов
+                                                        </a>
+                                                    </div>
+                                                                                                    <div class="navigation-menu__item navigation-menu__item--lvl-1">
+                                                        <a class="navigation-menu__link navigation-menu__link--lvl-1 "
+                                                           href="https://rlw.gov.ru/33">
+                                                            Прочие документы
+                                                        </a>
+                                                    </div>
+                                                                                                    <div class="navigation-menu__item navigation-menu__item--lvl-1">
+                                                        <a class="navigation-menu__link navigation-menu__link--lvl-1 "
+                                                           href="https://rlw.gov.ru/acts_perechen">
+                                                            Перечень нормативных правовых актов (их отдельных положений), содержащих обязательные требования
+                                                        </a>
+                                                    </div>
+                                                                                            </div>
+                                        </div>
+                                    </div>
+                                                                                                        </div>
+
+                                    <div class="navigation-menu__item navigation-menu__item--has-submenu">
+                        <a class="navigation-menu__link "
+                           href="https://rlw.gov.ru/public_job">Госслужба</a>
+                                                                                                                                                        <div class="navigation-menu__submenu">
+                                        <div class="container">
+                                            <div class="navigation-menu__submenu-cols">
+                                                                                                    <div class="navigation-menu__item navigation-menu__item--lvl-1">
+                                                        <a class="navigation-menu__link navigation-menu__link--lvl-1 "
+                                                           href="https://rlw.gov.ru/soiskatelyam">
+                                                            Условия и порядок поступления на государственную гражданскую службу в Росжелдор
+                                                        </a>
+                                                    </div>
+                                                                                                    <div class="navigation-menu__item navigation-menu__item--lvl-1">
+                                                        <a class="navigation-menu__link navigation-menu__link--lvl-1 "
+                                                           href="https://rlw.gov.ru/6054">
+                                                            Информация о проводимых конкурсах и их результатах
+                                                        </a>
+                                                    </div>
+                                                                                                    <div class="navigation-menu__item navigation-menu__item--lvl-1">
+                                                        <a class="navigation-menu__link navigation-menu__link--lvl-1 "
+                                                           href="https://rlw.gov.ru/informaciya_oplanah_provedeniya_obucheniya">
+                                                            Информация о планах проведения обучения, подготовки, профессиональной переподготовки, повышения квалификации и стажировки государственных гражданских служащих органов власти
+                                                        </a>
+                                                    </div>
+                                                                                            </div>
+                                        </div>
+                                    </div>
+                                                                                                        </div>
+
+                                    <div class="navigation-menu__item navigation-menu__item--has-submenu">
+                        <a class="navigation-menu__link "
+                           href="https://rlw.gov.ru/press">Пресс-служба</a>
+                                                                                                                                                        <div class="navigation-menu__submenu">
+                                        <div class="container">
+                                            <div class="navigation-menu__submenu-cols">
+                                                                                                    <div class="navigation-menu__item navigation-menu__item--lvl-1">
+                                                        <a class="navigation-menu__link navigation-menu__link--lvl-1 "
+                                                           href="https://rlw.gov.ru/news">
+                                                            Новости
+                                                        </a>
+                                                    </div>
+                                                                                                    <div class="navigation-menu__item navigation-menu__item--lvl-1">
+                                                        <a class="navigation-menu__link navigation-menu__link--lvl-1 "
+                                                           href="https://rlw.gov.ru/announcements">
+                                                            Анонсы
+                                                        </a>
+                                                    </div>
+                                                                                                    <div class="navigation-menu__item navigation-menu__item--lvl-1">
+                                                        <a class="navigation-menu__link navigation-menu__link--lvl-1 "
+                                                           href="https://rlw.gov.ru/events">
+                                                            Мероприятия
+                                                        </a>
+                                                    </div>
+                                                                                                    <div class="navigation-menu__item navigation-menu__item--lvl-1">
+                                                        <a class="navigation-menu__link navigation-menu__link--lvl-1 "
+                                                           href="https://rlw.gov.ru/smi">
+                                                            СМИ
+                                                        </a>
+                                                    </div>
+                                                                                                    <div class="navigation-menu__item navigation-menu__item--lvl-1">
+                                                        <a class="navigation-menu__link navigation-menu__link--lvl-1 "
+                                                           href="https://rlw.gov.ru/civil_service_news">
+                                                            Госслужба
+                                                        </a>
+                                                    </div>
+                                                                                                    <div class="navigation-menu__item navigation-menu__item--lvl-1">
+                                                        <a class="navigation-menu__link navigation-menu__link--lvl-1 "
+                                                           href="https://rlw.gov.ru/press-poryadok-zaprosov-oy-smi">
+                                                            Порядок подачи запросов от СМИ
+                                                        </a>
+                                                    </div>
+                                                                                            </div>
+                                        </div>
+                                    </div>
+                                                                                                        </div>
+
+                                    <div class="navigation-menu__item navigation-menu__item--has-submenu">
+                        <a class="navigation-menu__link "
+                           href="https://rlw.gov.ru/gosuslugi">Госуслуги</a>
+                                                                                                </div>
+
+                                    <div class="navigation-menu__item navigation-menu__item--has-submenu">
+                        <a class="navigation-menu__link navigation-menu__link--active"
+                           href="https://rlw.gov.ru/open_agency">Открытое агентство</a>
+                                                                                                                                                        <div class="navigation-menu__submenu">
+                                        <div class="container">
+                                            <div class="navigation-menu__submenu-cols">
+                                                                                                    <div class="navigation-menu__item navigation-menu__item--lvl-1">
+                                                        <a class="navigation-menu__link navigation-menu__link--lvl-1 "
+                                                           href="https://rlw.gov.ru/appeals_about">
+                                                            Обращения граждан
+                                                        </a>
+                                                    </div>
+                                                                                                    <div class="navigation-menu__item navigation-menu__item--lvl-1">
+                                                        <a class="navigation-menu__link navigation-menu__link--lvl-1 "
+                                                           href="https://rlw.gov.ru/appeals-legal-entity">
+                                                            Обращение от юридического лица
+                                                        </a>
+                                                    </div>
+                                                                                                    <div class="navigation-menu__item navigation-menu__item--lvl-1">
+                                                        <a class="navigation-menu__link navigation-menu__link--lvl-1 "
+                                                           href="https://rlw.gov.ru/5523">
+                                                            Публичная декларация ключевых целей и задач
+                                                        </a>
+                                                    </div>
+                                                                                                    <div class="navigation-menu__item navigation-menu__item--lvl-1">
+                                                        <a class="navigation-menu__link navigation-menu__link--lvl-1 "
+                                                           href="https://rlw.gov.ru/5525">
+                                                            Общественное обсуждение проектов нормативных правовых актов
+                                                        </a>
+                                                    </div>
+                                                                                                    <div class="navigation-menu__item navigation-menu__item--lvl-1">
+                                                        <a class="navigation-menu__link navigation-menu__link--lvl-1 navigation-menu__link--active"
+                                                           href="https://rlw.gov.ru/opendata">
+                                                            Открытые данные
+                                                        </a>
+                                                    </div>
+                                                                                                    <div class="navigation-menu__item navigation-menu__item--lvl-1">
+                                                        <a class="navigation-menu__link navigation-menu__link--lvl-1 "
+                                                           href="https://rlw.gov.ru/polls">
+                                                            Электронные опросы
+                                                        </a>
+                                                    </div>
+                                                                                                    <div class="navigation-menu__item navigation-menu__item--lvl-1">
+                                                        <a class="navigation-menu__link navigation-menu__link--lvl-1 "
+                                                           href="https://rlw.gov.ru/services">
+                                                            Сервисы
+                                                        </a>
+                                                    </div>
+                                                                                                    <div class="navigation-menu__item navigation-menu__item--lvl-1">
+                                                        <a class="navigation-menu__link navigation-menu__link--lvl-1 "
+                                                           href="https://rlw.gov.ru/obsh_mnenije">
+                                                            Общественное мнение
+                                                        </a>
+                                                    </div>
+                                                                                                    <div class="navigation-menu__item navigation-menu__item--lvl-1">
+                                                        <a class="navigation-menu__link navigation-menu__link--lvl-1 "
+                                                           href="https://rlw.gov.ru/polezno">
+                                                            Полезная информация
+                                                        </a>
+                                                    </div>
+                                                                                                    <div class="navigation-menu__item navigation-menu__item--lvl-1">
+                                                        <a class="navigation-menu__link navigation-menu__link--lvl-1 "
+                                                           href="https://rlw.gov.ru/referent-group">
+                                                            Референтные группы
+                                                        </a>
+                                                    </div>
+                                                                                                    <div class="navigation-menu__item navigation-menu__item--lvl-1">
+                                                        <a class="navigation-menu__link navigation-menu__link--lvl-1 "
+                                                           href="https://rlw.gov.ru/initiatives">
+                                                            Общественные инициативы
+                                                        </a>
+                                                    </div>
+                                                                                            </div>
+                                        </div>
+                                    </div>
+                                                                                                        </div>
+
+                                    <div class="navigation-menu__item navigation-menu__item--has-submenu">
+                        <a class="navigation-menu__link "
+                           href="https://rlw.gov.ru/it">Электронное агентство</a>
+                                                                                                                                                        <div class="navigation-menu__submenu">
+                                        <div class="container">
+                                            <div class="navigation-menu__submenu-cols">
+                                                                                                    <div class="navigation-menu__item navigation-menu__item--lvl-1">
+                                                        <a class="navigation-menu__link navigation-menu__link--lvl-1 "
+                                                           href="https://rlw.gov.ru/is_spec">
+                                                            Информационные системы обеспечения специальной деятельности
+                                                        </a>
+                                                    </div>
+                                                                                                    <div class="navigation-menu__item navigation-menu__item--lvl-1">
+                                                        <a class="navigation-menu__link navigation-menu__link--lvl-1 "
+                                                           href="https://rlw.gov.ru/is_typical_activities">
+                                                            Информационные системы обеспечения типовой деятельности
+                                                        </a>
+                                                    </div>
+                                                                                                    <div class="navigation-menu__item navigation-menu__item--lvl-1">
+                                                        <a class="navigation-menu__link navigation-menu__link--lvl-1 "
+                                                           href="https://rlw.gov.ru/telecom_infrastructure_components">
+                                                            Компоненты информационно-телекоммуникационной инфраструктуры
+                                                        </a>
+                                                    </div>
+                                                                                            </div>
+                                        </div>
+                                    </div>
+                                                                                                        </div>
+
+                                    <div class="navigation-menu__item navigation-menu__item--has-submenu">
+                        <a class="navigation-menu__link "
+                           href="https://rlw.gov.ru/contacts">Контакты</a>
+                                                                                                                                                        <div class="navigation-menu__submenu">
+                                        <div class="container">
+                                            <div class="navigation-menu__submenu-cols">
+                                                                                                    <div class="navigation-menu__item navigation-menu__item--lvl-1">
+                                                        <a class="navigation-menu__link navigation-menu__link--lvl-1 "
+                                                           href="https://rlw.gov.ru/north_west">
+                                                            Северо-Западное территориальное управление
+                                                        </a>
+                                                    </div>
+                                                                                                    <div class="navigation-menu__item navigation-menu__item--lvl-1">
+                                                        <a class="navigation-menu__link navigation-menu__link--lvl-1 "
+                                                           href="https://rlw.gov.ru/central">
+                                                            Центральное территориальное управление
+                                                        </a>
+                                                    </div>
+                                                                                                    <div class="navigation-menu__item navigation-menu__item--lvl-1">
+                                                        <a class="navigation-menu__link navigation-menu__link--lvl-1 "
+                                                           href="https://rlw.gov.ru/volga">
+                                                            Приволжское территориальное управление
+                                                        </a>
+                                                    </div>
+                                                                                                    <div class="navigation-menu__item navigation-menu__item--lvl-1">
+                                                        <a class="navigation-menu__link navigation-menu__link--lvl-1 "
+                                                           href="https://rlw.gov.ru/south">
+                                                            Южное территориальное управление
+                                                        </a>
+                                                    </div>
+                                                                                                    <div class="navigation-menu__item navigation-menu__item--lvl-1">
+                                                        <a class="navigation-menu__link navigation-menu__link--lvl-1 "
+                                                           href="https://rlw.gov.ru/ural">
+                                                            Уральское территориальное управление
+                                                        </a>
+                                                    </div>
+                                                                                                    <div class="navigation-menu__item navigation-menu__item--lvl-1">
+                                                        <a class="navigation-menu__link navigation-menu__link--lvl-1 "
+                                                           href="https://rlw.gov.ru/siberia">
+                                                            Сибирское территориальное управление
+                                                        </a>
+                                                    </div>
+                                                                                                    <div class="navigation-menu__item navigation-menu__item--lvl-1">
+                                                        <a class="navigation-menu__link navigation-menu__link--lvl-1 "
+                                                           href="https://rlw.gov.ru/far_east">
+                                                            Дальневосточное территориальное управление
+                                                        </a>
+                                                    </div>
+                                                                                                    <div class="navigation-menu__item navigation-menu__item--lvl-1">
+                                                        <a class="navigation-menu__link navigation-menu__link--lvl-1 "
+                                                           href="https://rlw.gov.ru/disabled_persons_feedback">
+                                                            Отзывы о качестве созданных условий для инвалидов
+                                                        </a>
+                                                    </div>
+                                                                                            </div>
+                                        </div>
+                                    </div>
+                                                                                                        </div>
+
+                            </div>
+        </nav>
+    </div>
+</header>
+
+
+</div>
+
+<style type="text/css">
+@media (max-width: 767px) {
+	#gosmonitor_widget_wrapper_main, #mkgu-widget {
+		display: none !important;
+	}
+}
+</style>
+
+<nav id="menu">
+<div class="logo-image-container">
+    <img src="/markup/assets/img/header/logo180.png" alt="" class="logo-image">
+</div>
+<ul style="top: 115px;">
+                    <li>
+                                                                                                                    <span>Об агентстве</span>
+                        <ul>
+                                                            <li><a href="https://rlw.gov.ru/structure">Структура</a></li>
+                                                            <li><a href="https://rlw.gov.ru/rukovodstvo">Руководство</a></li>
+                                                            <li><a href="https://rlw.gov.ru/uniform">Форменная одежда</a></li>
+                                                            <li><a href="https://rlw.gov.ru/advisories">Координационные и совещательные органы</a></li>
+                                                            <li><a href="https://rlw.gov.ru/awards">Награды агентства</a></li>
+                                                            <li><a href="https://rlw.gov.ru/o_rukovodstve_transportnoy_otrasli">О руководстве транспортной отрасли</a></li>
+                                                    </ul>
+                                                                    </li>
+                    <li>
+                                                                                                                    <span>Деятельность</span>
+                        <ul>
+                                                            <li><a href="https://rlw.gov.ru/inf_nac">Информация о выполнении Национального плана развития конкуренции в Российской Федерации</a></li>
+                                                            <li><a href="https://rlw.gov.ru/plan_of_activity">Планы деятельности</a></li>
+                                                            <li><a href="https://rlw.gov.ru/report_of_activity">Отчеты</a></li>
+                                                            <li><a href="https://rlw.gov.ru/trans_bezopasnost">Транспортная безопасность</a></li>
+                                                            <li><a href="https://rlw.gov.ru/zduslugi">Доступные и качественные услуги железнодорожного транспорта</a></li>
+                                                            <li><a href="https://rlw.gov.ru/bidding">Закупки</a></li>
+                                                            <li><a href="https://rlw.gov.ru/zhd_infratructure">Развитие сети железных дорог</a></li>
+                                                            <li><a href="https://rlw.gov.ru/anticorruption">Противодействие коррупции</a></li>
+                                                            <li><a href="https://rlw.gov.ru/obespechenie_dostupnosti_zd_dorog">Обеспечение доступности услуг железнодорожного транспорта</a></li>
+                                                            <li><a href="https://rlw.gov.ru/krymskaya-zd">Крымская железная дорога</a></li>
+                                                            <li><a href="https://rlw.gov.ru/proekt_modernizaciya_raschireniye_infrastructury">Реализация национального проекта &quot;План комплексной модернизации и расширения магистральной инфраструктуры&quot;</a></li>
+                                                            <li><a href="https://rlw.gov.ru/zdkadri">Подготовка кадров для железнодорожной отрасли</a></li>
+                                                    </ul>
+                                                                    </li>
+                    <li>
+                                                                                                                    <span>Документы</span>
+                        <ul>
+                                                            <li><a href="https://rlw.gov.ru/acts_polnomochija">Перечень нормативных правовых актов, определяющих полномочия Росжелдора</a></li>
+                                                            <li><a href="https://rlw.gov.ru/acts_roszheldor">Правовые акты Росжелдора</a></li>
+                                                            <li><a href="https://rlw.gov.ru/project_norm">Проекты нормативных и иных актов</a></li>
+                                                            <li><a href="https://rlw.gov.ru/33">Прочие документы</a></li>
+                                                            <li><a href="https://rlw.gov.ru/acts_perechen">Перечень нормативных правовых актов (их отдельных положений), содержащих обязательные требования</a></li>
+                                                    </ul>
+                                                                    </li>
+                    <li>
+                                                                                                                    <span>Госслужба</span>
+                        <ul>
+                                                            <li><a href="https://rlw.gov.ru/soiskatelyam">Условия и порядок поступления на государственную гражданскую службу в Росжелдор</a></li>
+                                                            <li><a href="https://rlw.gov.ru/6054">Информация о проводимых конкурсах и их результатах</a></li>
+                                                            <li><a href="https://rlw.gov.ru/informaciya_oplanah_provedeniya_obucheniya">Информация о планах проведения обучения, подготовки, профессиональной переподготовки, повышения квалификации и стажировки государственных гражданских служащих органов власти</a></li>
+                                                    </ul>
+                                                                    </li>
+                    <li>
+                                                                                                                    <span>Пресс-служба</span>
+                        <ul>
+                                                            <li><a href="https://rlw.gov.ru/news">Новости</a></li>
+                                                            <li><a href="https://rlw.gov.ru/announcements">Анонсы</a></li>
+                                                            <li><a href="https://rlw.gov.ru/events">Мероприятия</a></li>
+                                                            <li><a href="https://rlw.gov.ru/smi">СМИ</a></li>
+                                                            <li><a href="https://rlw.gov.ru/civil_service_news">Госслужба</a></li>
+                                                            <li><a href="https://rlw.gov.ru/press-poryadok-zaprosov-oy-smi">Порядок подачи запросов от СМИ</a></li>
+                                                    </ul>
+                                                                    </li>
+                    <li>
+                                                                    <a href="https://rlw.gov.ru/gosuslugi">Госуслуги</a>
+                    </li>
+                    <li>
+                                                                                                                    <span>Открытое агентство</span>
+                        <ul>
+                                                            <li><a href="https://rlw.gov.ru/appeals_about">Обращения граждан</a></li>
+                                                            <li><a href="https://rlw.gov.ru/appeals-legal-entity">Обращение от юридического лица</a></li>
+                                                            <li><a href="https://rlw.gov.ru/5523">Публичная декларация ключевых целей и задач</a></li>
+                                                            <li><a href="https://rlw.gov.ru/5525">Общественное обсуждение проектов нормативных правовых актов</a></li>
+                                                            <li><a href="https://rlw.gov.ru/opendata">Открытые данные</a></li>
+                                                            <li><a href="https://rlw.gov.ru/polls">Электронные опросы</a></li>
+                                                            <li><a href="https://rlw.gov.ru/services">Сервисы</a></li>
+                                                            <li><a href="https://rlw.gov.ru/obsh_mnenije">Общественное мнение</a></li>
+                                                            <li><a href="https://rlw.gov.ru/polezno">Полезная информация</a></li>
+                                                            <li><a href="https://rlw.gov.ru/referent-group">Референтные группы</a></li>
+                                                            <li><a href="https://rlw.gov.ru/initiatives">Общественные инициативы</a></li>
+                                                    </ul>
+                                                                    </li>
+                    <li>
+                                                                                                                    <span>Электронное агентство</span>
+                        <ul>
+                                                            <li><a href="https://rlw.gov.ru/is_spec">Информационные системы обеспечения специальной деятельности</a></li>
+                                                            <li><a href="https://rlw.gov.ru/is_typical_activities">Информационные системы обеспечения типовой деятельности</a></li>
+                                                            <li><a href="https://rlw.gov.ru/telecom_infrastructure_components">Компоненты информационно-телекоммуникационной инфраструктуры</a></li>
+                                                    </ul>
+                                                                    </li>
+                    <li>
+                                                                                                                    <span>Контакты</span>
+                        <ul>
+                                                            <li><a href="https://rlw.gov.ru/north_west">Северо-Западное территориальное управление</a></li>
+                                                            <li><a href="https://rlw.gov.ru/central">Центральное территориальное управление</a></li>
+                                                            <li><a href="https://rlw.gov.ru/volga">Приволжское территориальное управление</a></li>
+                                                            <li><a href="https://rlw.gov.ru/south">Южное территориальное управление</a></li>
+                                                            <li><a href="https://rlw.gov.ru/ural">Уральское территориальное управление</a></li>
+                                                            <li><a href="https://rlw.gov.ru/siberia">Сибирское территориальное управление</a></li>
+                                                            <li><a href="https://rlw.gov.ru/far_east">Дальневосточное территориальное управление</a></li>
+                                                            <li><a href="https://rlw.gov.ru/disabled_persons_feedback">Отзывы о качестве созданных условий для инвалидов</a></li>
+                                                    </ul>
+                                                                    </li>
+        </ul>
+</nav>
+<script>
+    var menu = new MmenuLight(
+        document.querySelector('#menu'),
+        'all'
+    );
+    var navigator = menu.navigation({
+        // selectedClass: 'Selected',
+        // slidingSubmenus: true,
+        // theme: 'dark',
+        title: ''
+    });
+    var drawer = menu.offcanvas({
+        // position: 'left'
+    });
+    $('a[href="#menu"]').on('click', function (event) {
+        event.preventDefault();
+        drawer.open();
+    });
+</script>
+<style type="text/css">
+    .mm-spn.mm-spn--light {
+        position: relative;
+        background-color: #fff !important;
+        padding-top: 25px;
+    }
+
+    .mm-spn.mm-spn--light .logo-image-container {
+        position: absolute;
+        top: 35px;
+        left: calc(50% - 30px);
+        transition: all 0.3s ease-in-out;
+    }
+
+    .mm-spn.mm-spn--light .logo-image {
+        height: 60px;
+        transition: all 0.3s ease-in-out;
+    }
+
+    .mm-spn--main {
+        padding-top: 0 !important;
+    }
+
+    .mm-spn--main .logo-image-container {
+        top: 15px !important;
+        left: calc(50% - 40px) !important;
+    }
+
+    .mm-spn--main .logo-image {
+        height: 80px !important;
+    }
+
+    .mm-spn.mm-spn--navbar ul {
+        top: 115px !important;
+    }
+</style>
+    <main class="main">
+        <div class="container mb-5">
+            <ol class="breadcrumb mt-4">
+                <li class="breadcrumb-item-back">
+                    <div class="icon-breadcrumb-arr">
+                        <svg class="icon icon--breadcrumb-arr">
+                            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-breadcrumb-arr"></use>
+                        </svg>
+                    </div>
+                    <a href="" onclick="history.back(); return false;">Вернуться</a>
+                </li>
+                <li class="breadcrumb-item"><a href="https://rlw.gov.ru/1">Главная страница</a>
+                <li class="breadcrumb-item"><a href="https://rlw.gov.ru/open_agency">Открытое агентство</a>
+                <li class="breadcrumb-item active">Открытые данные</li>
+                </li>
+            </ol>
+            <section class="section">
+                <h1 class="section__title">Открытые данные</h1>
+                <div class="columns">
+                    <div class="columns__col-left">
+                                                <div class="content mb-40">
+                            <div class="alert alert-danger">
+                                Для получения доступа к этому набору данных необходимо авторизоваться через портал ГОСУСЛУГИ (ЕСИА)
+                            </div>
+                        </div>
+                                                                            <div class="content mb-40">
+                                <h2>Что такое открытые данные?</h2>
+<p>Открытые данные &mdash; информация о деятельности государственных органов, размещенная в сети &laquo;Интернет&raquo; в&nbsp;машиночитаемом формате, обеспечивающем возможность её автоматической обработки.</p>
+<h2>Условия использования открытых данных</h2>
+<p>Размещение информации в виде открытых данных&nbsp; подразумевает её свободное и бесплатное использование при условии использования в законных целях и размещении ссылки на источник данных (см.<span>&nbsp;</span><a href="http://data.gov.ru/tipovye-usloviya-ispolzovaniya-obshchedostupnoy-informacii">типовые условия</a>, утвержденные протоколом заочного голосования Правительственной комиссии по координации деятельности Открытого правительства от 19 сентября 2016 г. № 6).</p>
+<h2>Работа с открытыми данными в Росжелдоре</h2>
+<p>Работа с открытыми данными ведётся в соответствии с &laquo;<a href="/plan_openness">Планом по реализации Концепции открытости</a>&raquo;.</p>
+<p>Запрос на размещение открытых данных может быть направлен ответственному лицу по организации работы с открытыми данными в Росжелдоре.</p>
+<h2>Источники открытых данных Росжелдора</h2>
+<p>Источниками открытых данных Росжелдора являются информационные ресурсы, ведение которых осуществляется Росжелдором в соответствии с требованиями нормативно-правовых и распорядительных актов (см. также<span>&nbsp;</span><a href="http://gos.hse.ru/upload/IR.xls">примерный перечень</a><span>&nbsp;</span>таких информационных ресурсов, составленный ВШЭ).</p>
+                            </div>
+                                                                                                <form class="filter-content filter-content__form d-documents-filter-form"
+                                          style="margin: 0 0 1rem 0; padding: 0.7rem 1.5rem;"
+                                          action="/esia-auth"
+                                          method="get">
+                                        <div class="row align-items-center">
+                                            <div class="col-12 col-md-6 text-center">
+                                                <img src="/storage/folder_esia_auth/gosuslugi-logotype-big.png" style="width: 100%; max-width: 200px; margin: 0 auto;" alt=""/>
+                                            </div>
+                                            <div class="col-12 col-md-6">
+                                                <button class="btn btn--style-1 filter-content__btn-submit m-0 px-0 btn-block">Войти через Госуслуги (ЕСИА)</button>
+                                            </div>
+                                        </div>
+                                        <input type="hidden" name="start" value="true"/>
+                                        <input type="hidden" name="opendata" value="true"/>
+                                    </form>
+                                                                                        <div class="content mb-40">
+                                                                                                    <table about="/opendata" typeof="dc:Collection">
+                                        <tbody>
+                                        <tr rel="dc:conformsTo" resource="http://opendata.gosmonitor.ru/standard/3.0">
+                                            <th class="text-center">№</th>
+                                            <th class="text-left">Название набора</th>
+                                            <th>Дата обновления</th>
+                                        </tr>
+                                                                                                                                    <tr resource="https://rlw.gov.ru/opendata/7708525167-sostavsoveta" rel="dc:hasPart">
+                                                    <td class="text-center">1</td>
+                                                    <td class="text-left" typeof="foaf:Document" about="https://rlw.gov.ru/opendata/7708525167-sostavsoveta"
+                                                        property="dc:title" content="Состав Коллегии Федерального агентства железнодорожного транспорта">
+                                                        <a href="https://rlw.gov.ru/opendata/7708525167-sostavsoveta">Состав Коллегии Федерального агентства железнодорожного транспорта</a>
+                                                    </td>
+                                                                                                        <td>
+                                                                                                                    17.02.2023
+                                                                                                            </td>
+                                                </tr>
+                                                                                                                                                                                <tr resource="https://rlw.gov.ru/opendata/7708525167-public-council-staff" rel="dc:hasPart">
+                                                    <td class="text-center">2</td>
+                                                    <td class="text-left" typeof="foaf:Document" about="https://rlw.gov.ru/opendata/7708525167-public-council-staff"
+                                                        property="dc:title" content="Состав Общественного совета при Федеральном агентстве железнодорожного транспорта">
+                                                        <a href="https://rlw.gov.ru/opendata/7708525167-public-council-staff">Состав Общественного совета при Федеральном агентстве железнодорожного транспорта</a>
+                                                    </td>
+                                                                                                        <td>
+                                                                                                                    11.04.2023
+                                                                                                            </td>
+                                                </tr>
+                                                                                                                                                                                <tr resource="https://rlw.gov.ru/opendata/7708525167-averagemonthlysalary" rel="dc:hasPart">
+                                                    <td class="text-center">3</td>
+                                                    <td class="text-left" typeof="foaf:Document" about="https://rlw.gov.ru/opendata/7708525167-averagemonthlysalary"
+                                                        property="dc:title" content="Информация о среднемесячной заработной плате руководителей, заместителей руководителя и главных бухгалтеров государственных бюджетных учреждений (организаций), подведомственных Росжелдору">
+                                                        <a href="https://rlw.gov.ru/opendata/7708525167-averagemonthlysalary">Информация о среднемесячной заработной плате руководителей, заместителей руководителя и главных бухгалтеров государственных бюджетных учреждений (организаций), подведомственных Росжелдору</a>
+                                                    </td>
+                                                                                                        <td>
+                                                                                                                    05.08.2025
+                                                                                                            </td>
+                                                </tr>
+                                                                                                                                                                                <tr resource="https://rlw.gov.ru/opendata/7708525167-tarifstations" rel="dc:hasPart">
+                                                    <td class="text-center">4</td>
+                                                    <td class="text-left" typeof="foaf:Document" about="https://rlw.gov.ru/opendata/7708525167-tarifstations"
+                                                        property="dc:title" content="Тарифные расстояния между станциями участков железных дорог">
+                                                        <a href="https://rlw.gov.ru/opendata/7708525167-tarifstations">Тарифные расстояния между станциями участков железных дорог</a>
+                                                    </td>
+                                                                                                        <td>
+                                                                                                                    12.10.2023
+                                                                                                            </td>
+                                                </tr>
+                                                                                                                                                                                <tr resource="https://rlw.gov.ru/opendata/7708525167-tariftranzit" rel="dc:hasPart">
+                                                    <td class="text-center">5</td>
+                                                    <td class="text-left" typeof="foaf:Document" about="https://rlw.gov.ru/opendata/7708525167-tariftranzit"
+                                                        property="dc:title" content="Тарифные расстояния между транзитными пунктами">
+                                                        <a href="https://rlw.gov.ru/opendata/7708525167-tariftranzit">Тарифные расстояния между транзитными пунктами</a>
+                                                    </td>
+                                                                                                        <td>
+                                                                                                                    12.10.2023
+                                                                                                            </td>
+                                                </tr>
+                                                                                                                                                                                <tr resource="https://rlw.gov.ru/opendata/7708525167-railwaystations" rel="dc:hasPart">
+                                                    <td class="text-center">6</td>
+                                                    <td class="text-left" typeof="foaf:Document" about="https://rlw.gov.ru/opendata/7708525167-railwaystations"
+                                                        property="dc:title" content="Перечень железнодорожных станций (Россия)">
+                                                        <a href="https://rlw.gov.ru/opendata/7708525167-railwaystations">Перечень железнодорожных станций (Россия)</a>
+                                                    </td>
+                                                                                                        <td>
+                                                                                                                    23.01.2026
+                                                                                                            </td>
+                                                </tr>
+                                                                                                                                                                                <tr resource="https://rlw.gov.ru/opendata/7708525167-railwaystationssng" rel="dc:hasPart">
+                                                    <td class="text-center">7</td>
+                                                    <td class="text-left" typeof="foaf:Document" about="https://rlw.gov.ru/opendata/7708525167-railwaystationssng"
+                                                        property="dc:title" content="Перечень железнодорожных станций (СНГ)">
+                                                        <a href="https://rlw.gov.ru/opendata/7708525167-railwaystationssng">Перечень железнодорожных станций (СНГ)</a>
+                                                    </td>
+                                                                                                        <td>
+                                                                                                                    23.01.2026
+                                                                                                            </td>
+                                                </tr>
+                                                                                                                                                                                <tr resource="https://rlw.gov.ru/opendata/7708525167-gosuslugi" rel="dc:hasPart">
+                                                    <td class="text-center">8</td>
+                                                    <td class="text-left" typeof="foaf:Document" about="https://rlw.gov.ru/opendata/7708525167-gosuslugi"
+                                                        property="dc:title" content="Перечень государственных услуг Росжелдора">
+                                                        <a href="https://rlw.gov.ru/opendata/7708525167-gosuslugi">Перечень государственных услуг Росжелдора</a>
+                                                    </td>
+                                                                                                        <td>
+                                                                                                                    28.07.2025
+                                                                                                            </td>
+                                                </tr>
+                                                                                                                                                                                <tr resource="https://rlw.gov.ru/opendata/7708525167-zapretpogruzki" rel="dc:hasPart">
+                                                    <td class="text-center">9</td>
+                                                    <td class="text-left" typeof="foaf:Document" about="https://rlw.gov.ru/opendata/7708525167-zapretpogruzki"
+                                                        property="dc:title" content="Справка о запрете погрузки грузов по телеграммам ОАО &quot;РЖД&quot; (адрес 75)">
+                                                        <a href="https://rlw.gov.ru/opendata/7708525167-zapretpogruzki">Справка о запрете погрузки грузов по телеграммам ОАО &quot;РЖД&quot; (адрес 75)</a>
+                                                    </td>
+                                                                                                        <td>
+                                                                                                                    15.01.2026
+                                                                                                            </td>
+                                                </tr>
+                                                                                                                                                                                <tr resource="https://rlw.gov.ru/opendata/7708525167-razresheniepogruzki" rel="dc:hasPart">
+                                                    <td class="text-center">10</td>
+                                                    <td class="text-left" typeof="foaf:Document" about="https://rlw.gov.ru/opendata/7708525167-razresheniepogruzki"
+                                                        property="dc:title" content="Справка о разрешении погрузки грузов по телеграммам ОАО &quot;РЖД&quot; (адрес 75)">
+                                                        <a href="https://rlw.gov.ru/opendata/7708525167-razresheniepogruzki">Справка о разрешении погрузки грузов по телеграммам ОАО &quot;РЖД&quot; (адрес 75)</a>
+                                                    </td>
+                                                                                                        <td>
+                                                                                                                    20.01.2026
+                                                                                                            </td>
+                                                </tr>
+                                                                                                                                                                                <tr>
+                                                    <td class="text-center">11</td>
+                                                    <td class="text-left">
+                                                        <a href="https://rlw.gov.ru/2024_org"
+                                                           target="_blank">
+                                                            Ограничения пропускной способности инфраструктуры при производстве ремонтно-путевых и строительно-монтажных работ
+                                                        </a>
+                                                    </td>
+                                                    <td>
+                                                                                                                    20.12.2024
+                                                                                                            </td>
+                                                </tr>
+                                                                                                                                                                                <tr resource="https://rlw.gov.ru/opendata/7708525167-szha100119" rel="dc:hasPart">
+                                                    <td class="text-center">12</td>
+                                                    <td class="text-left" typeof="foaf:Document" about="https://rlw.gov.ru/opendata/7708525167-szha100119"
+                                                        property="dc:title" content="Условные коды предприятий, осуществляющих изготовление, ремонт и модернизацию железнодорожного подвижного состава и его составных частей">
+                                                        <a href="https://rlw.gov.ru/opendata/7708525167-szha100119">Условные коды предприятий, осуществляющих изготовление, ремонт и модернизацию железнодорожного подвижного состава и его составных частей</a>
+                                                    </td>
+                                                                                                        <td>
+                                                                                                                    29.07.2025
+                                                                                                            </td>
+                                                </tr>
+                                                                                                                                                                                <tr resource="https://rlw.gov.ru/opendata/7708525167-reestrattestatorg" rel="dc:hasPart">
+                                                    <td class="text-center">13</td>
+                                                    <td class="text-left" typeof="foaf:Document" about="https://rlw.gov.ru/opendata/7708525167-reestrattestatorg"
+                                                        property="dc:title" content="Реестр аттестующих организаций">
+                                                        <a href="https://rlw.gov.ru/opendata/7708525167-reestrattestatorg">Реестр аттестующих организаций</a>
+                                                    </td>
+                                                                                                        <td>
+                                                                                                                    23.12.2025
+                                                                                                            </td>
+                                                </tr>
+                                                                                                                                                                                <tr resource="https://rlw.gov.ru/opendata/7708525167-reestrorgattestat" rel="dc:hasPart">
+                                                    <td class="text-center">14</td>
+                                                    <td class="text-left" typeof="foaf:Document" about="https://rlw.gov.ru/opendata/7708525167-reestrorgattestat"
+                                                        property="dc:title" content="Реестр органов аттестации">
+                                                        <a href="https://rlw.gov.ru/opendata/7708525167-reestrorgattestat">Реестр органов аттестации</a>
+                                                    </td>
+                                                                                                        <td>
+                                                                                                                    10.12.2025
+                                                                                                            </td>
+                                                </tr>
+                                                                                                                                                                                <tr resource="https://rlw.gov.ru/opendata/7708525167-akkredpodrazd" rel="dc:hasPart">
+                                                    <td class="text-center">15</td>
+                                                    <td class="text-left" typeof="foaf:Document" about="https://rlw.gov.ru/opendata/7708525167-akkredpodrazd"
+                                                        property="dc:title" content="Реестр аккредитованных подразделений транспортной безопасности">
+                                                        <a href="https://rlw.gov.ru/opendata/7708525167-akkredpodrazd">Реестр аккредитованных подразделений транспортной безопасности</a>
+                                                    </td>
+                                                                                                        <td>
+                                                                                                                    23.12.2025
+                                                                                                            </td>
+                                                </tr>
+                                                                                                                                                                                <tr resource="https://rlw.gov.ru/opendata/7708525167-attestatroszeldor" rel="dc:hasPart">
+                                                    <td class="text-center">16</td>
+                                                    <td class="text-left" typeof="foaf:Document" about="https://rlw.gov.ru/opendata/7708525167-attestatroszeldor"
+                                                        property="dc:title" content="Реестр выданных свидетельств об аттестации сил обеспечения транспортной безопасности на железнодорожном транспорте и метрополитене">
+                                                        <a href="https://rlw.gov.ru/opendata/7708525167-attestatroszeldor">Реестр выданных свидетельств об аттестации сил обеспечения транспортной безопасности на железнодорожном транспорте и метрополитене</a>
+                                                    </td>
+                                                                                                        <td>
+                                                                                                                    23.01.2026
+                                                                                                            </td>
+                                                </tr>
+                                                                                                                                                                                <tr resource="https://rlw.gov.ru/opendata/7708525167-akkredorgzd" rel="dc:hasPart">
+                                                    <td class="text-center">17</td>
+                                                    <td class="text-left" typeof="foaf:Document" about="https://rlw.gov.ru/opendata/7708525167-akkredorgzd"
+                                                        property="dc:title" content="Реестр аккредитованных организаций на проведение оценки уязвимости объектов и транспортных средств железнодорожного транспорта">
+                                                        <a href="https://rlw.gov.ru/opendata/7708525167-akkredorgzd">Реестр аккредитованных организаций на проведение оценки уязвимости объектов и транспортных средств железнодорожного транспорта</a>
+                                                    </td>
+                                                                                                        <td>
+                                                                                                                    23.12.2025
+                                                                                                            </td>
+                                                </tr>
+                                                                                                                                                                                <tr resource="https://rlw.gov.ru/opendata/7708525167-akkredorgmetro" rel="dc:hasPart">
+                                                    <td class="text-center">18</td>
+                                                    <td class="text-left" typeof="foaf:Document" about="https://rlw.gov.ru/opendata/7708525167-akkredorgmetro"
+                                                        property="dc:title" content="Реестр аккредитованных организаций на проведение оценки уязвимости объектов метрополитена">
+                                                        <a href="https://rlw.gov.ru/opendata/7708525167-akkredorgmetro">Реестр аккредитованных организаций на проведение оценки уязвимости объектов метрополитена</a>
+                                                    </td>
+                                                                                                        <td>
+                                                                                                                    23.12.2025
+                                                                                                            </td>
+                                                </tr>
+                                                                                                                                                                                <tr resource="https://rlw.gov.ru/opendata/7708525167-otizd12" rel="dc:hasPart">
+                                                    <td class="text-center">19</td>
+                                                    <td class="text-left" typeof="foaf:Document" about="https://rlw.gov.ru/opendata/7708525167-otizd12"
+                                                        property="dc:title" content="Архив объектов транспортной инфраструктуры, внесенных в Реестр ОТИ и ТС до принятия НПА от 2020 года">
+                                                        <a href="https://rlw.gov.ru/opendata/7708525167-otizd12">Архив объектов транспортной инфраструктуры, внесенных в Реестр ОТИ и ТС до принятия НПА от 2020 года</a>
+                                                    </td>
+                                                                                                        <td>
+                                                                                                                    06.05.2022
+                                                                                                            </td>
+                                                </tr>
+                                                                                                                                                                                <tr resource="https://rlw.gov.ru/opendata/7708525167-otizd" rel="dc:hasPart">
+                                                    <td class="text-center">20</td>
+                                                    <td class="text-left" typeof="foaf:Document" about="https://rlw.gov.ru/opendata/7708525167-otizd"
+                                                        property="dc:title" content="Объекты транспортной инфраструктуры, внесенные в реестр объектов транспортной инфраструктуры и транспортных средств железнодорожного транспорта  (Раздел 1)">
+                                                        <a href="https://rlw.gov.ru/opendata/7708525167-otizd">Объекты транспортной инфраструктуры, внесенные в реестр объектов транспортной инфраструктуры и транспортных средств железнодорожного транспорта  (Раздел 1)</a>
+                                                    </td>
+                                                                                                        <td>
+                                                                                                                    24.11.2025
+                                                                                                            </td>
+                                                </tr>
+                                                                                                                                                                                <tr resource="https://rlw.gov.ru/opendata/7708525167-otizdr2" rel="dc:hasPart">
+                                                    <td class="text-center">21</td>
+                                                    <td class="text-left" typeof="foaf:Document" about="https://rlw.gov.ru/opendata/7708525167-otizdr2"
+                                                        property="dc:title" content="Объекты транспортной инфраструктуры, внесенные в реестр объектов транспортной инфраструктуры и транспортных средств железнодорожного транспорта  (Раздел 2)">
+                                                        <a href="https://rlw.gov.ru/opendata/7708525167-otizdr2">Объекты транспортной инфраструктуры, внесенные в реестр объектов транспортной инфраструктуры и транспортных средств железнодорожного транспорта  (Раздел 2)</a>
+                                                    </td>
+                                                                                                        <td>
+                                                                                                                    24.11.2025
+                                                                                                            </td>
+                                                </tr>
+                                                                                                                                                                                <tr resource="https://rlw.gov.ru/opendata/7708525167-otimetro" rel="dc:hasPart">
+                                                    <td class="text-center">22</td>
+                                                    <td class="text-left" typeof="foaf:Document" about="https://rlw.gov.ru/opendata/7708525167-otimetro"
+                                                        property="dc:title" content="Объекты инфраструктуры внеуличного транспорта (в части метрополитенов), включенные в реестр объектов транспортной инфраструктуры и транспортных средств (Раздел 1)">
+                                                        <a href="https://rlw.gov.ru/opendata/7708525167-otimetro">Объекты инфраструктуры внеуличного транспорта (в части метрополитенов), включенные в реестр объектов транспортной инфраструктуры и транспортных средств (Раздел 1)</a>
+                                                    </td>
+                                                                                                        <td>
+                                                                                                                    06.10.2025
+                                                                                                            </td>
+                                                </tr>
+                                                                                                                                                                                <tr resource="https://rlw.gov.ru/opendata/7708525167-transpsredstvavreestrtits" rel="dc:hasPart">
+                                                    <td class="text-center">23</td>
+                                                    <td class="text-left" typeof="foaf:Document" about="https://rlw.gov.ru/opendata/7708525167-transpsredstvavreestrtits"
+                                                        property="dc:title" content="Транспортные средства, включенные в реестр объектов транспортной инфраструктуры и транспортных средств, Раздел 3 (пассажирские вагоны)">
+                                                        <a href="https://rlw.gov.ru/opendata/7708525167-transpsredstvavreestrtits">Транспортные средства, включенные в реестр объектов транспортной инфраструктуры и транспортных средств, Раздел 3 (пассажирские вагоны)</a>
+                                                    </td>
+                                                                                                        <td>
+                                                                                                                    20.05.2025
+                                                                                                            </td>
+                                                </tr>
+                                                                                                                                                                                <tr resource="https://rlw.gov.ru/opendata/7708525167-transpsredstvavreestrtitsvag" rel="dc:hasPart">
+                                                    <td class="text-center">24</td>
+                                                    <td class="text-left" typeof="foaf:Document" about="https://rlw.gov.ru/opendata/7708525167-transpsredstvavreestrtitsvag"
+                                                        property="dc:title" content="Часть I. Транспортные средства, включенные в реестр объектов транспортной инфраструктуры и транспортных средств (Раздел 3), (грузовые вагоны с 25.09.2023 по 26.12.2024)">
+                                                        <a href="https://rlw.gov.ru/opendata/7708525167-transpsredstvavreestrtitsvag">Часть I. Транспортные средства, включенные в реестр объектов транспортной инфраструктуры и транспортных средств (Раздел 3), (грузовые вагоны с 25.09.2023 по 26.12.2024)</a>
+                                                    </td>
+                                                                                                        <td>
+                                                                                                                    03.10.2025
+                                                                                                            </td>
+                                                </tr>
+                                                                                                                                                                                <tr resource="https://rlw.gov.ru/opendata/7708525167-transpsredstvavreestrtitsvag%D1%81chast2" rel="dc:hasPart">
+                                                    <td class="text-center">25</td>
+                                                    <td class="text-left" typeof="foaf:Document" about="https://rlw.gov.ru/opendata/7708525167-transpsredstvavreestrtitsvag%D1%81chast2"
+                                                        property="dc:title" content="Часть II. Транспортные средства, включенные в реестр объектов транспортной инфраструктуры и транспортных средств (Раздел 3), (грузовые вагоны с 13.01.2025 по 30.07.2025)">
+                                                        <a href="https://rlw.gov.ru/opendata/7708525167-transpsredstvavreestrtitsvag%D1%81chast2">Часть II. Транспортные средства, включенные в реестр объектов транспортной инфраструктуры и транспортных средств (Раздел 3), (грузовые вагоны с 13.01.2025 по 30.07.2025)</a>
+                                                    </td>
+                                                                                                        <td>
+                                                                                                                    03.10.2025
+                                                                                                            </td>
+                                                </tr>
+                                                                                                                                                                                <tr resource="https://rlw.gov.ru/opendata/7708525167-gruzovyevagonych3rzd3" rel="dc:hasPart">
+                                                    <td class="text-center">26</td>
+                                                    <td class="text-left" typeof="foaf:Document" about="https://rlw.gov.ru/opendata/7708525167-gruzovyevagonych3rzd3"
+                                                        property="dc:title" content="Часть III. Транспортные средства, включенные в реестр объектов транспортной инфраструктуры и транспортных средств (Раздел 3), (грузовые вагоны c 14.08.2025 по 18.11.2025)">
+                                                        <a href="https://rlw.gov.ru/opendata/7708525167-gruzovyevagonych3rzd3">Часть III. Транспортные средства, включенные в реестр объектов транспортной инфраструктуры и транспортных средств (Раздел 3), (грузовые вагоны c 14.08.2025 по 18.11.2025)</a>
+                                                    </td>
+                                                                                                        <td>
+                                                                                                            </td>
+                                                </tr>
+                                                                                                                                                                                <tr resource="https://rlw.gov.ru/opendata/7708525167-gruzovyevagonych4rzd3" rel="dc:hasPart">
+                                                    <td class="text-center">27</td>
+                                                    <td class="text-left" typeof="foaf:Document" about="https://rlw.gov.ru/opendata/7708525167-gruzovyevagonych4rzd3"
+                                                        property="dc:title" content="Часть IV. Транспортные средства, включенные в реестр объектов транспортной инфраструктуры и транспортных средств (Раздел 3), (грузовые вагоны с 24.11.2025 по настоящее время)">
+                                                        <a href="https://rlw.gov.ru/opendata/7708525167-gruzovyevagonych4rzd3">Часть IV. Транспортные средства, включенные в реестр объектов транспортной инфраструктуры и транспортных средств (Раздел 3), (грузовые вагоны с 24.11.2025 по настоящее время)</a>
+                                                    </td>
+                                                                                                        <td>
+                                                                                                            </td>
+                                                </tr>
+                                                                                                                            </tbody>
+                                    </table>
+                                                            </div>
+                            <div class="data-info mb-40">
+                                <div class="row">
+                                    <div class="col-12 col-md-4 mb-20">
+                                        <div class="link-file link-file--csv">
+                                            <div class="link-file__icon">
+                                                <svg class="icon icon--file" role="img">
+                                                    <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                                                         xlink:href="#icon-file"></use>
+                                                </svg>
+                                            </div>
+                                            <div class="link-file__content">
+                                                <p>
+                                                    <a href="https://rlw.gov.ru/opendata/list.csv">Реестр наборов</a>
+                                                    <span class="link-file__ext">(CSV)</span>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="content mb-40">
+                                <div style="display: none;">
+<h2>Дополнительные сведения</h2>
+<p>До конца года будут опубликованы другие первоочередные наборы, предусмотренные распоряжением Правительства РФ от 10 июля 2013 г. N 1187-р. Отметим, что в соответствии с Положением о Росжелдоре, утвержденным постановлением Правительства РФ от 30 июля 2004 г. N 397, Росжелдор не проводит проверок, не выдает лицензий и не участвует в федеральном плане статистических работ. Совместно с исполнителями государственных контрактов на сопровождение и развитие сайта Росжелдор ведет поиск и обсуждение других потенциальных к публикации наборов открытых данных.</p>
+</div>
+<p></p>
+                            </div>
+                                            </div>
+                    <div class="columns__col-right d-none"></div>
+                </div>
+            </section>
+
+            <hr class="hr hr--mt-40 hr--mb-30">
+<footer class="section__footer">
+    <div class="row">
+
+        <div class="col-12 col-md-8 mb-3 mb-md-0">
+            <div class="row align-items-baseline">
+
+                                    <!--
+                    <div class="col-12 col-md-4 col-lg-3 d-none">
+                        <time class="datetime" datetime="ГГГГ-ММ-ДДTчч:мм:сс±чч:мм">
+                            <svg class="icon icon--clock datetime__icon" role="img">
+                                <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                                     xlink:href="#icon-clock"></use>
+                            </svg>
+                            <span class="datetime__lbl">24.01.2026</span>
+                        </time>
+                    </div>
+                    -->
+
+                    <div class="col-12 col-md-6 col-lg-6 d-none d-lg-block">
+                        <button class="btn-print" onclick="window.print()">
+                            <div class="btn-print__lbl">Версия для печати</div>
+                        </button>
+                    </div>
+
+                    <div class="col-12 col-md-6 col-lg-6 d-flex justify-content-center">
+                        <div class="form-group">
+    <div class="rating mb-35">
+    <div class="rating__inner">
+        <input class="rating__input" type="radio" name="rating" data-points="1" id="rating-1" value="1">
+        <input class="rating__input" type="radio" name="rating" data-points="2" id="rating-2" value="2">
+        <input class="rating__input" type="radio" name="rating" data-points="3" id="rating-3" value="3">
+        <input class="rating__input" type="radio" name="rating" data-points="4" id="rating-4" value="4">
+        <input class="rating__input" type="radio" name="rating" data-points="5" id="rating-5" value="5">
+        <label class="rating__item" for="rating-1" title="1">
+        <svg class="icon icon--star-fill rating__icon" role="img">
+        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-star-fill"></use>
+        </svg>
+        </label>
+        <label class="rating__item" for="rating-2" title="2">
+        <svg class="icon icon--star-fill rating__icon" role="img">
+        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-star-fill"></use>
+        </svg>
+        </label>
+        <label class="rating__item" for="rating-3" title="3">
+        <svg class="icon icon--star-fill rating__icon" role="img">
+        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-star-fill"></use>
+        </svg>
+        </label>
+        <label class="rating__item" for="rating-4" title="4">
+        <svg class="icon icon--star-fill rating__icon" role="img">
+        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-star-fill"></use>
+        </svg>
+        </label>
+        <label class="rating__item" for="rating-5" title="5">
+        <svg class="icon icon--star-fill rating__icon" role="img">
+        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-star-fill"></use>
+        </svg>
+        </label>
+    </div>
+    <div class="rating__text"></div>
+    </div>
+</div>
+<!-- App\Models\Folder\FolderOpendata -->
+
+
+                    </div>
+                
+            </div>
+        </div>
+
+        <div class="col-12 col-md-4 d-flex justify-content-end">
+
+                        <div class="soc-share">
+                <div class="soc-share__inner">
+                    
+                    <!--
+                    <a href="https://www.facebook.com/sharer/sharer.php?u=https://rlw.gov.ru/opendata"
+                       class="soc-share__item soc-share__item--facebook" data-social="facebook" target="_blank">
+                        <svg class="icon icon--f soc-share__item-icon" role="img">
+                            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-f"></use>
+                        </svg>
+                    </a>
+                    -->
+
+                    
+                    <!--
+                    <a href="https://twitter.com/share?url=https://rlw.gov.ru/opendata&text=Открытые данные"
+                       class="soc-share__item soc-share__item--twitter" data-social="twitter" target="_blank">
+                        <svg class="icon icon--twitter-logo-silhouette soc-share__item-icon" role="img">
+                            <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                                 xlink:href="#icon-twitter-logo-silhouette"></use>
+                        </svg>
+                    </a>
+                    -->
+
+                    
+                    <a href="http://vk.com/share.php?url=https://rlw.gov.ru/opendata&title=Открытые данные&noparse=true"
+                       class="soc-share__item soc-share__item--vkontakte" data-social="vkontakte" target="_blank">
+                        <svg class="icon icon--vk soc-share__item-icon" role="img">
+                            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-vk"></use>
+                        </svg>
+                    </a>
+
+                    
+                    <!--
+                    <a href="http://www.livejournal.com/update.bml?subject=Открытые данные&event=%3Ca%20href=%22https://rlw.gov.ru/opendata%3ELink%3C/a%3E" class="soc-share__item soc-share__item--livejournal"
+                       data-social="livejournal" target="_blank">
+                        <svg class="icon icon--if_livejournal_115552 soc-share__item-icon" role="img">
+                            <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                                 xlink:href="#icon-if_livejournal_115552"></use>
+                        </svg>
+                    </a>
+                    -->
+
+                    
+                    <a href="http://www.odnoklassniki.ru/dk?st.cmd=addShare&st.s=1&st._surl=https://rlw.gov.ru/opendata&st.comments=Открытые данные"
+                       class="soc-share__item soc-share__item--odnoklassniki" target="_blank"
+                       data-social="odnoklassniki">
+                        <svg class="icon icon--odnoklassniki-logo soc-share__item-icon" role="img">
+                            <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                                 xlink:href="#icon-odnoklassniki-logo"></use>
+                        </svg>
+                    </a>
+
+                    
+                    <!--
+                    <a href="https://plus.google.com/share?url=https://rlw.gov.ru/opendata"
+                       class="soc-share__item soc-share__item--googleplus" data-social="googleplus" target="_blank">
+                        <svg class="icon icon--google-plus-logo soc-share__item-icon" role="img">
+                            <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                                 xlink:href="#icon-google-plus-logo"></use>
+                        </svg>
+                    </a>
+                    -->
+                </div>
+            </div>
+
+        </div>
+    </div>
+</footer>
+            <ol class="breadcrumb mt-4">
+    <li class="breadcrumb-item-back">
+        <div class="icon-breadcrumb-arr">
+            <svg class="icon icon--breadcrumb-arr">
+                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-breadcrumb-arr"></use>
+            </svg>
+        </div>
+        <a href="" onclick="history.back(); return false;">Вернуться</a>
+    </li>
+</ol>        </div>
+    </main>
+
+<div class="d-mistake-data" data-action="https://rlw.gov.ru/feedback/formistake"
+         data-url="https://rlw.gov.ru/opendata" hidden></div>
+<div class="modal fade" id="text-error-popup">
+    <div class="modal-dialog modal-lg text-error-popup" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+                <div class="content d-mistake-container">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<footer class="footer active-bg" id="footer">
+    <div class="container-fluid">
+        <div class="footer-item-wrap">
+            <div class="footer-item">
+                <div class="footer-logo">
+                    <div class="footer-logo__img">
+                        <a href="/">
+                            <div class="icon-gerb-footer">
+                                <svg class="icon icon--gerb-footer">
+                                    <use xlink:href="#icon-gerb-footer"></use>
+                                </svg>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="footer-logo__label">Официальный сайт</div>
+                    <div class="footer-logo__title">Федеральное агентство железнодорожного транспорта</div>
+                </div>
+            </div>
+            <div class="footer-item">
+                                    <div class="footer-item__title">
+                        <a class="footer-item__link" href="/contacts">Контактная информация</a>
+                    </div>
+                                <div class="footer-item__text">
+                    <div class="footer-tel">
+                        <div class="footer-tel__row">
+                            <div class="footer-tel">
+                                <div class="footer-tel__row"><span class="footer-tel__title">Телефон:</span>
+                                    <span class="footer-tel__info">
+                                        +7 (499) 550-34-36
+                                    </span>
+                                </div>
+                                <div class="footer-tel__row"><span class="footer-tel__title">Факс:</span>
+                                    <span class="footer-tel__info">
+                                        +7 (499) 550-31-40
+                                    </span>
+                                </div>
+                                <div class="footer-tel__row"><span class="footer-tel__title">Email:</span>
+                                    <span class="footer-tel__info">
+                                        <a href="mailto:info@rlw.gov.ru">
+                                            info@rlw.gov.ru
+                                        </a>
+                                    </span>
+                                </div>
+                            </div>
+                            <p class="mt-3">105064, Москва, <br> ул. Старая Басманная, 11/2, стр.1</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-item">
+                                    <div class="footer-item__title">
+                        <a class="footer-item__link" href="https://rlw.gov.ru/sitemap">Карта сайта</a>
+                    </div>
+                                                    <div class="footer-item__title">
+                        <a class="footer-item__link" href="/public-declaration" target="_blank">Декларация ключевых целей и задач</a>
+                    </div>
+                                    <div class="footer-item__title">
+                        <a class="footer-item__link" href="/legal_information" target="_blank">Правовая информация</a>
+                    </div>
+                                    <div class="footer-item__title">
+                        <a class="footer-item__link" href="/disabled_persons" target="_blank">Маломобильной группе населения</a>
+                    </div>
+                                    <div class="footer-item__title">
+                        <a class="footer-item__link" href="/news-russian" target="_blank">Новости России</a>
+                    </div>
+                            </div>
+            <div class="footer-item footer-item--info">
+                <div class="footer-item__col">
+                    <div class="footer-item__text">Официальные аккаунты в соцсетях:</div>
+                    <div class="footer-social">
+                                                    <a class="footer-social__item footer-social__item--vk"
+                               href="https://t.me/rlwgovru" target="_blank"
+                               style="font-size: 1.5rem;">
+                                <svg class="icon icon--vk footer-social__icon" role="img">
+                                    <use xlink:href="#icon-tg"></use>
+                                </svg>
+                            </a>
+                                                                            <a class="footer-social__item footer-social__item--vk"
+                               href="https://vk.com/roszeldor_gov" target="_blank">
+                                <svg class="icon icon--vk footer-social__icon" role="img">
+                                    <use xlink:href="#icon-vk"></use>
+                                </svg>
+                            </a>
+                                                                            <a class="footer-social__item footer-social__item--vk"
+                               href="https://dzen.ru/roszeldor" target="_blank"
+                               style="font-size: 1.1rem;">
+                                <svg class="icon icon--vk footer-social__icon" role="img">
+                                    <use xlink:href="#icon-dz"></use>
+                                </svg>
+                            </a>
+                                                                            <a class="footer-social__item footer-social__item--vk"
+                               href="https://ok.ru/group/70000005236331" target="_blank"
+                               style="font-size: 1rem;">
+                                <svg class="icon icon--vk footer-social__icon" role="img">
+                                    <use xlink:href="#icon-odnoklassniki-logo"></use>
+                                </svg>
+                            </a>
+                                            </div>
+                </div>
+                <div class="footer-item__col">
+                    <div class="footer-item__text">
+                                                    <p><a href="/termofuse">Об использовании информации на сайте</a></p>
+                                                                            <p><a href="/feedback">Предложения по улучшению сайта</a></p>
+                                                <p class="d-none d-lg-block">
+                            <a href="#">Увидели опечатку?
+                                <br> Выделите текст и нажмите
+                                <strong>Ctrl + Enter</strong>
+                            </a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <section class="footer-bottom">
+        <div class="container-fluid">
+            <div class="copyright">
+                <span class="copyright-text">Официальный сайт Федерального агентства железнодорожного транспорта © 2009-2026</span>
+                <div class="footer-counters">
+                    <div class="footer-counters__item"><span id="sputnik-informer"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <a class="footer__btn-up" href="" data-toggle="scroll-top">
+        <svg class="icon icon--angle-left" role="img">
+            <use xlink:href="#icon-angle-left"></use>
+        </svg>
+    </a>
+</footer>
+<script>
+    $(function () {
+        $.ajaxSetup({
+            headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')}
+        });
+    });
+</script>
+<!-- gosmonitor counter -->
+<script type="text/javascript">
+    // $(document).ready(function () {
+    //     //$('a.a-class').click(function(){return false;})
+    //     n = document.getElementsByTagName("script")[0];
+    //     s = document.createElement("script");
+    //     // f = function () { n.parentNode.insertBefore(s, n); };
+    //     s.type = "text/javascript";
+    //     s.async = true;
+    //     s.src = "https://gosmonitor.ru/widget.js?id=226";
+    //     n.parentNode.insertBefore(s, n);
+    // })
+</script>
+<script type="text/javascript"> var mkgu_widget_param = {id: 581, color: "#9c0"};</script>
+<script type="text/javascript" src="https://vashkontrol.ru/widget2-js/mkgu_widget.js"></script>
+<!-- 
+<script type="text/javascript">
+       (function(d, t, p) {
+           var j = d.createElement(t); j.async = true; j.type = "text/javascript";
+           j.src = ("https:" == p ? "https:" : "http:") + "//stat.sputnik.ru/cnt.js";
+           var s = d.getElementsByTagName(t)[0]; s.parentNode.insertBefore(j, s);
+       })(document, "script", document.location.protocol);
+    </script>
+-->
+
+<script type="text/javascript">
+    $(function () {
+        function setRating(points) {
+            $('.rating__input').addClass('disabled');
+            $('#rating-' + points).attr('checked', 'checked');
+        };
+
+        function setRatingCount(count) {
+            if(count && count > 0){
+                $('.rating__text').html('Оценок: ' + count);
+            }
+        }
+
+        function rate(points) {
+            setRating(points);
+
+            $.ajax({
+                type: 'POST',
+                url: 'https://rlw.gov.ru/ratings',
+                data: {
+                    type: 'folder_opendata',
+                    id: '93',
+                    points: points
+                },
+                dataType: 'json'
+            });
+        }
+
+        function getRating() {
+            $.ajax({
+                type: 'GET',
+                url: 'https://rlw.gov.ru/ratings',
+                data: {
+                    type: 'folder_opendata',
+                    id: '93',
+                },
+                success: function (points) {
+                    setRating(points);
+                }
+            });
+        }
+
+        function getRatingCount() {
+            $.ajax({
+                type: 'GET',
+                url: 'https://rlw.gov.ru/ratings_count',
+                data: {
+                    type: 'folder_opendata',
+                    id: '93',
+                },
+                success: function (count) {
+                    setRatingCount(count);
+                }
+            });
+        }
+
+        $(".rating__input").on({
+            click: function (e) {
+                if ($(this).hasClass('disabled')) {
+                    // stopPropagation
+                    return false;
+                }
+
+                rate($(this).data('points'));
+            }
+        });
+
+                    getRatingCount();
+            });
+</script>
+</body>
+</html>

@@ -24,26 +24,24 @@ pub fn import_demo_data(root: &Path) -> Result<()> {
     create_tables(&conn)?;
     
     // Import data from CSV files
-    let stations_csv = demo_data_dir.join("rzd_stations.csv");
-    let monthly_csv = demo_data_dir.join("rzd_monthly_stats.csv");
-    let cargo_csv = demo_data_dir.join("rzd_cargo_types.csv");
+    let files = [
+        ("rzd_stations_full.csv", import_stations as fn(&Connection, &Path) -> Result<()>),
+        ("rzd_stations.csv", import_stations), // Fallback if full not found
+        ("rzd_routes.csv", import_routes),
+        ("rzd_monthly_stats.csv", import_monthly_stats),
+        ("rzd_cargo_types.csv", import_cargo_types),
+        ("rzd_daily_operations.csv", import_daily_operations),
+        ("rzd_incidents.csv", import_incidents),
+        ("rzd_kpi_metrics.csv", import_kpi_metrics),
+    ];
     
-    if stations_csv.exists() {
-        import_stations(&conn, &stations_csv)?;
-    } else {
-        println!("   ⚠️ Файл не найден: {}", stations_csv.display());
-    }
-    
-    if monthly_csv.exists() {
-        import_monthly_stats(&conn, &monthly_csv)?;
-    } else {
-        println!("   ⚠️ Файл не найден: {}", monthly_csv.display());
-    }
-    
-    if cargo_csv.exists() {
-        import_cargo_types(&conn, &cargo_csv)?;
-    } else {
-        println!("   ⚠️ Файл не найден: {}", cargo_csv.display());
+    for (filename, import_fn) in files {
+        let csv_path = demo_data_dir.join(filename);
+        if csv_path.exists() {
+            import_fn(&conn, &csv_path)?;
+        } else {
+            println!("   ⚠️ Файл не найден: {}", csv_path.display());
+        }
     }
     
     println!("✅ Импорт завершён!");
@@ -94,14 +92,102 @@ fn create_tables(conn: &Connection) -> Result<()> {
         [],
     ).context("Ошибка создания таблицы rzd_cargo_types")?;
     
+    // New tables for comprehensive analytics
+    conn.execute(
+        "CREATE TABLE IF NOT EXISTS rzd_daily_operations (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            date TEXT NOT NULL,
+            region TEXT,
+            route_type TEXT,
+            passengers_thousands REAL,
+            cargo_tons_thousands REAL,
+            revenue_mln_rub REAL,
+            avg_speed_kmh REAL,
+            delay_minutes INTEGER,
+            trains_count INTEGER,
+            occupancy_pct REAL
+        )",
+        [],
+    ).context("Ошибка создания таблицы rzd_daily_operations")?;
+    
+    conn.execute(
+        "CREATE TABLE IF NOT EXISTS rzd_incidents (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            incident_id TEXT NOT NULL,
+            date TEXT,
+            time TEXT,
+            region TEXT,
+            railway_branch TEXT,
+            incident_type TEXT,
+            severity TEXT,
+            duration_minutes INTEGER,
+            affected_trains INTEGER,
+            resolved TEXT,
+            cause TEXT,
+            description TEXT
+        )",
+        [],
+    ).context("Ошибка создания таблицы rzd_incidents")?;
+    
+    conn.execute(
+        "CREATE TABLE IF NOT EXISTS rzd_kpi_metrics (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            year INTEGER,
+            quarter TEXT,
+            metric_name TEXT,
+            metric_value REAL,
+            unit TEXT,
+            yoy_change_pct REAL,
+            target_value REAL,
+            target_met TEXT
+        )",
+        [],
+    ).context("Ошибка создания таблицы rzd_kpi_metrics")?;
+    
+    conn.execute(
+        "CREATE TABLE IF NOT EXISTS rzd_kpi_metrics (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            year INTEGER,
+            quarter TEXT,
+            metric_name TEXT,
+            metric_value REAL,
+            unit TEXT,
+            yoy_change_pct REAL,
+            target_value REAL,
+            target_met TEXT
+        )",
+        [],
+    ).context("Ошибка создания таблицы rzd_kpi_metrics")?;
+
+    conn.execute(
+        "CREATE TABLE IF NOT EXISTS rzd_routes (
+            id INTEGER PRIMARY KEY,
+            origin_id INTEGER,
+            origin_name TEXT,
+            dest_id INTEGER,
+            dest_name TEXT,
+            distance_km REAL,
+            distance_km REAL,
+            trains_per_day INTEGER,
+            geometry TEXT
+        )",
+        [],
+    ).context("Ошибка создания таблицы rzd_routes")?;
+    
     Ok(())
 }
 
-/// Import stations from CSV
 fn import_stations(conn: &Connection, csv_path: &Path) -> Result<()> {
-    println!("   🚉 Импорт станций...");
+    println!("   🚉 Импорт станций ({})", csv_path.file_name().unwrap_or_default().to_string_lossy());
     
-    // Clear existing data
+    // Clear existing data only if importing full dataset or if table is empty
+    let count: i32 = conn.query_row("SELECT count(*) FROM rzd_stations", [], |row| row.get(0)).unwrap_or(0);
+    if count > 0 && csv_path.file_name().unwrap().to_string_lossy() == "rzd_stations.csv" {
+         // If we already have data (likely from full dataset), skip the small one
+         println!("      Пропуск rzd_stations.csv так как данные уже есть");
+         return Ok(());
+    }
+    
     conn.execute("DELETE FROM rzd_stations", [])?;
     
     let mut rdr = csv::Reader::from_path(csv_path)
@@ -206,5 +292,169 @@ fn import_cargo_types(conn: &Connection, csv_path: &Path) -> Result<()> {
     }
     
     println!("      Импортировано типов: {}", count);
+    Ok(())
+}
+
+/// Import daily operations from CSV
+fn import_daily_operations(conn: &Connection, csv_path: &Path) -> Result<()> {
+    println!("   📈 Импорт ежедневных операций...");
+    
+    conn.execute("DELETE FROM rzd_daily_operations", [])?;
+    
+    let mut rdr = csv::Reader::from_path(csv_path)
+        .context("Ошибка чтения CSV файла операций")?;
+    
+    let mut count = 0;
+    for result in rdr.records() {
+        let record = result?;
+        
+        if record.len() < 10 || record.get(0).map(|s| s.is_empty()).unwrap_or(true) {
+            continue;
+        }
+        
+        conn.execute(
+            "INSERT INTO rzd_daily_operations 
+             (date, region, route_type, passengers_thousands, cargo_tons_thousands, 
+              revenue_mln_rub, avg_speed_kmh, delay_minutes, trains_count, occupancy_pct)
+             VALUES (?1, ?2, ?3, ?4, ?5, ?6, ?7, ?8, ?9, ?10)",
+            rusqlite::params![
+                record.get(0).unwrap_or(""),
+                record.get(1).unwrap_or(""),
+                record.get(2).unwrap_or(""),
+                record.get(3).unwrap_or("0").parse::<f64>().unwrap_or(0.0),
+                record.get(4).unwrap_or("0").parse::<f64>().unwrap_or(0.0),
+                record.get(5).unwrap_or("0").parse::<f64>().unwrap_or(0.0),
+                record.get(6).unwrap_or("0").parse::<f64>().unwrap_or(0.0),
+                record.get(7).unwrap_or("0").parse::<i32>().unwrap_or(0),
+                record.get(8).unwrap_or("0").parse::<i32>().unwrap_or(0),
+                record.get(9).unwrap_or("0").parse::<f64>().unwrap_or(0.0),
+            ],
+        )?;
+        count += 1;
+    }
+    
+    println!("      Импортировано операций: {}", count);
+    Ok(())
+}
+
+/// Import incidents from CSV
+fn import_incidents(conn: &Connection, csv_path: &Path) -> Result<()> {
+    println!("   ⚠️ Импорт инцидентов...");
+    
+    conn.execute("DELETE FROM rzd_incidents", [])?;
+    
+    let mut rdr = csv::Reader::from_path(csv_path)
+        .context("Ошибка чтения CSV файла инцидентов")?;
+    
+    let mut count = 0;
+    for result in rdr.records() {
+        let record = result?;
+        
+        if record.len() < 12 || record.get(0).map(|s| s.is_empty()).unwrap_or(true) {
+            continue;
+        }
+        
+        conn.execute(
+            "INSERT INTO rzd_incidents 
+             (incident_id, date, time, region, railway_branch, incident_type, 
+              severity, duration_minutes, affected_trains, resolved, cause, description)
+             VALUES (?1, ?2, ?3, ?4, ?5, ?6, ?7, ?8, ?9, ?10, ?11, ?12)",
+            rusqlite::params![
+                record.get(0).unwrap_or(""),
+                record.get(1).unwrap_or(""),
+                record.get(2).unwrap_or(""),
+                record.get(3).unwrap_or(""),
+                record.get(4).unwrap_or(""),
+                record.get(5).unwrap_or(""),
+                record.get(6).unwrap_or(""),
+                record.get(7).unwrap_or("0").parse::<i32>().unwrap_or(0),
+                record.get(8).unwrap_or("0").parse::<i32>().unwrap_or(0),
+                record.get(9).unwrap_or(""),
+                record.get(10).unwrap_or(""),
+                record.get(11).unwrap_or(""),
+            ],
+        )?;
+        count += 1;
+    }
+    
+    println!("      Импортировано инцидентов: {}", count);
+    Ok(())
+}
+
+/// Import KPI metrics from CSV
+fn import_kpi_metrics(conn: &Connection, csv_path: &Path) -> Result<()> {
+    println!("   📊 Импорт KPI метрик...");
+    
+    conn.execute("DELETE FROM rzd_kpi_metrics", [])?;
+    
+    let mut rdr = csv::Reader::from_path(csv_path)
+        .context("Ошибка чтения CSV файла KPI")?;
+    
+    let mut count = 0;
+    for result in rdr.records() {
+        let record = result?;
+        
+        if record.len() < 8 || record.get(0).map(|s| s.is_empty()).unwrap_or(true) {
+            continue;
+        }
+        
+        conn.execute(
+            "INSERT INTO rzd_kpi_metrics 
+             (year, quarter, metric_name, metric_value, unit, yoy_change_pct, target_value, target_met)
+             VALUES (?1, ?2, ?3, ?4, ?5, ?6, ?7, ?8)",
+            rusqlite::params![
+                record.get(0).unwrap_or("0").parse::<i32>().unwrap_or(0),
+                record.get(1).unwrap_or(""),
+                record.get(2).unwrap_or(""),
+                record.get(3).unwrap_or("0").parse::<f64>().unwrap_or(0.0),
+                record.get(4).unwrap_or(""),
+                record.get(5).unwrap_or("0").parse::<f64>().unwrap_or(0.0),
+                record.get(6).unwrap_or("0").parse::<f64>().unwrap_or(0.0),
+                record.get(7).unwrap_or(""),
+            ],
+        )?;
+        count += 1;
+    }
+    
+    println!("      Импортировано KPI: {}", count);
+    Ok(())
+}
+
+/// Import routes from CSV
+fn import_routes(conn: &Connection, csv_path: &Path) -> Result<()> {
+    println!("   🛤️ Импорт маршрутов...");
+    
+    conn.execute("DELETE FROM rzd_routes", [])?;
+    
+    let mut rdr = csv::Reader::from_path(csv_path)
+        .context("Ошибка чтения CSV файла маршрутов")?;
+    
+    let mut count = 0;
+    for result in rdr.records() {
+        let record = result?;
+        
+        if record.len() < 8 || record.get(0).map(|s| s.is_empty()).unwrap_or(true) {
+            continue;
+        }
+        
+        conn.execute(
+            "INSERT INTO rzd_routes 
+             (id, origin_id, origin_name, dest_id, dest_name, distance_km, trains_per_day, geometry)
+             VALUES (?1, ?2, ?3, ?4, ?5, ?6, ?7, ?8)",
+            rusqlite::params![
+                record.get(0).unwrap_or("0").parse::<i32>().unwrap_or(0),
+                record.get(1).unwrap_or("0").parse::<i32>().unwrap_or(0),
+                record.get(2).unwrap_or(""),
+                record.get(3).unwrap_or("0").parse::<i32>().unwrap_or(0),
+                record.get(4).unwrap_or(""),
+                record.get(5).unwrap_or("0").parse::<f64>().unwrap_or(0.0),
+                record.get(6).unwrap_or("0").parse::<i32>().unwrap_or(0),
+                record.get(7).unwrap_or(""),
+            ],
+        )?;
+        count += 1;
+    }
+    
+    println!("      Импортировано маршрутов: {}", count);
     Ok(())
 }

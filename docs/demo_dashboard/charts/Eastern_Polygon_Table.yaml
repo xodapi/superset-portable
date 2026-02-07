@@ -1,0 +1,21 @@
+slice_name: Route Load (Trains/Day)
+viz_type: table
+params:
+  datasource: 44444444-4444-4444-4444-444444444444
+  viz_type: table
+  query_mode: raw
+  groupby: []
+  time_grain_sqla: P1M
+  all_columns:
+    - origin_name
+    - dest_name
+    - distance_km
+    - trains_per_day
+  percent_metrics: []
+  order_by_cols:
+    - '["trains_per_day", false]'
+  row_limit: 100
+cache_timeout: null
+uuid: bbbbbbbb-bbbb-bbbb-bbbb-bbbbbbbbbbbb
+version: 1.0.0
+dataset_uuid: 44444444-4444-4444-4444-444444444444

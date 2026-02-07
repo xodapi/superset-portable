@@ -1,0 +1,30 @@
+slice_name: Stations Map
+viz_type: deck_scatter
+params:
+  adhoc_filters: []
+  autozoom: true
+  datasource: 44342d22-1246-4e44-b0a5-814d48729511
+  filter_nulls: true
+  groupby: []
+  mapbox_style: mapbox://styles/mapbox/light-v9
+  multiplier: 10
+  point_radius_fixed:
+    type: metric
+    value: passengers_day
+  point_unit: square_m
+  row_limit: 10000
+  spatial:
+    latCol: latitude
+    lonCol: longitude
+    type: latlong
+  viewport:
+    bearing: 0
+    latitude: 55.7558
+    longitude: 37.6173
+    pitch: 0
+    zoom: 3
+  viz_type: deck_scatter
+cache_timeout: null
+uuid: 11223344-5566-7788-9900-aabbccddeeff
+version: 1.0.0
+dataset_uuid: 44342d22-1246-4e44-b0a5-814d48729511
