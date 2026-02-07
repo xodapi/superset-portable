@@ -46,10 +46,22 @@ FEATURE_FLAGS = {
 # ---------------------------------------------------
 
 # SQLAlchemy — ограничиваем пул соединений
-SQLALCHEMY_POOL_SIZE = 2
-SQLALCHEMY_MAX_OVERFLOW = 3
+# SQLAlchemy — ограничиваем пул соединений (УВЕЛИЧЕНО)
+SQLALCHEMY_POOL_SIZE = 10
+SQLALCHEMY_MAX_OVERFLOW = 20
 SQLALCHEMY_POOL_TIMEOUT = 30
 SQLALCHEMY_POOL_RECYCLE = 1800
+
+# Включаем WAL-режим для SQLite (ускоряет запись/чтение в разы)
+from sqlalchemy import event
+from sqlalchemy.engine import Engine
+
+@event.listens_for(Engine, "connect")
+def set_sqlite_pragma(dbapi_connection, connection_record):
+    cursor = dbapi_connection.cursor()
+    cursor.execute("PRAGMA journal_mode=WAL")
+    cursor.execute("PRAGMA synchronous=NORMAL")
+    cursor.close()
 
 # Отключаем отслеживание модификаций (экономит RAM)
 SQLALCHEMY_TRACK_MODIFICATIONS = False
@@ -61,8 +73,8 @@ SQLLAB_TIMEOUT = 60
 SUPERSET_WEBSERVER_TIMEOUT = 120
 
 # Количество воркеров — минимум для слабых CPU
-SUPERSET_WORKERS = 1
-SUPERSET_WEBSERVER_THREADS = 2
+SUPERSET_WORKERS = 2  # Увеличили до 2
+SUPERSET_WEBSERVER_THREADS = 4 # Увеличили до 4
 
 # ---------------------------------------------------
 # Кэш — простой in-memory (без Redis/Memcached)

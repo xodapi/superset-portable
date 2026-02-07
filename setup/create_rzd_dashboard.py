@@ -114,14 +114,16 @@ CSV_FILES = [
 
 
 def create_examples_db():
-    """Создать чистую examples.db из CSV-файлов."""
+    """Создать/Обновить examples.db из CSV-файлов (добавление данных РЖД)."""
     print("\n" + "=" * 60)
-    print("  ФАЗА 1: Создание examples.db из CSV")
+    print("  ФАЗА 1: Обновление examples.db (добавление таблиц РЖД)")
     print("=" * 60)
 
-    if EXAMPLES_DB.exists():
-        EXAMPLES_DB.unlink()
-        print(f"  [OK] Старая examples.db удалена")
+    # Если базы нет вообще — создаем новую
+    if not EXAMPLES_DB.exists():
+        print(f"  [INFO] examples.db не найдена, создаем новую...")
+    else:
+        print(f"  [INFO] Используем существующую examples.db ({EXAMPLES_DB})")
 
     conn = sqlite3.connect(str(EXAMPLES_DB))
     total_rows = 0
@@ -138,6 +140,7 @@ def create_examples_db():
         cols_sql = ", ".join(
             f'"{col}" {typ}' for col, typ in schema
         )
+        # Удаляем только таблицы РЖД перед пересозданием
         conn.execute(f'DROP TABLE IF EXISTS "{table_name}"')
         conn.execute(f'CREATE TABLE "{table_name}" ({cols_sql})')
 
@@ -173,7 +176,7 @@ def create_examples_db():
     conn.close()
 
     size_kb = EXAMPLES_DB.stat().st_size / 1024
-    print(f"\n  Итого: {total_rows} строк, {size_kb:.0f} КБ")
+    print(f"\n  Итого добавлено: {total_rows} строк РЖД. Размер базы: {size_kb:.0f} КБ")
     return True
 
 
@@ -718,7 +721,11 @@ def create_charts(cur, dataset_ids):
         ))
         chart_id = cur.lastrowid
         chart_ids[chart_def["key"]] = chart_id
-        print(f"  [OK] График: {chart_def['name']} (id={chart_id}, {chart_def['viz_type']})")
+        try:
+            print(f"  [OK] График: {chart_def['name']} (id={chart_id}, {chart_def['viz_type']})")
+        except UnicodeEncodeError:
+            safe_name = chart_def['name'].encode('ascii', 'ignore').decode('ascii')
+            print(f"  [OK] График: {safe_name} (id={chart_id}, {chart_def['viz_type']})")
 
     return chart_ids
 

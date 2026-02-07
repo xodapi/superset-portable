@@ -12,6 +12,7 @@ __pycache__/
 superset_home/superset.db
 superset_home/examples.db
 examples.db
+examples_backup.db
 
 # Logs
 logs/

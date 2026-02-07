@@ -105,6 +105,33 @@ impl SupersetServer {
                 }
                 Ok(None) => {
                     info!("Superset is running on http://127.0.0.1:{}", self.port);
+                    
+                    // Pre-warm server to load Python modules
+                    let port = self.port;
+                    tokio::spawn(async move {
+                        info!("Simulating request to pre-warm Superset...");
+                        let client = reqwest::Client::builder()
+                            .timeout(std::time::Duration::from_secs(5))
+                            .build()
+                            .unwrap_or_default();
+                            
+                        // Try up to 5 times
+                        for i in 1..=5 {
+                            match client.get(format!("http://127.0.0.1:{}/login/", port)).send().await {
+                                Ok(resp) => {
+                                    info!("Pre-warm request success: Status {}", resp.status());
+                                    break;
+                                }
+                                Err(e) => {
+                                    if i == 5 {
+                                        warn!("Pre-warm request failed after retries: {}", e);
+                                    } else {
+                                        tokio::time::sleep(tokio::time::Duration::from_secs(2)).await;
+                                    }
+                                }
+                            }
+                        }
+                    });
                 }
                 Err(e) => {
                     error!("Error checking process status: {}", e);

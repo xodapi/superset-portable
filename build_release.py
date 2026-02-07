@@ -58,6 +58,8 @@ INCLUDE_EXTRA = [
     "setup/generate_demo_data.py",
     "setup/install_superset.bat",
     "setup/download_python.ps1",
+    "target/release/create_dashboard.exe",
+    "docs/HOWTO_UPDATE_DATA.md",
 ]
 
 # Исключения внутри включаемых директорий
@@ -72,6 +74,18 @@ EXCLUDE_PATTERNS = [
     # superset_home exclusions
     "superset_home/uploads",
     "superset_home/__pycache__",
+    # Python exclusions
+    "python/Scripts",
+    "python/Lib/test",
+    "python/Lib/unittest",
+    "python/Lib/site-packages/pip",
+    "python/Lib/site-packages/setuptools",
+    "python/share",
+    "python/doc",
+    "python/tcl",
+    "python/tools",
+    "*.pdb",
+    "*.dist-info",
 ]
 
 
@@ -111,7 +125,7 @@ def format_size(size_bytes):
 def main():
     print()
     print("=" * 60)
-    print("  📦 Сборка портативного релиза Superset")
+    print("  [INFO] Сборка портативного релиза Superset")
     print("=" * 60)
     print()
 
@@ -214,15 +228,15 @@ def main():
 
     print()
     print("=" * 60)
-    print("  ✅ Релиз собран!")
+    print("  [OK] Релиз собран!")
     print("=" * 60)
     print()
-    print(f"  📦 Файл:    {ZIP_PATH}")
-    print(f"  📊 Размер:  {format_size(zip_size)} (сжатие {ratio:.0f}%)")
-    print(f"  📁 Файлов:  {packed_count}")
-    print(f"  ⏱️  Время:   {elapsed:.1f} сек")
+    print(f"  Файл:    {ZIP_PATH}")
+    print(f"  Размер:  {format_size(zip_size)} (сжатие {ratio:.0f}%)")
+    print(f"  Файлов:  {packed_count}")
+    print(f"  Время:   {elapsed:.1f} сек")
     print()
-    print("  ─── Инструкция для закрытого контура ───")
+    print("  --- Инструкция для закрытого контура ---")
     print()
     print(f"  1. Скопируйте {ZIP_PATH.name} на флешку")
     print("  2. Распакуйте в любую папку на целевом ПК")
