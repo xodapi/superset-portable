@@ -37,18 +37,29 @@ struct DatasetDef {
     table_name: &'static str,
     description: &'static str,
     csv: &'static str,
+    sql_create: Option<&'static str>,
     main_dttm_col: Option<&'static str>,
     uuid_str: &'static str,
 }
 
 const DATASETS: &[DatasetDef] = &[
-    DatasetDef { key: "ds_stations", table_name: "rzd_stations", description: "Станции РЖД", csv: "rzd_stations.csv", main_dttm_col: None, uuid_str: "d1000001-0001-0001-0001-000000000001" },
-    DatasetDef { key: "ds_monthly", table_name: "rzd_monthly_stats", description: "Месячная статистика", csv: "rzd_monthly_stats.csv", main_dttm_col: None, uuid_str: "d1000002-0002-0002-0002-000000000002" },
-    DatasetDef { key: "ds_cargo", table_name: "rzd_cargo_types", description: "Типы грузов", csv: "rzd_cargo_types.csv", main_dttm_col: None, uuid_str: "d1000003-0003-0003-0003-000000000003" },
-    DatasetDef { key: "ds_daily", table_name: "rzd_daily_operations", description: "Ежедневные операции", csv: "rzd_daily_operations.csv", main_dttm_col: Some("date"), uuid_str: "d1000004-0004-0004-0004-000000000004" },
-    DatasetDef { key: "ds_incidents", table_name: "rzd_incidents", description: "Инциденты", csv: "rzd_incidents.csv", main_dttm_col: Some("date"), uuid_str: "d1000005-0005-0005-0005-000000000005" },
-    DatasetDef { key: "ds_kpi", table_name: "rzd_kpi_metrics", description: "KPI", csv: "rzd_kpi_metrics.csv", main_dttm_col: None, uuid_str: "d1000006-0006-0006-0006-000000000006" },
-    DatasetDef { key: "ds_world", table_name: "world_rail_stats", description: "World Rail Stats", csv: "world_rail_stats.csv", main_dttm_col: None, uuid_str: "e4000002-0002-0002-0002-000000000002" },
+    DatasetDef { key: "ds_stations", table_name: "rzd_stations", description: "Станции РЖД", csv: "rzd_stations.csv", sql_create: None, main_dttm_col: None, uuid_str: "d1000001-0001-0001-0001-000000000001" },
+    DatasetDef { key: "ds_monthly", table_name: "rzd_monthly_stats", description: "Месячная статистика", csv: "rzd_monthly_stats.csv", sql_create: None, main_dttm_col: None, uuid_str: "d1000002-0002-0002-0002-000000000002" },
+    DatasetDef { key: "ds_cargo", table_name: "rzd_cargo_types", description: "Типы грузов", csv: "rzd_cargo_types.csv", sql_create: None, main_dttm_col: None, uuid_str: "d1000003-0003-0003-0003-000000000003" },
+    DatasetDef { key: "ds_daily", table_name: "rzd_daily_operations", description: "Ежедневные операции", csv: "rzd_daily_operations.csv", sql_create: None, main_dttm_col: Some("date"), uuid_str: "d1000004-0004-0004-0004-000000000004" },
+    DatasetDef { key: "ds_incidents", table_name: "rzd_incidents", description: "Инциденты", csv: "rzd_incidents.csv", sql_create: None, main_dttm_col: Some("date"), uuid_str: "d1000005-0005-0005-0005-000000000005" },
+    DatasetDef { key: "ds_kpi", table_name: "rzd_kpi_metrics", description: "KPI", csv: "rzd_kpi_metrics.csv", sql_create: None, main_dttm_col: None, uuid_str: "d1000006-0006-0006-0006-000000000006" },
+    DatasetDef { key: "ds_world", table_name: "world_rail_stats", description: "World Rail Stats", csv: "world_rail_stats.csv", sql_create: None, main_dttm_col: None, uuid_str: "e4000002-0002-0002-0002-000000000002" },
+    // Pre-aggregated table for performance
+    DatasetDef { 
+        key: "ds_region_agg", 
+        table_name: "rzd_region_agg", 
+        description: "Агрегат по регионам (Pre-calc)", 
+        csv: "", 
+        sql_create: Some("CREATE TABLE rzd_region_agg AS SELECT region, CAST(SUM(passengers_thousands) AS INTEGER) as total_passengers, CAST(SUM(revenue_mln_rub) AS INTEGER) as total_revenue FROM rzd_daily_operations GROUP BY region"), 
+        main_dttm_col: None, 
+        uuid_str: "d1000007-0007-0007-0007-000000000007" 
+    },
 ];
 
 struct ChartDef {
@@ -156,6 +167,17 @@ fn update_examples_db(root: &Path) -> Result<(), Box<dyn Error>> {
     let conn = Connection::open(&db_path)?;
     
     for ds in DATASETS {
+        // Drop table first (re-creation strategy)
+        conn.execute(&format!("DROP TABLE IF EXISTS \"{}\"", ds.table_name), [])?;
+
+        if let Some(sql) = ds.sql_create {
+            // Derived table (Pre-Aggregation)
+            println!("  [INFO] Creating derived table '{}'...", ds.table_name);
+            conn.execute(sql, [])?;
+            println!("  [OK] Derived table '{}' created.", ds.table_name);
+            continue;
+        }
+
         let csv_path = root.join(DEMO_DATA_DIR).join(ds.csv);
         if !csv_path.exists() {
             println!("  [SKIP] CSV not found: {:?}", csv_path);
@@ -188,9 +210,6 @@ fn update_examples_db(root: &Path) -> Result<(), Box<dyn Error>> {
         // Re-open/reset reader to read all rows including first
         // Since we consumed the iterator, let's just re-open for simplicity
         let mut rdr = csv::Reader::from_path(root.join(DEMO_DATA_DIR).join(ds.csv))?;
-        
-        // DROP & CREATE
-        conn.execute(&format!("DROP TABLE IF EXISTS \"{}\"", ds.table_name), [])?;
         
         let cols_def: Vec<String> = headers.iter().zip(types.iter())
             .map(|(name, typ)| format!("\"{}\" {}", name, typ))
@@ -296,9 +315,28 @@ fn update_metadata(root: &Path) -> Result<(), Box<dyn Error>> {
         dataset_ids.insert(ds.key, table_id);
         println!("  [OK] Dataset '{}' (id={})", ds.table_name, table_id);
         
-        // Columns - dumb implementation: delete all for this table and recreate
+        // Columns
         conn.execute("DELETE FROM table_columns WHERE table_id = ?", params![table_id])?;
         
+        if ds.csv.is_empty() {
+            // For derived tables, we infer columns from the SQLite table itself (PRAGMA table_info)
+            let mut stmt = conn.prepare(&format!("PRAGMA table_info(\"{}\")", ds.table_name))?;
+            let mut rows = stmt.query([])?;
+            
+            while let Some(row) = rows.next()? {
+                 let name: String = row.get(1)?;
+                 let type_str: String = row.get(2)?;
+                 
+                 let superset_type = if type_str.contains("INT") { "INTEGER" } else if type_str.contains("REAL") || type_str.contains("FLOAT") { "FLOAT" } else { "STRING" };
+                 let is_dttm = if name == "date" { 1 } else { 0 };
+                 let groupby = 1; // Default to 1 for aggregated tables
+                 
+                 conn.execute("INSERT INTO table_columns (table_id, column_name, type, is_dttm, is_active, groupby, filterable, uuid, created_on, changed_on, created_by_fk, changed_by_fk) VALUES (?, ?, ?, ?, 1, ?, 1, ?, ?, ?, 1, 1)",
+                    params![table_id, name, superset_type, is_dttm, groupby, new_uuid_bytes(), now, now])?;
+            }
+            continue;
+        }
+
         // Read CSV header to get columns again...
         let csv_path = root.join(DEMO_DATA_DIR).join(ds.csv);
         let mut rdr = csv::Reader::from_path(csv_path)?;

@@ -69,7 +69,8 @@ echo Press Ctrl+C to stop
 echo.
 
 REM Start documentation server in background
-start /b "" "%PYTHON_EXE%" -m http.server 8089 --directory "%DOCS_DIR%" >nul 2>&1
+REM Start documentation server in background (with CORS)
+start /b "" "%PYTHON_EXE%" "%DOCS_DIR%\serve.py" 8089 >nul 2>&1
 
 REM Open browser after 40 seconds (Superset needs time to load on slow PCs)
 start /b cmd /c "timeout /t 40 >nul && start http://localhost:8088/superset/dashboard/rzd_analytics/"

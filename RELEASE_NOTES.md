@@ -1,27 +1,23 @@
 # 🇬🇧 English
-## World Rail & Offline Maps (v6.2)
+## Offline Fixes & Performance (v6.2.1)
 
-### 🌍 New Dashboard: "World Railways"
-- **Interactive Globe**: Visualize major railway networks (Trans-Siberian, Amtrak, Eurostar, Shinkansen) on a 3D globe.
-- **Offline Maps**: All map data is served locally from `docs/world_rail.geojson`. No internet connection required!
-- **Real Statistics**: Includes real-world data on passenger flow and route lengths.
+### 🚨 Critical Fixes
+- **Fixed "Empty Release"**: The previous build was missing the Python engine. This release is a full offline package (~450MB).
+- **Fixed Offline Maps**: Maps now load correctly even without the launcher ensuring "Global Networks" works 100% offline.
 
-### 🚀 Optimization: "Zero Python" Launcher
-- **Instant Updates**: The update mechanism is now 100% Rust-based.
-- **Faster**: Data loading is 10x faster than previous Python scripts.
-- **Lighter**: Removed runtime Python dependencies for dashboard generation.
+### ⚡ Performance
+- **Pre-Aggregation**: Added `rzd_region_agg` to speed up dashboard queries on weak hardware.
+- **Optimized Metadata**: Improved dashboard Loading times.
 
 ---
 
 # 🇷🇺 Русский
-## Мировые ЖД и Офлайн Карты (v6.2)
+## Офлайн Фиксы и Производительность (v6.2.1)
 
-### 🌍 Новый Дашборд: "World Railways"
-- **Интерактивный Глобус**: Визуализация крупнейших ж/д сетей мира (Транссиб, Amtrak, Eurostar, Синкансэн).
-- **Офлайн Карты**: Все данные карт загружаются локально из `docs/world_rail.geojson`. Интернет не требуется!
-- **Реальная Статистика**: Включены реальные данные по пассажиропотоку и длине путей.
+### 🚨 Критические Исправления
+- **Исправлен "Пустой Релиз"**: Прошлый билд не включал Python. Этот релиз - полный офлайн пакет (~450MB).
+- **Исправлены Офлайн Карты**: Карты теперь грузятся корректно даже без лаунчера.
 
-### 🚀 Оптимизация: "Zero Python" Лаунчер
-- **Мгновенные Обновления**: Механизм обновлений теперь полностью на Rust.
-- **Быстрее**: Загрузка данных в 10 раз быстрее, чем на Python.
-- **Легче**: Удалена зависимость от Python для генерации дашбордов.
+### ⚡ Производительность
+- **Пре-Агрегация**: Добавлена таблица `rzd_region_agg` для ускорения дашбордов на слабых ПК.
+- **Оптимизация Метаданных**: Ускорено открытие дашбордов.
