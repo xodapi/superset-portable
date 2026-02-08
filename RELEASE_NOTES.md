@@ -1,27 +1,27 @@
 # 🇬🇧 English
-## Finalized Release Structure (v6.2.5)
+## 🛡️ Python Environment Fix (v6.2.6)
 
-### 📦 Installation
-1. Download `superset-portable-v6.2-rzd.zip` below.
-2. Extract to any folder (USB drive or Desktop).
-3. Run `superset-launcher.exe` (or `start_superset.bat`).
+### 🐛 Fixed "Empty" Release
+- **Issue**: Previous builds (v6.2.x) were ~4.5MB because the internal Python environment was not being populated correctly (dependencies were installing to the CI runner instead of the package).
+- **Fix**: We now explicitly target the embedded Python interpreter during the build process.
+- **Result**: The release size should now be correctly ~450MB, containing a fully offline-capable Superset instance.
 
-### ✨ What's New
-- **Launcher Included**: `superset-launcher.exe` is now correctly placed in the root folder.
-- **Offline Ready**: Full Python environment included.
-- **Optimized**: Includes pre-aggregated data and indexes.
+### 📦 Quick Start
+1. Unzip.
+2. Run `superset-launcher.exe`.
+3. Browse to `http://localhost:8088`.
 
 ---
 
 # 🇷🇺 Русский
-## Финальная Структура Релиза (v6.2.5)
+## 🛡️ Исправление Среды Python (v6.2.6)
 
-### 📦 Установка
-1. Скачайте `superset-portable-v6.2-rzd.zip` ниже.
-2. Распакуйте в любую папку (флешка или рабочий стол).
-3. Запустите `superset-launcher.exe` (или `start_superset.bat`).
+### 🐛 Исправлен "Пустой" Релиз
+- **Проблема**: Прошлые релизы весили ~4.5MB, так как библиотеки устанавливались не в ту папку.
+- **Решение**: Теперь сборка жестко привязана к встроенному Python.
+- **Результат**: Размер релиза должен быть ~450MB, все работает офлайн.
 
-### ✨ Что Нового
-- **Лаунчер Включен**: `superset-launcher.exe` теперь лежит в корне папки.
-- **Офлайн Готовность**: Полная среда Python включена.
-- **Оптимизация**: Включены пре-агрегированные данные и индексы.
+### 📦 Быстрый Старт
+1. Распакуйте.
+2. Запустите `superset-launcher.exe`.
+3. Откройте `http://localhost:8088`.

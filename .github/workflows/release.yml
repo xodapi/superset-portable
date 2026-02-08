@@ -47,9 +47,12 @@ jobs:
           $env:PYTHONHOME = "${{ github.workspace }}\python"
           $env:PATH = "${{ github.workspace }}\python;${{ github.workspace }}\python\Scripts;$env:PATH"
           
-          python -m pip install --upgrade pip setuptools wheel
+          # Explicitly use the embedded python executable to ensure we install TO strict location
+          # and not the system python
+          .\python\python.exe -m pip install --upgrade pip setuptools wheel
+          
           # Attempt binary install first to avoid compilation issues
-          python -m pip install apache-superset
+          .\python\python.exe -m pip install apache-superset
           
           # Initialize Superset (creates superset.db)
           $env:SUPERSET_HOME = "${{ github.workspace }}\superset_home"
@@ -62,9 +65,9 @@ jobs:
           
           # DB Upgrade & Init
           $env:SUPERSET_CONFIG_PATH = "$env:SUPERSET_HOME\superset_config.py"
-          python -m superset db upgrade
-          python -m superset fab create-admin --username admin --password admin --firstname Admin --lastname User --email admin@localhost
-          python -m superset init
+          .\python\python.exe -m superset db upgrade
+          .\python\python.exe -m superset fab create-admin --username admin --password admin --firstname Admin --lastname User --email admin@localhost
+          .\python\python.exe -m superset init
           
           # Now run the dashboard creator to populate the DB
           .\target\release\create_dashboard.exe
