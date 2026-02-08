@@ -48,6 +48,7 @@ const DATASETS: &[DatasetDef] = &[
     DatasetDef { key: "ds_daily", table_name: "rzd_daily_operations", description: "Ежедневные операции", csv: "rzd_daily_operations.csv", main_dttm_col: Some("date"), uuid_str: "d1000004-0004-0004-0004-000000000004" },
     DatasetDef { key: "ds_incidents", table_name: "rzd_incidents", description: "Инциденты", csv: "rzd_incidents.csv", main_dttm_col: Some("date"), uuid_str: "d1000005-0005-0005-0005-000000000005" },
     DatasetDef { key: "ds_kpi", table_name: "rzd_kpi_metrics", description: "KPI", csv: "rzd_kpi_metrics.csv", main_dttm_col: None, uuid_str: "d1000006-0006-0006-0006-000000000006" },
+    DatasetDef { key: "ds_world", table_name: "world_rail_stats", description: "World Rail Stats", csv: "world_rail_stats.csv", main_dttm_col: None, uuid_str: "e4000002-0002-0002-0002-000000000002" },
 ];
 
 struct ChartDef {
@@ -60,6 +61,19 @@ struct ChartDef {
 }
 
 const CHARTS: &[ChartDef] = &[
+    ChartDef { key: "ch_world_stats", name: "Railway Statistics", viz_type: "table", dataset_key: "ds_world", uuid_str: "e4000003-0003-0003-0003-000000000003",
+        params_json: r#"{
+            "viz_type": "table", "query_mode": "raw", "all_columns": ["line_name", "country", "length_km", "passengers_mln_year", "max_speed_kmh"],
+            "order_by_cols": ["[\"length_km\", false]"], "include_search": true, "page_length": 10
+        }"# },
+    ChartDef { key: "ch_world_map", name: "Global Networks", viz_type: "deck_geojson", dataset_key: "ds_world", uuid_str: "e4000004-0004-0004-0004-000000000004",
+        params_json: r#"{
+            "viz_type": "deck_geojson", "geojson_url": "http://localhost:8089/world_rail.geojson",
+            "mapbox_style": "mapbox://styles/mapbox/light-v9", 
+            "viewport": {"latitude": 20, "longitude": 0, "zoom": 1.5, "bearing": 0, "pitch": 0},
+            "filled": false, "stroked": true, "extruded": false, "lineWidth": 1500, "lineColor": [255, 0, 0, 200],
+            "autozoom": true
+        }"# }, 
     ChartDef { key: "ch_total_pass", name: "Пассажиропоток (млн)", viz_type: "big_number_total", dataset_key: "ds_monthly", uuid_str: "c2000001-0001-0001-0001-000000000001", 
         params_json: r#"{
             "viz_type": "big_number_total", "granularity_sqla": null, "time_range": "No filter", 
@@ -418,6 +432,50 @@ fn update_metadata(root: &Path) -> Result<(), Box<dyn Error>> {
     }
     
     println!("  [OK] Dashboard '{}' (id={}) updated with layout.", "РЖД Аналитика", dash_id);
+
+    // --- World Rail Dashboard ---
+    let world_dash_uuid = uuid_from_str("e4000001-0001-0001-0001-000000000001");
+    let world_dash_slug = "world_railways";
+    
+    // IDs
+    let ch_world_table_id = chart_ids.get("ch_world_stats").copied().unwrap_or(0);
+    let ch_world_map_id = chart_ids.get("ch_world_map").copied().unwrap_or(0);
+
+    // Position JSON
+    let world_position = json!({
+        "DASHBOARD_VERSION_KEY": "v2",
+        "ROOT_ID": { "id": "ROOT_ID", "type": "ROOT", "children": ["GRID_ID"] },
+        "GRID_ID": { "id": "GRID_ID", "type": "GRID", "children": ["ROW-MAP", "ROW-TABLE"], "parents": ["ROOT_ID"] },
+        "HEADER_ID": { "id": "HEADER_ID", "type": "HEADER", "meta": { "text": "World Railways (Offline Map)" } },
+        
+        "ROW-MAP": { "id": "ROW-MAP", "type": "ROW", "children": ["CHART-MAP"], "meta": { "background": "BACKGROUND_TRANSPARENT" } },
+        "CHART-MAP": { "id": "CHART-MAP", "type": "CHART", "children": [], "meta": { "chartId": ch_world_map_id, "width": 12, "height": 60, "sliceName": "Global Networks", "uuid": "e4000004-0004-0004-0004-000000000004" } },
+        
+        "ROW-TABLE": { "id": "ROW-TABLE", "type": "ROW", "children": ["CHART-TABLE"], "meta": { "background": "BACKGROUND_TRANSPARENT" } },
+        "CHART-TABLE": { "id": "CHART-TABLE", "type": "CHART", "children": [], "meta": { "chartId": ch_world_table_id, "width": 12, "height": 40, "sliceName": "Railway Statistics", "uuid": "e4000003-0003-0003-0003-000000000003" } }
+    });
+    
+    let world_pos_json = world_position.to_string();
+
+    // Check if dash exists
+    let mut stmt = conn.prepare("SELECT id FROM dashboards WHERE slug = ?")?;
+    let world_dash_id: i32 = if let Some(row) = stmt.query(params![world_dash_slug])?.next()? {
+        let id: i32 = row.get(0)?;
+        conn.execute("UPDATE dashboards SET dashboard_title = ?, position_json = ?, json_metadata = ?, published = 1, changed_on = ? WHERE id = ?",
+            params!["World Railways", world_pos_json, metadata_json, now, id])?;
+        id
+    } else {
+        conn.execute("INSERT INTO dashboards (dashboard_title, slug, position_json, json_metadata, uuid, published, created_on, changed_on, created_by_fk, changed_by_fk) VALUES (?, ?, ?, ?, ?, 1, ?, ?, 1, 1)",
+            params!["World Railways", world_dash_slug, world_pos_json, metadata_json, world_dash_uuid, now, now])?;
+        conn.last_insert_rowid() as i32
+    };
+
+    // Link charts
+    conn.execute("DELETE FROM dashboard_slices WHERE dashboard_id = ?", params![world_dash_id])?;
+    if ch_world_map_id > 0 { conn.execute("INSERT INTO dashboard_slices (dashboard_id, slice_id) VALUES (?, ?)", params![world_dash_id, ch_world_map_id])?; }
+    if ch_world_table_id > 0 { conn.execute("INSERT INTO dashboard_slices (dashboard_id, slice_id) VALUES (?, ?)", params![world_dash_id, ch_world_table_id])?; }
+    
+    println!("  [OK] Dashboard '{}' (id={}) updated.", "World Railways", world_dash_id);
 
     Ok(())
 }

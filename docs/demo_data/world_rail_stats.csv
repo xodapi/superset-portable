@@ -1,0 +1,11 @@
+"line_name","country","length_km","passengers_mln_year","freight_mln_tons_year","max_speed_kmh"
+"Trans-Siberian Railway","Russia",9289,15.5,120.0,120
+"Baikal-Amur Mainline (BAM)","Russia",4324,2.1,80.5,100
+"Empire Builder (Amtrak)","USA",3550,0.4,0,130
+"Tokaido Shinkansen","Japan",515,170.0,0,285
+"Eurostar (London-Paris)","UK/France",491,10.0,0,300
+"Qinghai-Tibet Railway","China",1956,4.5,35.0,120
+"Indian Pacific","Australia",4352,0.05,0.0,115
+"Beijing-Shanghai HSR","China",1318,200.0,0,350
+"TGV Sud-Est","France",409,25.0,0,320
+"Sapsan (Moscow-SPb)","Russia",650,5.5,0,250

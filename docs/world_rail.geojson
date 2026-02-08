@@ -1,0 +1,275 @@
+{
+    "type": "FeatureCollection",
+    "features": [
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Trans-Siberian Railway",
+                "country": "Russia",
+                "length_km": 9289,
+                "type": "Mainline"
+            },
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        37.6173,
+                        55.7558
+                    ],
+                    [
+                        43.9998,
+                        56.3269
+                    ],
+                    [
+                        56.2294,
+                        58.0104
+                    ],
+                    [
+                        60.6122,
+                        56.8519
+                    ],
+                    [
+                        73.3682,
+                        54.9885
+                    ],
+                    [
+                        82.9346,
+                        55.0415
+                    ],
+                    [
+                        92.8932,
+                        56.0184
+                    ],
+                    [
+                        104.2810,
+                        52.2855
+                    ],
+                    [
+                        113.4731,
+                        52.0336
+                    ],
+                    [
+                        135.0719,
+                        48.4802
+                    ],
+                    [
+                        131.8869,
+                        43.1198
+                    ]
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Baikal-Amur Mainline (BAM)",
+                "country": "Russia",
+                "length_km": 4324,
+                "type": "Mainline"
+            },
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        97.9734,
+                        55.9388
+                    ],
+                    [
+                        101.444,
+                        56.400
+                    ],
+                    [
+                        109.916,
+                        56.248
+                    ],
+                    [
+                        124.712,
+                        56.636
+                    ],
+                    [
+                        130.824,
+                        53.136
+                    ],
+                    [
+                        136.963,
+                        50.627
+                    ],
+                    [
+                        139.736,
+                        49.208
+                    ],
+                    [
+                        140.262,
+                        48.966
+                    ]
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Empire Builder (Amtrak)",
+                "country": "USA",
+                "length_km": 3550,
+                "type": "Passenger"
+            },
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        -87.6298,
+                        41.8781
+                    ],
+                    [
+                        -93.0899,
+                        44.9537
+                    ],
+                    [
+                        -101.277,
+                        48.399
+                    ],
+                    [
+                        -114.315,
+                        48.194
+                    ],
+                    [
+                        -117.426,
+                        47.658
+                    ],
+                    [
+                        -122.332,
+                        47.606
+                    ]
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Tokaido Shinkansen",
+                "country": "Japan",
+                "length_km": 515,
+                "type": "High Speed"
+            },
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        139.7671,
+                        35.6812
+                    ],
+                    [
+                        139.622,
+                        35.507
+                    ],
+                    [
+                        139.141,
+                        35.103
+                    ],
+                    [
+                        136.881,
+                        35.170
+                    ],
+                    [
+                        135.758,
+                        34.985
+                    ],
+                    [
+                        135.502,
+                        34.735
+                    ]
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Eurostar (London-Paris)",
+                "country": "UK/France",
+                "length_km": 491,
+                "type": "High Speed"
+            },
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        -0.1246,
+                        51.5312
+                    ],
+                    [
+                        0.613,
+                        51.365
+                    ],
+                    [
+                        1.777,
+                        50.935
+                    ],
+                    [
+                        2.926,
+                        50.694
+                    ],
+                    [
+                        2.3522,
+                        48.8566
+                    ]
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Qinghai-Tibet Railway",
+                "country": "China",
+                "length_km": 1956,
+                "type": "High Altitude"
+            },
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        101.766,
+                        36.630
+                    ],
+                    [
+                        95.049,
+                        36.427
+                    ],
+                    [
+                        91.132,
+                        29.650
+                    ]
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Indian Pacific",
+                "country": "Australia",
+                "length_km": 4352,
+                "type": "Transcontinental"
+            },
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        151.209,
+                        -33.868
+                    ],
+                    [
+                        138.600,
+                        -34.928
+                    ],
+                    [
+                        128.520,
+                        -30.749
+                    ],
+                    [
+                        115.860,
+                        -31.950
+                    ]
+                ]
+            }
+        }
+    ]
+}

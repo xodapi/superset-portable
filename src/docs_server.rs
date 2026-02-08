@@ -79,11 +79,21 @@ impl DocsServer {
                             if ct_str.contains("markdown") || ct_str.contains("octet-stream") {
                                 return Some(HeaderValue::from_static("text/markdown; charset=utf-8"));
                             }
+                            // GeoJSON
+                            if ct_str.contains("json") || response.headers().get(header::CONTENT_LOCATION).map(|v| v.as_bytes().ends_with(b".geojson")).unwrap_or(false) {
+                                return Some(HeaderValue::from_static("application/geo+json; charset=utf-8"));
+                            }
                         }
                     }
                     None
                 },
-            ));
+            ))
+            .layer(
+                tower_http::cors::CorsLayer::new()
+                    .allow_origin(tower_http::cors::Any)
+                    .allow_methods(tower_http::cors::Any)
+                    .allow_headers(tower_http::cors::Any),
+            );
         
         let addr = SocketAddr::from(([127, 0, 0, 1], port));
         
