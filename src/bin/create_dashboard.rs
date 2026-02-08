@@ -537,6 +537,20 @@ fn main() -> Result<(), Box<dyn Error>> {
     // Phase 2
     update_metadata(&root)?;
 
+    // Phase 3: Optimizations (VACUUM & Indexes)
+    println!("  [INFO] Running optimizations...");
+    let db_path = root.join(EXAMPLES_DB_PATH);
+    let conn = Connection::open(&db_path)?;
+    
+    // Indexes for daily operations
+    conn.execute("CREATE INDEX IF NOT EXISTS idx_daily_date ON rzd_daily_operations(date)", [])?;
+    conn.execute("CREATE INDEX IF NOT EXISTS idx_daily_region ON rzd_daily_operations(region)", [])?;
+    println!("  [OK] Indexes created.");
+
+    // VACUUM
+    conn.execute("VACUUM", [])?;
+    println!("  [OK] Database VACUUM complete.");
+
     println!("\nSUCCESS: Dashboard data updated!");
     Ok(())
 }
