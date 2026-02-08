@@ -31,8 +31,8 @@ jobs:
       - name: Build Rust Dashboard Tool
         run: cargo build --release --bin create_dashboard
 
-      - name: Generate Examples DB
-        run: python setup/create_rzd_dashboard.py
+      - name: Generate Examples DB (Zero Python)
+        run: cargo run --release --bin create_dashboard
 
       - name: Create Release Package
         run: |

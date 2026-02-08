@@ -18,6 +18,19 @@ const SUPERSET_DB_NAME: &str = "superset.db";
 const UUID_DB_EXAMPLES: &str = "a2dc77af-e654-49bb-b321-40f6b559a1ee";
 const UUID_DASHBOARD: &str = "d3000001-0001-0001-0001-000000000001";
 
+// Chart UUIDs
+const UUID_CH_TOTAL: &str = "c2000001-0001-0001-0001-000000000001";
+const UUID_CH_BAR: &str = "c2000002-0002-0002-0002-000000000001"; // Wait, check original. 
+// Actually, let's just use the logic to get them from the CHARTS array or just hardcode literals in the json macro for simplicity and readability since they are fixed.
+// Better: Define them as consts.
+
+const UUID_CH_TOTAL_PASS: &str = "c2000001-0001-0001-0001-000000000001";
+const UUID_CH_MONTHLY_BAR: &str = "c2000002-0002-0002-0002-000000000002";
+const UUID_CH_CARGO_PIE: &str = "c2000003-0003-0003-0003-000000000003";
+const UUID_CH_STATIONS_TBL: &str = "c2000004-0004-0004-0004-000000000004";
+const UUID_CH_DAILY_LINE: &str = "c2000005-0005-0005-0005-000000000005";
+const UUID_CH_INCIDENTS_BAR: &str = "c2000006-0006-0006-0006-000000000006";
+
 // --- Data Structures ---
 struct DatasetDef {
     key: &'static str,
@@ -339,13 +352,61 @@ fn update_metadata(root: &Path) -> Result<(), Box<dyn Error>> {
     let dash_uuid = uuid_from_str(UUID_DASHBOARD);
     let dash_slug = "rzd_analytics";
     
+    // IDs
+    let ch_total = chart_ids["ch_total_pass"];
+    let ch_bar = chart_ids["ch_monthly_bar"];
+    let ch_pie = chart_ids["ch_cargo_pie"];
+    let ch_line = chart_ids["ch_daily_line"];
+    let ch_table = chart_ids["ch_stations_tbl"];
+    let ch_inc = chart_ids["ch_incidents_bar"];
+
+    // Position JSON
+    let position = json!({
+        "DASHBOARD_VERSION_KEY": "v2",
+        "ROOT_ID": { "id": "ROOT_ID", "type": "ROOT", "children": ["GRID_ID"] },
+        "GRID_ID": { "id": "GRID_ID", "type": "GRID", "children": ["ROW-1", "ROW-2", "ROW-3"], "parents": ["ROOT_ID"] },
+        "HEADER_ID": { "id": "HEADER_ID", "type": "HEADER", "meta": { "text": "РЖД Аналитика" } },
+        
+        // Row 1
+        "ROW-1": { "id": "ROW-1", "type": "ROW", "children": ["CHART-total", "CHART-bar"], "meta": { "background": "BACKGROUND_TRANSPARENT" } },
+        "CHART-total": { "id": "CHART-total", "type": "CHART", "children": [], "meta": { "chartId": ch_total, "width": 4, "height": 50, "sliceName": "Пассажиропоток (млн)", "uuid": UUID_CH_TOTAL_PASS } },
+        "CHART-bar": { "id": "CHART-bar", "type": "CHART", "children": [], "meta": { "chartId": ch_bar, "width": 8, "height": 50, "sliceName": "Выручка по месяцам (млрд руб)", "uuid": UUID_CH_MONTHLY_BAR } },
+        
+        // Row 2
+        "ROW-2": { "id": "ROW-2", "type": "ROW", "children": ["CHART-pie", "CHART-line"], "meta": { "background": "BACKGROUND_TRANSPARENT" } },
+        "CHART-pie": { "id": "CHART-pie", "type": "CHART", "children": [], "meta": { "chartId": ch_pie, "width": 4, "height": 50, "sliceName": "Распределение грузов", "uuid": UUID_CH_CARGO_PIE } },
+        "CHART-line": { "id": "CHART-line", "type": "CHART", "children": [], "meta": { "chartId": ch_line, "width": 8, "height": 50, "sliceName": "Пассажиры по регионам (тыс.)", "uuid": UUID_CH_DAILY_LINE } },
+        
+        // Row 3
+        "ROW-3": { "id": "ROW-3", "type": "ROW", "children": ["CHART-table", "CHART-inc"], "meta": { "background": "BACKGROUND_TRANSPARENT" } },
+        "CHART-table": { "id": "CHART-table", "type": "CHART", "children": [], "meta": { "chartId": ch_table, "width": 8, "height": 50, "sliceName": "Крупнейшие станции РЖД", "uuid": UUID_CH_STATIONS_TBL } },
+        "CHART-inc": { "id": "CHART-inc", "type": "CHART", "children": [], "meta": { "chartId": ch_inc, "width": 4, "height": 50, "sliceName": "Инциденты по типам", "uuid": UUID_CH_INCIDENTS_BAR } }
+    });
+    
+    let position_json = position.to_string();
+    
+    let metadata = json!({
+        "color_scheme": "supersetColors",
+        "refresh_frequency": 0,
+        "expanded_slices": {},
+        "timed_refresh_immune_slices": [],
+        "label_colors": {},
+        "shared_label_colors": {},
+        "color_scheme_domain": [],
+        "map_label_colors": {}
+    });
+    let metadata_json = metadata.to_string();
+
     // Check if dash exists
     let mut stmt = conn.prepare("SELECT id FROM dashboards WHERE slug = ?")?;
     let dash_id: i32 = if let Some(row) = stmt.query(params![dash_slug])?.next()? {
-        row.get(0)?
+        let id: i32 = row.get(0)?;
+        conn.execute("UPDATE dashboards SET dashboard_title = ?, position_json = ?, json_metadata = ?, published = 1, changed_on = ? WHERE id = ?",
+            params!["РЖД Аналитика", position_json, metadata_json, now, id])?;
+        id
     } else {
-        conn.execute("INSERT INTO dashboards (dashboard_title, slug, uuid, published, created_on, changed_on, created_by_fk, changed_by_fk) VALUES (?, ?, ?, 1, ?, ?, 1, 1)",
-            params!["РЖД Аналитика", dash_slug, dash_uuid, now, now])?;
+        conn.execute("INSERT INTO dashboards (dashboard_title, slug, position_json, json_metadata, uuid, published, created_on, changed_on, created_by_fk, changed_by_fk) VALUES (?, ?, ?, ?, ?, 1, ?, ?, 1, 1)",
+            params!["РЖД Аналитика", dash_slug, position_json, metadata_json, dash_uuid, now, now])?;
         conn.last_insert_rowid() as i32
     };
 
@@ -356,16 +417,7 @@ fn update_metadata(root: &Path) -> Result<(), Box<dyn Error>> {
             params![dash_id, chart_id])?;
     }
     
-    // Position JSON (Simplified - just basic grid)
-    // Constructing the complex Position JSON in Rust manually is tedious.
-    // For now, let's skip the layout or assume it's valid if we just linked slices. 
-    // Superset will just put them at the bottom if no layout is provided.
-    // But to be nice, let's put empty position if None.
-    
-    // Ideally we would port the JSON construction from Python. 
-    // For brevity, skipping the explicit JSON layout update to avoid huge Rust code.
-    // The user can arrange them manually once. 
-    println!("  [OK] Dashboard '{}' (id={}) updated. (Please arrange charts manually if needed)", "РЖД Аналитика", dash_id);
+    println!("  [OK] Dashboard '{}' (id={}) updated with layout.", "РЖД Аналитика", dash_id);
 
     Ok(())
 }
