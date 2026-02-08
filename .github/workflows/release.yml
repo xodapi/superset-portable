@@ -44,6 +44,32 @@ jobs:
           # Let's run the download script first to get the embedded python
           powershell ./setup/download_python.ps1
           
+          # Install Superset in the embedded python
+          $env:PYTHONHOME = "${{ github.workspace }}\python"
+          $env:PATH = "${{ github.workspace }}\python;${{ github.workspace }}\python\Scripts;$env:PATH"
+          
+          python -m pip install --upgrade pip setuptools wheel
+          # Attempt binary install first to avoid compilation issues
+          python -m pip install apache-superset
+          
+          # Initialize Superset (creates superset.db)
+          $env:SUPERSET_HOME = "${{ github.workspace }}\superset_home"
+          mkdir $env:SUPERSET_HOME
+          
+          # Create config
+          echo "import os" > "$env:SUPERSET_HOME\superset_config.py"
+          echo "SECRET_KEY = 'portable-superset-secret-key-change-me'" >> "$env:SUPERSET_HOME\superset_config.py"
+          echo "SQLALCHEMY_DATABASE_URI = 'sqlite:///' + os.path.join(os.path.dirname(__file__), 'superset.db')" >> "$env:SUPERSET_HOME\superset_config.py"
+          
+          # DB Upgrade & Init
+          $env:SUPERSET_CONFIG_PATH = "$env:SUPERSET_HOME\superset_config.py"
+          python -m superset db upgrade
+          python -m superset fab create-admin --username admin --password admin --firstname Admin --lastname User --email admin@localhost
+          python -m superset init
+          
+          # Now run the dashboard creator to populate the DB
+          .\target\release\create_dashboard.exe
+
           # Now run the build script
           python build_release.py
 
