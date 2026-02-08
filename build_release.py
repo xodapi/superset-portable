@@ -123,9 +123,13 @@ def format_size(size_bytes):
 
 
 def main():
+    # Set console to utf-8 just in case
+    if sys.platform == "win32":
+        os.system("chcp 65001")
+        
     print()
     print("=" * 60)
-    print("  [INFO] Сборка портативного релиза Superset")
+    print("  [INFO] Building Superset Portable Release")
     print("=" * 60)
     print()
 
@@ -135,25 +139,22 @@ def main():
     for d in INCLUDE_DIRS:
         p = ROOT_DIR / d
         if not p.exists():
-            errors.append(f"Директория не найдена: {d}/")
+            errors.append(f"Directory not found: {d}/")
 
     for f in INCLUDE_FILES:
         p = ROOT_DIR / f
         if not p.exists():
-            if f == "superset-launcher.exe":
-                print(f"  [WARN] {f} не найден — пропускаю (опционально)")
-            else:
-                errors.append(f"Файл не найден: {f}")
+             errors.append(f"File not found: {f}")
 
     if errors:
-        print("  [ОШИБКА] Не удалось собрать релиз:\n")
+        print("  [ERROR] Release build failed:\n")
         for e in errors:
-            print(f"    ❌ {e}")
+            print(f"    [X] {e}")
         print()
-        print("  Убедитесь что:")
-        print("    1. python/ содержит embedded Python + Superset")
-        print("    2. examples.db создана (python\\python.exe setup\\create_rzd_dashboard.py)")
-        print("    3. superset_home/superset.db существует")
+        print("  Check requirements:")
+        print("    1. python/ dir exists")
+        print("    2. examples.db exists")
+        print("    3. superset_home/superset.db exists")
         sys.exit(1)
 
     # ── Сбор файлов ───────────────────────────────────────────
@@ -228,23 +229,21 @@ def main():
 
     print()
     print("=" * 60)
-    print("  [OK] Релиз собран!")
+    print("  [OK] Release Built Successfully!")
     print("=" * 60)
     print()
-    print(f"  Файл:    {ZIP_PATH}")
-    print(f"  Размер:  {format_size(zip_size)} (сжатие {ratio:.0f}%)")
-    print(f"  Файлов:  {packed_count}")
-    print(f"  Время:   {elapsed:.1f} сек")
+    print(f"  File:    {ZIP_PATH}")
+    print(f"  Size:    {format_size(zip_size)} (compression {ratio:.0f}%)")
+    print(f"  Files:   {packed_count}")
+    print(f"  Time:    {elapsed:.1f} sec")
     print()
-    print("  --- Инструкция для закрытого контура ---")
+    print("  --- Offline Installation ---")
     print()
-    print(f"  1. Скопируйте {ZIP_PATH.name} на флешку")
-    print("  2. Распакуйте в любую папку на целевом ПК")
-    print(f"  3. Запустите {RELEASE_NAME}\\start_superset.bat")
-    print("  4. Откроется браузер: http://localhost:8088")
-    print("  5. Логин: admin / Пароль: admin")
-    print()
-    print("  Дашборд РЖД: http://localhost:8088/superset/dashboard/rzd_analytics/")
+    print(f"  1. Copy {ZIP_PATH.name} to USB drive")
+    print("  2. Unzip on target PC")
+    print(f"  3. Run {RELEASE_NAME}\\start_superset.bat")
+    print("  4. Browser opens: http://localhost:8088")
+    print("  5. Login: admin / Password: admin")
     print()
 
     # ── Также создаём распакованную копию ─────────────────────
