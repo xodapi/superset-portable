@@ -27,7 +27,7 @@ from pathlib import Path
 
 ROOT_DIR = Path(__file__).resolve().parent
 
-RELEASE_NAME = "superset-portable-v6.1-rzd"
+RELEASE_NAME = "superset-portable-v6.2-rzd"
 RELEASE_DIR = ROOT_DIR / "release"
 ZIP_PATH = RELEASE_DIR / f"{RELEASE_NAME}.zip"
 
@@ -48,7 +48,6 @@ INCLUDE_FILES = [
     "QUICKSTART.md",
     "LICENSE",
     "NOTICE",
-    "superset-launcher.exe",
 ]
 
 # Также включаем setup/create_rzd_dashboard.py на случай пересоздания
@@ -59,6 +58,7 @@ INCLUDE_EXTRA = [
     "setup/install_superset.bat",
     "setup/download_python.ps1",
     "target/release/create_dashboard.exe",
+    "target/release/superset-launcher.exe",
     "docs/HOWTO_UPDATE_DATA.md",
 ]
 
