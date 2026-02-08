@@ -75,12 +75,11 @@ const CHARTS: &[ChartDef] = &[
     ChartDef { key: "ch_world_stats", name: "Railway Statistics", viz_type: "table", dataset_key: "ds_world", uuid_str: "e4000003-0003-0003-0003-000000000003",
         params_json: r#"{
             "viz_type": "table", "query_mode": "raw", "all_columns": ["line_name", "country", "length_km", "passengers_mln_year", "max_speed_kmh"],
-            "order_by_cols": ["[\"length_km\", false]"], "include_search": true, "page_length": 10
+            "order_by_cols": [["length_km", false]], "include_search": true, "page_length": 10
         }"# },
     ChartDef { key: "ch_world_map", name: "Global Networks", viz_type: "deck_geojson", dataset_key: "ds_world", uuid_str: "e4000004-0004-0004-0004-000000000004",
         params_json: r#"{
             "viz_type": "deck_geojson", "geojson_url": "http://localhost:8089/world_rail.geojson",
-            "mapbox_style": "mapbox://styles/mapbox/light-v9", 
             "viewport": {"latitude": 20, "longitude": 0, "zoom": 1.5, "bearing": 0, "pitch": 0},
             "filled": false, "stroked": true, "extruded": false, "lineWidth": 1500, "lineColor": [255, 0, 0, 200],
             "autozoom": true
@@ -88,37 +87,37 @@ const CHARTS: &[ChartDef] = &[
     ChartDef { key: "ch_total_pass", name: "Пассажиропоток (млн)", viz_type: "big_number_total", dataset_key: "ds_monthly", uuid_str: "c2000001-0001-0001-0001-000000000001", 
         params_json: r#"{
             "viz_type": "big_number_total", "granularity_sqla": null, "time_range": "No filter", 
-            "metric": {"aggregate": "SUM", "column": {"column_name": "passengers_mln", "type": "FLOAT"}, "expressionType": "SIMPLE", "label": "SUM(passengers_mln)"}, 
+            "metric": {"aggregate": "SUM", "column": {"column_name": "passengers_mln", "type": "FLOAT", "label": "passengers_mln"}, "expressionType": "SIMPLE", "label": "SUM(passengers_mln)"}, 
             "subheader": "млн пасс. за 2024 год", "y_axis_format": ",.1f"
         }"# },
     ChartDef { key: "ch_monthly_bar", name: "Выручка по месяцам (млрд ₽)", viz_type: "echarts_timeseries_bar", dataset_key: "ds_monthly", uuid_str: "c2000002-0002-0002-0002-000000000002",
         params_json: r#"{
             "viz_type": "echarts_timeseries_bar", "granularity_sqla": null, "time_range": "No filter", "x_axis": "month", "x_axis_sort_asc": true,
-            "metrics": [{"aggregate": "SUM", "column": {"column_name": "revenue_bln_rub", "type": "FLOAT"}, "expressionType": "SIMPLE", "label": "Выручка (млрд ₽)"}],
+            "metrics": [{"aggregate": "SUM", "column": {"column_name": "revenue_bln_rub", "type": "FLOAT", "label": "revenue_bln_rub"}, "expressionType": "SIMPLE", "label": "Выручка (млрд ₽)"}],
             "groupby": [], "order_desc": true, "show_legend": true, "y_axis_format": ",.1f"
         }"# },
     ChartDef { key: "ch_cargo_pie", name: "Распределение грузов", viz_type: "pie", dataset_key: "ds_cargo", uuid_str: "c2000003-0003-0003-0003-000000000003",
         params_json: r#"{
             "viz_type": "pie", "granularity_sqla": null, "time_range": "No filter", "groupby": ["cargo_type"],
-            "metric": {"aggregate": "SUM", "column": {"column_name": "volume_mln_tons", "type": "FLOAT"}, "expressionType": "SIMPLE", "label": "Объём (млн тонн)"},
+            "metric": {"aggregate": "SUM", "column": {"column_name": "volume_mln_tons", "type": "FLOAT", "label": "volume_mln_tons"}, "expressionType": "SIMPLE", "label": "Объём (млн тонн)"},
             "show_labels": true, "show_legend": true, "label_type": "key_percent", "number_format": ",.1f"
         }"# },
     ChartDef { key: "ch_stations_tbl", name: "Крупнейшие станции РЖД", viz_type: "table", dataset_key: "ds_stations", uuid_str: "c2000004-0004-0004-0004-000000000004",
         params_json: r#"{
             "viz_type": "table", "granularity_sqla": null, "time_range": "No filter", "query_mode": "raw",
             "all_columns": ["name", "city", "region", "railway_branch", "passengers_day", "cargo_tons_year", "station_class"],
-            "order_by_cols": ["[\"passengers_day\", false]"], "include_search": true, "page_length": 15
+            "order_by_cols": [["passengers_day", false]], "include_search": true, "page_length": 15
         }"# },
     ChartDef { key: "ch_daily_line", name: "Пассажиры по регионам (тыс.)", viz_type: "echarts_timeseries_line", dataset_key: "ds_daily", uuid_str: "c2000005-0005-0005-0005-000000000005",
         params_json: r#"{
             "viz_type": "echarts_timeseries_line", "granularity_sqla": "date", "time_range": "No filter",
-            "metrics": [{"aggregate": "SUM", "column": {"column_name": "passengers_thousands", "type": "FLOAT"}, "expressionType": "SIMPLE", "label": "Пассажиров (тыс.)"}],
+            "metrics": [{"aggregate": "SUM", "column": {"column_name": "passengers_thousands", "type": "FLOAT", "label": "passengers_thousands"}, "expressionType": "SIMPLE", "label": "Пассажиров (тыс.)"}],
             "groupby": ["region"], "show_legend": true, "y_axis_format": ",.0f"
         }"# },
     ChartDef { key: "ch_incidents_bar", name: "Инциденты по типам", viz_type: "echarts_timeseries_bar", dataset_key: "ds_incidents", uuid_str: "c2000006-0006-0006-0006-000000000006",
         params_json: r#"{
             "viz_type": "echarts_timeseries_bar", "granularity_sqla": null, "time_range": "No filter", "x_axis": "incident_type",
-            "metrics": [{"aggregate": "COUNT", "column": {"column_name": "incident_id", "type": "STRING"}, "expressionType": "SIMPLE", "label": "Количество"}],
+            "metrics": [{"aggregate": "COUNT", "column": {"column_name": "incident_id", "type": "STRING", "label": "incident_id"}, "expressionType": "SIMPLE", "label": "Количество"}],
             "groupby": ["severity"], "stack": true, "show_legend": true, "y_axis_format": ",.0f"
         }"# },
 ];
