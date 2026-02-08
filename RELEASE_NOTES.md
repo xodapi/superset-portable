@@ -1,25 +1,27 @@
 # 🇬🇧 English
-## Performance & Stability (v6.2.2)
+## Finalized Release Structure (v6.2.5)
 
-### ⚡ Critical Optimizations
-- **VACUUM**: Database size reduced by 30% via automated `VACUUM`.
-- **Indexing**: Added indexes on `date` and `region` for `rzd_daily_operations`, speeding up time-series charts by 5x.
-- **Pre-Aggregation**: Region stats are now pre-calculated.
+### 📦 Installation
+1. Download `superset-portable-v6.2-rzd.zip` below.
+2. Extract to any folder (USB drive or Desktop).
+3. Run `superset-launcher.exe` (or `start_superset.bat`).
 
-### 🛠️ Fixes
-- **Build Pipeline**: Fixed CI/CD issues preventing release artifacts from appearing.
-- **Offline Mode**: Confirmed full offline compatibility.
+### ✨ What's New
+- **Launcher Included**: `superset-launcher.exe` is now correctly placed in the root folder.
+- **Offline Ready**: Full Python environment included.
+- **Optimized**: Includes pre-aggregated data and indexes.
 
 ---
 
 # 🇷🇺 Русский
-## Производительность и Стабильность (v6.2.2)
+## Финальная Структура Релиза (v6.2.5)
 
-### ⚡ Оптимизация
-- **VACUUM**: Размер базы данных уменьшен на 30% благодаря `VACUUM`.
-- **Индексы**: Добавлены индексы для `date` и `region`, ускорившие временные ряды в 5 раз.
-- **Пре-Агрегация**: Статистика по регионам теперь считается заранее.
+### 📦 Установка
+1. Скачайте `superset-portable-v6.2-rzd.zip` ниже.
+2. Распакуйте в любую папку (флешка или рабочий стол).
+3. Запустите `superset-launcher.exe` (или `start_superset.bat`).
 
-### 🛠️ Исправления
-- **Сборка**: Исправлены ошибки CI/CD, из-за которых не появлялся релиз.
-- **Офлайн Режим**: Полная поддержка работы без интернета.
+### ✨ Что Нового
+- **Лаунчер Включен**: `superset-launcher.exe` теперь лежит в корне папки.
+- **Офлайн Готовность**: Полная среда Python включена.
+- **Оптимизация**: Включены пре-агрегированные данные и индексы.

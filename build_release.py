@@ -183,11 +183,16 @@ def main():
             archive_path = f"{RELEASE_NAME}/{fname}"
             files_to_pack.append((str(full_path), archive_path))
 
-    # Дополнительные файлы
+    # Extra files (with path flattening for target/release binaries)
     for fname in INCLUDE_EXTRA:
         full_path = ROOT_DIR / fname
         if full_path.exists():
-            archive_path = f"{RELEASE_NAME}/{fname}"
+            # Flatten path for binaries built in target/release
+            if "target/release" in fname:
+                archive_path = f"{RELEASE_NAME}/{Path(fname).name}"
+            else:
+                archive_path = f"{RELEASE_NAME}/{fname}"
+            
             files_to_pack.append((str(full_path), archive_path))
 
     total_source_size = sum(
